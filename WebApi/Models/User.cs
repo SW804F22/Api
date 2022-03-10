@@ -1,11 +1,10 @@
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 
 namespace WebApi.Models;
 
-public class User
-{
-    [Key]
-    public string UuID { get; set; }
-    public string Username { get; set; }
-    public string Password { get; set; }
+public class User : IdentityUser{
+
+public int Age { get; set; }
+    
 }

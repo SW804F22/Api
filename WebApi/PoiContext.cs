@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Models;
 
@@ -12,6 +13,7 @@ public class PoiContext : DbContext
     public DbSet<User> Users { get; set; }
     public DbSet<Poi> Pois { get; set; }
     public DbSet<Checkin> Checkins { get; set; }
+    public DbSet<IdentityUserClaim<string>> Claims { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -19,5 +21,6 @@ public class PoiContext : DbContext
         modelBuilder.Entity<User>().ToTable("Users");
         modelBuilder.Entity<Poi>().ToTable("Pois");
         modelBuilder.Entity<Checkin>().ToTable("Checkins");
+        modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
     }
 }
