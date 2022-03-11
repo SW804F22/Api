@@ -55,11 +55,12 @@ builder.Services.AddAuthorization(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    
     app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 }

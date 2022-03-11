@@ -4,7 +4,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://poirecserver.swedencentral.cloudapp.azure.com:4017",
+      "applicationUrl": "localhost:4017",
       "sslPort": 44309
     }
   },
@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://poirecserver.swedencentral.cloudapp.azure.com:7153;http://poirecserver.swedencentral.cloudapp.azure.com:5154",
+      "applicationUrl": "https://localhost:7153;http://localhost:5154",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
