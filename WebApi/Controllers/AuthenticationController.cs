@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Annotations;
 using WebApi.Models;
 
 namespace WebApi.Controllers;
@@ -24,11 +25,12 @@ public class AuthenticationController : ControllerBase
     
     [Route("Login")]
     [HttpPost]
-    [Consumes("application/json")]
-    public async Task<ActionResult> Login(Login l)
+    [SwaggerOperation(Summary = "Login user", Description = "Login using username and password")]
+    [SwaggerResponse(200, "Login successful", typeof(Guid))]
+    [SwaggerResponse(400,"Authentication failed")]
+    public async Task<ActionResult> Login([FromBody, SwaggerRequestBody("Login information", Required = true)]Login l)
     {
         User user = await _userManager.FindByNameAsync(l.Username);
-        //User user = await _context.Users.SingleAsync(u => u.UserName == username);
         var result = await _signInManager.PasswordSignInAsync(user, l.Password, true, false);
         return result.Succeeded ? Ok(user.Id) : ValidationProblem();
     }
@@ -45,10 +47,11 @@ public class AuthenticationController : ControllerBase
         
         if (result.Succeeded)
         {
-            return Ok();
+            return Ok(user);
         }
 
         return BadRequest();
 
     }
+    
 }

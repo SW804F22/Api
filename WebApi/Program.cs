@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 using WebApi;
 using WebApi.Models;
 
@@ -12,7 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo{Title ="PoI Recommendation API", Version = "v1"});
+    c.EnableAnnotations();
+    c.SchemaFilter<SwaggerSchemaExampleFilter>();
+});
 
 builder.Services.AddDbContext<PoiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PoiContextSQL"))
@@ -45,12 +51,12 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.SignIn.RequireConfirmedAccount = false;
 });
 
-builder.Services.AddAuthorization(options =>
+/*builder.Services.AddAuthorization(options =>
 {
     options.FallbackPolicy = new AuthorizationPolicyBuilder()
         .RequireAuthenticatedUser()
         .Build();
-});
+});*/
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 var app = builder.Build();
