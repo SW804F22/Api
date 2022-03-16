@@ -37,20 +37,21 @@ public class AuthenticationController : ControllerBase
 
     [Route("Register")]
     [HttpPost]
-    public async Task<ActionResult> Register(string username, string password)
+    public async Task<ActionResult> Register([FromBody] Register info)
     {
         var user = new User
         {
-            UserName = username
+            UserName = info.Username,
+            DateOfBirth = info.DateOfBirth,
+            Gender = info.Gender
         };
-        var result = await _userManager.CreateAsync(user, password);
-        
+        var result = await _userManager.CreateAsync(user, info.Password);
+
         if (result.Succeeded)
         {
             return Ok(user);
         }
-
-        return BadRequest();
+        return BadRequest(result.Errors);
 
     }
     

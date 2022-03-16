@@ -3,8 +3,16 @@ using Microsoft.AspNetCore.Identity;
 
 namespace WebApi.Models;
 
+public enum Gender {
+    Unspecified,
+    Male,
+    Female
+}
+
 public class User : IdentityUser{
 
-public int Age { get; set; }
-    
+public DateTime DateOfBirth { get; set; }
+
+public Gender Gender { get; set; } = Gender.Unspecified;
+
 }
