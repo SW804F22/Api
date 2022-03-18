@@ -11,8 +11,11 @@ public enum Gender {
 
 public class User : IdentityUser{
 
-public DateTime DateOfBirth { get; set; }
+    public DateTime DateOfBirth { get; set; }
 
-public Gender Gender { get; set; } = Gender.Unspecified;
+    public Gender Gender { get; set; } = Gender.Unspecified;
+    
+    public ICollection<Checkin> Checkins { get; set; }
+
 
 }

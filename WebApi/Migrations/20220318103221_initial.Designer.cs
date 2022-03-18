@@ -12,8 +12,8 @@ using WebApi;
 namespace WebApi.Migrations
 {
     [DbContext(typeof(PoiContext))]
-    [Migration("20220310125122_claims")]
-    partial class claims
+    [Migration("20220318103221_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,21 @@ namespace WebApi.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("CategoryPoi", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("LocationsUUID")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CategoriesId", "LocationsUUID");
+
+                    b.HasIndex("LocationsUUID");
+
+                    b.ToTable("CategoryPoi");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
@@ -44,6 +59,28 @@ namespace WebApi.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("WebApi.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentId");
+
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("WebApi.Models.Checkin", b =>
@@ -72,7 +109,7 @@ namespace WebApi.Migrations
 
             modelBuilder.Entity("WebApi.Models.Poi", b =>
                 {
-                    b.Property<Guid>("UUID")
+                    b.Property<Guid?>("UUID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -85,6 +122,10 @@ namespace WebApi.Migrations
 
                     b.Property<double>("Longitude")
                         .HasColumnType("float");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UUID");
 
@@ -99,17 +140,20 @@ namespace WebApi.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -146,6 +190,30 @@ namespace WebApi.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
+            modelBuilder.Entity("CategoryPoi", b =>
+                {
+                    b.HasOne("WebApi.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApi.Models.Poi", null)
+                        .WithMany()
+                        .HasForeignKey("LocationsUUID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("WebApi.Models.Category", b =>
+                {
+                    b.HasOne("WebApi.Models.Category", "Parent")
+                        .WithMany("SubCategories")
+                        .HasForeignKey("ParentId");
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("WebApi.Models.Checkin", b =>
                 {
                     b.HasOne("WebApi.Models.Poi", "Point")
@@ -154,13 +222,21 @@ namespace WebApi.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("WebApi.Models.User", "User")
-                        .WithMany()
+                    b.HasOne("WebApi.Models.User", null)
+                        .WithMany("Checkins")
                         .HasForeignKey("UserId");
 
                     b.Navigation("Point");
+                });
 
-                    b.Navigation("User");
+            modelBuilder.Entity("WebApi.Models.Category", b =>
+                {
+                    b.Navigation("SubCategories");
+                });
+
+            modelBuilder.Entity("WebApi.Models.User", b =>
+                {
+                    b.Navigation("Checkins");
                 });
 #pragma warning restore 612, 618
         }

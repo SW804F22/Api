@@ -14,6 +14,7 @@ public class PoiContext : DbContext
     public DbSet<Poi> Pois { get; set; }
     public DbSet<Checkin> Checkins { get; set; }
     public DbSet<IdentityUserClaim<string>> Claims { get; set; }
+    public DbSet<Category> Categories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -22,5 +23,6 @@ public class PoiContext : DbContext
         modelBuilder.Entity<Poi>().ToTable("Pois");
         modelBuilder.Entity<Checkin>().ToTable("Checkins");
         modelBuilder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+        modelBuilder.Entity<Category>().ToTable("Categories");
     }
 }
