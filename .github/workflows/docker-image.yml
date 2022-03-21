@@ -22,7 +22,9 @@ jobs:
         
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/poirecapi:$(date +%s)
+      env:
+        tag: $(date +%s)
+      run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/poirecapi:$tag
       
     - name: Docker Push
-      run: docker push ${{secrets.DOCKER_USER}}/poirecapi
+      run: docker push ${{secrets.DOCKER_USER}}/poirecapi:$tag
