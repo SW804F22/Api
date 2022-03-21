@@ -20,6 +20,7 @@ jobs:
         username: ${{secrets.DOCKER_USER}}
         password: ${{secrets.DOCKER_PASSWORD}}
         
+    - uses: actions/checkout@v2
     - name: Build the Docker image
       run: docker build . --file WebApi/Dockerfile --tag api:$(date +%s)
       
