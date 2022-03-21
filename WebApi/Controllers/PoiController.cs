@@ -1,5 +1,8 @@
+using Duende.IdentityServer.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 using Microsoft.CodeAnalysis.VisualBasic.Syntax;
+using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
 using WebApi.Models;
 
@@ -41,18 +44,58 @@ public class PoiController: ControllerBase
         throw new NotImplementedException();
     }
     
-    [HttpPost]
-    public async Task<ActionResult> CreatePoi([FromBody] Poi p)
+    private async Task<Poi> FromDTO(PoiDTO dto)
     {
-        p.UUID = null;
-        var newp = await _context.Pois.AddAsync(p);
-        var result = await _context.SaveChangesAsync();
-        if (result == 1)
+        var p = new Poi();
+        p.Title = dto.Title;
+        p.Latitude = dto.Latitude;
+        p.Longitude = dto.Longitude;
+        p.Description = dto.Description;
+        p.Website = dto.Website;
+        p.PriceStep = dto.PriceStep;
+        p.Categories = new List<Category>();
+        foreach (var cat in dto.Categories)
         {
-            return Created("Success",newp.Entity);
+            try
+            {
+                var res = await _context.Categories.FirstAsync(c => c.Name == cat);
+                p.Categories.Add(res);
+            }
+            catch (InvalidOperationException e)
+            {
+                throw new InvalidDataException(cat, e);
+            }
         }
+        return p;
+    }
 
-        return BadRequest("A un expected error occured");
+    [HttpPost]
+    public async Task<ActionResult> CreatePoi([FromBody] PoiDTO p)
+    {
+        Poi? newp = null;
+        string message = "";
+        if (!p.Categories.IsNullOrEmpty())
+        {
+            try
+            {
+                newp = (await _context.Pois.AddAsync(await FromDTO(p))).Entity;
+            }
+            catch (InvalidDataException e)
+            {
+                return NotFound("Category not found. " + e.Message);
+            }
+
+            var result = await _context.SaveChangesAsync();
+            if (result >= 1)
+            {
+                return Created("Success", newp);
+            }
+        }
+        else
+        {
+            message = "At least one category required";
+        }
+        return BadRequest("A un expected error occured." + message);
     }
     
     [HttpPut("id")]

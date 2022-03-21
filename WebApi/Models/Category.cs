@@ -8,3 +8,4 @@ public class Category
     public ICollection<Category>? SubCategories { get; set; }
     public ICollection<Poi> Locations { get; set; }
 }
+
