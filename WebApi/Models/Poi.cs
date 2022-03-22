@@ -4,6 +4,7 @@ namespace WebApi.Models;
 
 public enum Price
 {
+    Free,
     Cheap,
     Moderate,
     Expensive,
@@ -18,6 +19,7 @@ public class Poi
     public double Longitude { get; set; }
     public string Description { get; set; }
     public string Website { get; set; }
+    public string Address { get; set; }
     public Price PriceStep { get; set; }
     
     public ICollection<Category> Categories { get; set; }

@@ -53,13 +53,21 @@ public class PoiController: ControllerBase
         p.Description = dto.Description;
         p.Website = dto.Website;
         p.PriceStep = dto.PriceStep;
+        p.Address = dto.Address;
         p.Categories = new List<Category>();
         foreach (var cat in dto.Categories)
         {
             try
             {
-                var res = await _context.Categories.FirstAsync(c => c.Name == cat);
+                var res = await _context.Categories.Include(x => x.Parent)
+                    .ThenInclude(y=> y.Parent).FirstAsync(c => c.Name == cat);
                 p.Categories.Add(res);
+                while (res.Parent != null)
+                {
+                    res = res.Parent;
+                    if(!p.Categories.Contains(res))
+                        p.Categories.Add(res);
+                }
             }
             catch (InvalidOperationException e)
             {

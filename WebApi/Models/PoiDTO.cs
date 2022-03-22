@@ -7,6 +7,7 @@ public class PoiDTO
     public double Longitude { get; set; }
     public string Description { get; set; }
     public string Website { get; set; }
+    public string Address { get; set; }
     public Price PriceStep { get; set; }
 
     public List<String> Categories { get; set; }
