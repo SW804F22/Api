@@ -37,11 +37,53 @@ public class PoiController: ControllerBase
         return Ok(p);
     }
 
-    [HttpGet]
-    [Route("search")]
-    public async Task<ActionResult> Search()
+    private class Point
     {
-        throw new NotImplementedException();
+        private double lattitude;
+        private double longitude;
+
+        public Point(double? lat, double? lon)
+        {
+            lattitude = lat ?? 0;
+            longitude = lon ?? 0;
+        }
+
+        public double Distance(Poi p)
+        {
+            return Math.Sqrt(Math.Pow(lattitude - p.Latitude, 2) + Math.Pow(longitude - p.Longitude, 2));
+        }
+    }
+
+    [HttpGet]
+    [Route("search/")]
+    public async Task<ActionResult> Search([FromQuery] string? name, [FromQuery] string? category, [FromQuery] double? latitude, [FromQuery] double? longitude, [FromQuery] double? distance)
+    {
+        var result = _context.Pois.AsEnumerable();
+        
+        if (latitude != null && longitude != null && distance != null)
+        {
+            var loc = new Point(latitude, longitude);
+            var temp = result.Select(x => new { x.UUID, dist = loc.Distance(x) });
+            var keys = temp.Where(y => y.dist < distance).Select(z => z.UUID);
+            result = result.IntersectBy(keys, a => a.UUID);
+        }
+        else if (latitude != null || longitude != null || distance != null)
+        {
+            return BadRequest("Latitude, longitude and distance required together");
+        }
+        
+        if (name != null)
+        {
+            result = result.Where(p=> p.Title.Contains(name));
+        }
+
+        if (category != null)
+        {
+            var cat = await _context.Categories.FirstAsync(c => c.Name == category);
+            result = result.Where(p => p.Categories.Contains(cat));
+        }
+
+        return Ok(result);
     }
     
     private async Task<Poi> FromDTO(PoiDTO dto)
