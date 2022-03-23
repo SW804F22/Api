@@ -27,14 +27,17 @@ public class PoiController: ControllerBase
     [SwaggerResponse(404, "Poi not found")]
     public async Task<ActionResult> GetPoi([SwaggerParameter("Id of Poi", Required = true)]Guid id)
     {
-        var p = await _context.Pois.FindAsync(id);
-
-        if (p == null)
+        try
+        {
+            var p = await _context.Pois.Include(p => p.Categories).FirstAsync(p => p.UUID == id);
+            return Ok(p);
+        }
+        catch (InvalidOperationException e)
         {
             return NotFound($"Poi with id {id} not found");
         }
 
-        return Ok(p);
+        
     }
 
     private class Point
@@ -83,7 +86,7 @@ public class PoiController: ControllerBase
             result = result.Where(p => p.Categories.Contains(cat));
         }
 
-        return Ok(result);
+        return StatusCode(200, result.Take(50));
     }
     
     private async Task<Poi> FromDTO(PoiDTO dto)
