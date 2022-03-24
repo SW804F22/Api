@@ -59,9 +59,9 @@ public class PoiController: ControllerBase
 
     [HttpGet]
     [Route("search/")]
-    public async Task<ActionResult> Search([FromQuery] string? name, [FromQuery] string? category, [FromQuery] double? latitude, [FromQuery] double? longitude, [FromQuery] double? distance)
+    public async Task<IActionResult> Search([FromQuery] string? name, [FromQuery] string? category, [FromQuery] double? latitude, [FromQuery] double? longitude, [FromQuery] double? distance, [FromQuery] int limit = 50)
     {
-        var result = _context.Pois.AsEnumerable();
+        var result = _context.Pois.Include(p=> p.Categories).AsEnumerable();
         
         if (latitude != null && longitude != null && distance != null)
         {
@@ -82,11 +82,24 @@ public class PoiController: ControllerBase
 
         if (category != null)
         {
+            
             var cat = await _context.Categories.FirstAsync(c => c.Name == category);
             result = result.Where(p => p.Categories.Contains(cat));
+            
         }
 
-        return StatusCode(200, result.Take(50));
+        result = result.Select(p =>
+        {
+            foreach (var c in p.Categories)
+            {
+                c.Locations = null;
+                c.SubCategories = null;
+            }
+
+            return p;
+        });
+
+        return Ok(result.Take(limit).ToArray());
     }
     
     private async Task<Poi> FromDTO(PoiDTO dto)

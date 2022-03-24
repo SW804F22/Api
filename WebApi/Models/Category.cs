@@ -6,6 +6,6 @@ public class Category
     public string Name { get; set; }
     public Category? Parent { get; set; }
     public ICollection<Category>? SubCategories { get; set; }
-    public ICollection<Poi> Locations { get; set; }
+    public ICollection<Poi>? Locations { get; set; }
 }
 

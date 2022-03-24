@@ -22,7 +22,7 @@ public class Poi
     public string Address { get; set; }
     public Price PriceStep { get; set; }
     
-    public ICollection<Category> Categories { get; set; }
+    public ICollection<Category>? Categories { get; set; }
 
 
     public Poi()
