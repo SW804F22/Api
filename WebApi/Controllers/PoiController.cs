@@ -59,7 +59,7 @@ public class PoiController: ControllerBase
 
     [HttpGet]
     [Route("search/")]
-    public async Task<IActionResult> Search([FromQuery] string? name, [FromQuery] string? category, [FromQuery] double? latitude, [FromQuery] double? longitude, [FromQuery] double? distance, [FromQuery] int limit = 50)
+    public async Task<IActionResult> Search([FromQuery] string? name, [FromQuery] IEnumerable<string> category, [FromQuery] double? latitude, [FromQuery] double? longitude, [FromQuery] double? distance, [FromQuery] IEnumerable<Price> prices, [FromQuery] int limit = 50)
     {
         var result = _context.Pois.Include(p=> p.Categories).AsEnumerable();
         
@@ -74,18 +74,32 @@ public class PoiController: ControllerBase
         {
             return BadRequest("Latitude, longitude and distance required together");
         }
+
+        if (prices.Any())
+        {
+            result = result.Where(p => prices.Contains(p.PriceStep));
+        }
         
         if (name != null)
         {
             result = result.Where(p=> p.Title.Contains(name));
         }
 
-        if (category != null)
+        if (category.Any())
         {
-            
-            var cat = await _context.Categories.FirstAsync(c => c.Name == category);
-            result = result.Where(p => p.Categories.Contains(cat));
-            
+            var cats = new List<Category>();
+            foreach (var cat in category)
+            {
+                try
+                {
+                    cats.Add(await _context.Categories.FirstAsync(c => c.Name == cat));
+                }
+                catch (InvalidOperationException)
+                {
+                    return NotFound("Category " + cat + " could not be found");
+                }
+            }
+            result = result.Where(p => p.Categories.Intersect(cats).Any());
         }
 
         result = result.Select(p =>
