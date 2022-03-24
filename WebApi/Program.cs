@@ -9,7 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers().AddJsonOptions(
+builder.Services.AddControllers().AddNewtonsoftJson(o => o.SerializerSettings.ReferenceLoopHandling =
+    Newtonsoft.Json.ReferenceLoopHandling.Ignore).AddJsonOptions(
     options => {
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
     });
@@ -59,6 +60,12 @@ builder.Services.Configure<IdentityOptions>(options =>
         .RequireAuthenticatedUser()
         .Build();
 });*/
+
+builder.Host.ConfigureLogging(logging =>
+{
+    logging.ClearProviders();
+    logging.AddConsole();
+});
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 var app = builder.Build();
