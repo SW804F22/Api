@@ -1,7 +1,5 @@
 using Duende.IdentityServer.Extensions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
-using Microsoft.CodeAnalysis.VisualBasic.Syntax;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
 using WebApi.Models;
@@ -40,35 +38,27 @@ public class PoiController: ControllerBase
         
     }
 
-    private class Point
-    {
-        private double lattitude;
-        private double longitude;
-
-        public Point(double? lat, double? lon)
-        {
-            lattitude = lat ?? 0;
-            longitude = lon ?? 0;
-        }
-
-        public double Distance(Poi p)
-        {
-            return Math.Sqrt(Math.Pow(lattitude - p.Latitude, 2) + Math.Pow(longitude - p.Longitude, 2));
-        }
-    }
-
     [HttpGet]
     [Route("search/")]
-    public async Task<IActionResult> Search([FromQuery] string? name, [FromQuery] IEnumerable<string> category, [FromQuery] double? latitude, [FromQuery] double? longitude, [FromQuery] double? distance, [FromQuery] IEnumerable<Price> prices, [FromQuery] int limit = 50)
+    public async Task<IActionResult> Search(
+        [FromQuery] string? name, 
+        [FromQuery] IEnumerable<string> category, 
+        [FromQuery] double? latitude, 
+        [FromQuery] double? longitude, 
+        [FromQuery] double? distance, 
+        [FromQuery] IEnumerable<Price> prices, 
+        [FromQuery] int limit = 50)
     {
-        var result = _context.Pois.AsNoTracking().Include(p=> p.Categories).AsQueryable();
+        var result = _context.Pois
+            .AsNoTracking()
+            .Include(p=> p.Categories)
+            .AsQueryable();
         
-        if (latitude != null && longitude != null && distance != null)
+        if (latitude is not null && longitude is not null && distance is not null)
         {
-            var loc = new Point(latitude, longitude);
-            var temp = result.Select(x => new { x.UUID, dist = loc.Distance(x) });
-            var keys = temp.Where(y => y.dist < distance).Select(z => z.UUID);
-            result = result.IntersectBy(keys, a => a.UUID);
+            var temp = result.Select(x => new { x, 
+                dist = Math.Sqrt(Math.Pow(latitude.Value - x.Latitude, 2) + Math.Pow(longitude.Value - x.Longitude, 2))});
+            result = temp.Where(y => y.dist < distance).OrderBy(x => x.dist).Select(z => z.x);
         }
         else if (latitude != null || longitude != null || distance != null)
         {
@@ -84,7 +74,7 @@ public class PoiController: ControllerBase
         {
             result = result.Where(p=> p.Title.Contains(name));
         }
-
+        
         if (category.Any())
         {
             var cats = new List<Category>();
@@ -99,21 +89,10 @@ public class PoiController: ControllerBase
                     return NotFound("Category " + cat + " could not be found");
                 }
             }
-            result = result.Where(p => p.Categories.Intersect(cats).Any());
+            result = result.Where(p=> p.Categories.Intersect(cats).Any());
         }
 
-        /*result = result.AsEnumerable().Select(p =>
-        {
-            foreach (var c in p.Categories)
-            {
-                c.Locations = null;
-                c.SubCategories = null;
-            }
-
-            return p;
-        }).AsQueryable();*/
-
-        return Ok(result.Take(limit).ToArray());
+        return Ok(result.Take(limit));
     }
     
     private async Task<Poi> FromDTO(PoiDTO dto)
