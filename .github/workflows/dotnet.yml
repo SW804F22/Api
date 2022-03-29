@@ -24,8 +24,10 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run:  dotnet test --no-build --verbosity normal -r TestResults -l "trx;LogFileName=TestResults.xml" /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
+      run:  dotnet test --collect:"XPlat Code Coverage" --no-build -r TestResults
     - name: Upload to codecov
       uses: codecov/codecov-action@v2
-      with:
-        files: ./TestResults/TestResults.xml
+      with: 
+        directory: TestResults
+        flags: unittests
+        verbose: true
