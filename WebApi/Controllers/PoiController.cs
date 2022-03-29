@@ -43,6 +43,7 @@ public class PoiController: ControllerBase
     public async Task<IActionResult> Search(
         [FromQuery] string? name, 
         [FromQuery] IEnumerable<string> category, 
+        [FromQuery] IEnumerable<string> notCategory,
         [FromQuery] double? latitude, 
         [FromQuery] double? longitude, 
         [FromQuery] double? distance, 
@@ -77,19 +78,35 @@ public class PoiController: ControllerBase
         
         if (category.Any())
         {
-            var cats = new List<Category>();
             foreach (var cat in category)
             {
                 try
                 {
-                    cats.Add(await _context.Categories.FirstAsync(c => c.Name == cat));
+                    await _context.Categories.FirstAsync(c => c.Name == cat);
                 }
                 catch (InvalidOperationException)
                 {
                     return NotFound("Category " + cat + " could not be found");
                 }
             }
-            result = result.Where(p=> p.Categories.Intersect(cats).Any());
+            result = result.Where(p=> p.Categories.Any(x=> category.Contains(x.Name)));
+        }
+
+        if (notCategory.Any())
+        {
+            foreach (var cat in notCategory)
+            {
+                try
+                {
+                    await _context.Categories.FirstAsync(c => c.Name == cat);
+                }
+                catch (InvalidOperationException)
+                {
+                    return NotFound("Category " + cat + " could not be found");
+                }
+            }
+
+            result = result.Where(p => p.Categories.All(x => !notCategory.Contains(x.Name)));
         }
 
         return Ok(result.Take(limit));
