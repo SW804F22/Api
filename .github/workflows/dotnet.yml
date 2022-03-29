@@ -24,6 +24,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build  --verbosity normal ./GirafRest.Test/ /p:CollectCoverage=true /p:CoverletOutputFormat=lcov
     - name: Upload to codecov
       uses: codecov/codecov-action@v2
