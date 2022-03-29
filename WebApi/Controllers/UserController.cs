@@ -4,10 +4,10 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserController :ControllerBase
+public class UserController : ControllerBase
 {
-
     private PoiContext _context;
+
     public UserController(PoiContext context)
     {
         _context = context;
@@ -16,15 +16,15 @@ public class UserController :ControllerBase
     [HttpGet("id")]
     public Task<ActionResult> GetUser(string id)
     {
-        
         throw new NotImplementedException();
     }
-    
+
     [HttpPut("id")]
     public Task<ActionResult> EditUser(string id)
     {
         throw new NotImplementedException();
     }
+
     [HttpDelete("id")]
     public Task<ActionResult> DeleteUser(string id)
     {

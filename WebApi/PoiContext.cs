@@ -9,7 +9,7 @@ public class PoiContext : DbContext
     public PoiContext(DbContextOptions<PoiContext> options) : base(options)
     {
     }
-    
+
     public DbSet<User> Users { get; set; }
     public DbSet<Poi> Pois { get; set; }
     public DbSet<Checkin> Checkins { get; set; }

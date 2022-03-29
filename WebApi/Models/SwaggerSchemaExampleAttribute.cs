@@ -8,11 +8,10 @@ namespace WebApi.Models;
     AttributeTargets.Enum)]
 public class SwaggerSchemaExampleAttribute : Attribute
 {
-
     public SwaggerSchemaExampleAttribute(string example)
     {
         Example = example;
     }
-    
+
     public string Example { get; set; }
 }

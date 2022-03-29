@@ -6,12 +6,11 @@ using WebApi.Models;
 
 namespace WebApi.Controllers;
 
-
 [ApiController]
 [Route("[controller]")]
-public class PoiController: ControllerBase
+public class PoiController : ControllerBase
 {
-    private PoiContext _context;
+    private readonly PoiContext _context;
 
     public PoiController(PoiContext context)
     {
@@ -23,7 +22,7 @@ public class PoiController: ControllerBase
     [SwaggerOperation(Summary = "Gets a Poi", Description = "Gets Poi from id")]
     [SwaggerResponse(200, "Success", typeof(Poi))]
     [SwaggerResponse(404, "Poi not found")]
-    public async Task<ActionResult> GetPoi([SwaggerParameter("Id of Poi", Required = true)]Guid id)
+    public async Task<ActionResult> GetPoi([SwaggerParameter("Id of Poi", Required = true)] Guid id)
     {
         try
         {
@@ -34,31 +33,32 @@ public class PoiController: ControllerBase
         {
             return NotFound($"Poi with id {id} not found");
         }
-
-        
     }
 
     [HttpGet]
     [Route("search/")]
     public async Task<IActionResult> Search(
-        [FromQuery] string? name, 
-        [FromQuery] IEnumerable<string> category, 
+        [FromQuery] string? name,
+        [FromQuery] IEnumerable<string> category,
         [FromQuery] IEnumerable<string> notCategory,
-        [FromQuery] double? latitude, 
-        [FromQuery] double? longitude, 
-        [FromQuery] double? distance, 
-        [FromQuery] IEnumerable<Price> prices, 
+        [FromQuery] double? latitude,
+        [FromQuery] double? longitude,
+        [FromQuery] double? distance,
+        [FromQuery] IEnumerable<Price> prices,
         [FromQuery] int limit = 50)
     {
         var result = _context.Pois
             .AsNoTracking()
-            .Include(p=> p.Categories)
+            .Include(p => p.Categories)
             .AsQueryable();
-        
+
         if (latitude is not null && longitude is not null && distance is not null)
         {
-            var temp = result.Select(x => new { x, 
-                dist = Math.Sqrt(Math.Pow(latitude.Value - x.Latitude, 2) + Math.Pow(longitude.Value - x.Longitude, 2))});
+            var temp = result.Select(x => new
+            {
+                x,
+                dist = Math.Sqrt(Math.Pow(latitude.Value - x.Latitude, 2) + Math.Pow(longitude.Value - x.Longitude, 2))
+            });
             result = temp.Where(y => y.dist < distance).OrderBy(x => x.dist).Select(z => z.x);
         }
         else if (latitude != null || longitude != null || distance != null)
@@ -66,20 +66,13 @@ public class PoiController: ControllerBase
             return BadRequest("Latitude, longitude and distance required together");
         }
 
-        if (prices.Any())
-        {
-            result = result.Where(p => prices.Contains(p.PriceStep));
-        }
-        
-        if (name != null)
-        {
-            result = result.Where(p=> p.Title.Contains(name));
-        }
-        
+        if (prices.Any()) result = result.Where(p => prices.Contains(p.PriceStep));
+
+        if (name != null) result = result.Where(p => p.Title.Contains(name));
+
         if (category.Any())
         {
             foreach (var cat in category)
-            {
                 try
                 {
                     await _context.Categories.FirstAsync(c => c.Name == cat);
@@ -88,14 +81,13 @@ public class PoiController: ControllerBase
                 {
                     return NotFound("Category " + cat + " could not be found");
                 }
-            }
-            result = result.Where(p=> p.Categories.Any(x=> category.Contains(x.Name)));
+
+            result = result.Where(p => p.Categories.Any(x => category.Contains(x.Name)));
         }
 
         if (notCategory.Any())
         {
             foreach (var cat in notCategory)
-            {
                 try
                 {
                     await _context.Categories.FirstAsync(c => c.Name == cat);
@@ -104,14 +96,13 @@ public class PoiController: ControllerBase
                 {
                     return NotFound("Category " + cat + " could not be found");
                 }
-            }
 
             result = result.Where(p => p.Categories.All(x => !notCategory.Contains(x.Name)));
         }
 
         return Ok(result.Take(limit));
     }
-    
+
     private async Task<Poi> FromDTO(PoiDTO dto)
     {
         var p = new Poi();
@@ -124,16 +115,15 @@ public class PoiController: ControllerBase
         p.Address = dto.Address;
         p.Categories = new List<Category>();
         foreach (var cat in dto.Categories)
-        {
             try
             {
                 var res = await _context.Categories.Include(x => x.Parent)
-                    .ThenInclude(y=> y.Parent).FirstAsync(c => c.Name == cat);
+                    .ThenInclude(y => y.Parent).FirstAsync(c => c.Name == cat);
                 p.Categories.Add(res);
                 while (res.Parent != null)
                 {
                     res = res.Parent;
-                    if(!p.Categories.Contains(res))
+                    if (!p.Categories.Contains(res))
                         p.Categories.Add(res);
                 }
             }
@@ -141,7 +131,7 @@ public class PoiController: ControllerBase
             {
                 throw new InvalidDataException(cat, e);
             }
-        }
+
         return p;
     }
 
@@ -149,7 +139,7 @@ public class PoiController: ControllerBase
     public async Task<ActionResult> CreatePoi([FromBody] PoiDTO p)
     {
         Poi? newp = null;
-        string message = "";
+        var message = "";
         if (!p.Categories.IsNullOrEmpty())
         {
             try
@@ -162,26 +152,21 @@ public class PoiController: ControllerBase
             }
 
             var result = await _context.SaveChangesAsync();
-            if (result >= 1)
-            {
-                return Created("Success", newp);
-            }
+            if (result >= 1) return Created("Success", newp);
         }
         else
         {
             message = "At least one category required";
         }
+
         return BadRequest("A un expected error occured." + message);
     }
-    
+
     [HttpPut("id")]
     public async Task<ActionResult> EditPoi(Guid id, [FromBody] Poi poi)
     {
         var p = await _context.Pois.FindAsync(id);
-        if (p == null)
-        {
-            return NotFound($"Poi with id {id} not found");
-        }
+        if (p == null) return NotFound($"Poi with id {id} not found");
 
         _context.Pois.Update(p);
         p.Title = poi.Title;
@@ -189,10 +174,7 @@ public class PoiController: ControllerBase
         p.Longitude = poi.Longitude;
         p.Description = poi.Description;
         var result = await _context.SaveChangesAsync();
-        if (result != 1)
-        {
-            return Conflict("An error occurred while updating");
-        }
+        if (result != 1) return Conflict("An error occurred while updating");
 
         return Ok("Update success");
     }
@@ -201,19 +183,12 @@ public class PoiController: ControllerBase
     public async Task<ActionResult> DeletePoi(Guid id)
     {
         var p = await _context.Pois.FindAsync(id);
-        if (p == null)
-        {
-            return NotFound($"Poi with id {id} not found");
-        }
+        if (p == null) return NotFound($"Poi with id {id} not found");
 
         _context.Pois.Remove(p);
         var result = await _context.SaveChangesAsync();
-        if (result != 1)
-        {
-            return BadRequest("An unexpected error occured");
-        }
+        if (result != 1) return BadRequest("An unexpected error occured");
 
         return Ok("Successful deletion");
-
     }
 }

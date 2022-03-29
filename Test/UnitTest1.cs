@@ -9,6 +9,6 @@ public class UnitTest1
     public void Test1()
     {
         var c = new Category("test", null);
-        Assert.Equal( "test", c.Name);
+        Assert.Equal("test", c.Name);
     }
 }

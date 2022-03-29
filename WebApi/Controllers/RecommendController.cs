@@ -5,13 +5,11 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class RecommendController: ControllerBase
+public class RecommendController : ControllerBase
 {
-
     [HttpPost]
-    public async Task<ActionResult> Recommend([FromBody]Recommend parameters)
+    public async Task<ActionResult> Recommend([FromBody] Recommend parameters)
     {
         throw new NotImplementedException();
     }
-    
 }

@@ -2,6 +2,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using WebApi;
 using WebApi.Models;
 
@@ -10,22 +11,20 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers().AddNewtonsoftJson(o => o.SerializerSettings.ReferenceLoopHandling =
-    Newtonsoft.Json.ReferenceLoopHandling.Ignore).AddJsonOptions(
-    options => {
-        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
-    });
+    ReferenceLoopHandling.Ignore).AddJsonOptions(
+    options => { options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve; });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo{Title ="PoI Recommendation API", Version = "v1"});
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PoI Recommendation API", Version = "v1" });
     c.EnableAnnotations();
     c.SchemaFilter<SwaggerSchemaExampleFilter>();
 });
 
 builder.Services.AddDbContext<PoiContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("PoiContextSQL"))
-    );
+);
 
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<PoiContext>();
@@ -75,7 +74,6 @@ app.UseSwaggerUI();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    
     app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 }

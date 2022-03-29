@@ -10,10 +10,11 @@ public enum Price
     Expensive,
     VeryExpensive
 }
+
 public class Poi
 {
-    [Key]
-    public Guid? UUID { get; set; }
+    [Key] public Guid? UUID { get; set; }
+
     public string Title { get; set; }
     public double Latitude { get; set; }
     public double Longitude { get; set; }
@@ -21,14 +22,6 @@ public class Poi
     public string Website { get; set; }
     public string Address { get; set; }
     public Price PriceStep { get; set; }
-    
+
     public ICollection<Category>? Categories { get; set; }
-
-
-    public Poi()
-    {
-        
-    }
-    
-
 }

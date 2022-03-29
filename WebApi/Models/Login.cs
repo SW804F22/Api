@@ -2,7 +2,7 @@ using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebApi.Models;
 
-[SwaggerSchema()]
+[SwaggerSchema]
 public class Login
 {
     [SwaggerSchema("Username", Nullable = false)]

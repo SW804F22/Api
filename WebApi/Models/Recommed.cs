@@ -6,5 +6,4 @@ public class Recommend
     public double Lattitude { get; set; }
     public double Longtitude { get; set; }
     public double Range { get; set; }
-    
 }

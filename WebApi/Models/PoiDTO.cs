@@ -10,5 +10,5 @@ public class PoiDTO
     public string Address { get; set; }
     public Price PriceStep { get; set; }
 
-    public List<String> Categories { get; set; }
+    public List<string> Categories { get; set; }
 }
