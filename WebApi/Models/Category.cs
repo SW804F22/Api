@@ -7,5 +7,11 @@ public class Category
     public Category? Parent { get; set; }
     public ICollection<Category>? SubCategories { get; set; }
     public ICollection<Poi>? Locations { get; set; }
+
+    public Category(string name, Category parent)
+    {
+        Name = name;
+        Parent = parent;
+    }
 }
 
