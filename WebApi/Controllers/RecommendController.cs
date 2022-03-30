@@ -8,7 +8,7 @@ namespace WebApi.Controllers;
 public class RecommendController : ControllerBase
 {
     [HttpPost]
-    public async Task<ActionResult> Recommend([FromBody] Recommend parameters)
+    public Task<ActionResult> Recommend([FromBody] Recommend parameters)
     {
         throw new NotImplementedException();
     }

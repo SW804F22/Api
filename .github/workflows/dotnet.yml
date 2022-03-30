@@ -19,6 +19,7 @@ jobs:
       uses: github/super-linter@v4
       env:
         VALIDATE_CSHARP: True
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:

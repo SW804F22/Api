@@ -29,7 +29,7 @@ public class PoiController : ControllerBase
             var p = await _context.Pois.Include(p => p.Categories).FirstAsync(p => p.UUID == id);
             return Ok(p);
         }
-        catch (InvalidOperationException e)
+        catch (InvalidOperationException)
         {
             return NotFound($"Poi with id {id} not found");
         }
