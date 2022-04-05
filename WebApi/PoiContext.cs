@@ -10,11 +10,11 @@ public class PoiContext : DbContext
     {
     }
 
-    public DbSet<User> Users { get; set; }
-    public DbSet<Poi> Pois { get; set; }
-    public DbSet<Checkin> Checkins { get; set; }
-    public DbSet<IdentityUserClaim<string>> Claims { get; set; }
-    public DbSet<Category> Categories { get; set; }
+    public DbSet<User>? Users { get; set; }
+    public DbSet<Poi>? Pois { get; set; }
+    public DbSet<Checkin>? Checkins { get; set; }
+    public DbSet<IdentityUserClaim<string>>? Claims { get; set; }
+    public DbSet<Category>? Categories { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

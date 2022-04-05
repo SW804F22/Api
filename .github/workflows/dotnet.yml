@@ -22,7 +22,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Lint
-      run: dotnet format
+      run: dotnet format --include-generated --verbosity detailed --exclude WebApi/Migrations/ --verify-no-changes
     - name: Build
       run: dotnet build --no-restore
     - name: Test

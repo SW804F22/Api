@@ -5,6 +5,12 @@ namespace WebApi.Models;
 [SwaggerSchema]
 public class Login
 {
+
+    public Login(string u, string p)
+    {
+        Username = u;
+        Password = p;
+    }
     [SwaggerSchema("Username", Nullable = false)]
     [SwaggerSchemaExample("testuser")]
     public string Username { get; set; }

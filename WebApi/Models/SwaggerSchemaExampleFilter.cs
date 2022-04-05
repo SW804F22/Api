@@ -8,16 +8,13 @@ public class SwaggerSchemaExampleFilter : ISchemaFilter
 {
     public void Apply(OpenApiSchema schema, SchemaFilterContext context)
     {
-        if (context.MemberInfo != null)
-        {
-            var schemaAttribute = context.MemberInfo.GetCustomAttributes(true)
-                .FirstOrDefault() as SwaggerSchemaExampleAttribute;
-            if (schemaAttribute != null) ApplySchemaAttribute(schema, schemaAttribute);
-        }
+        if (context.MemberInfo == null) return;
+        if (context.MemberInfo.GetCustomAttributes(true)
+                .FirstOrDefault() is SwaggerSchemaExampleAttribute schemaAttribute) ApplySchemaAttribute(schema, schemaAttribute);
     }
 
     private void ApplySchemaAttribute(OpenApiSchema schema, SwaggerSchemaExampleAttribute schemaAttribute)
     {
-        if (schemaAttribute != null) schema.Example = new OpenApiString(schemaAttribute.Example);
+        schema.Example = new OpenApiString(schemaAttribute.Example);
     }
 }

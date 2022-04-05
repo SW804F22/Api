@@ -2,7 +2,7 @@ namespace WebApi.Models;
 
 public class Category
 {
-    public Category(string name, Category parent)
+    public Category(string name, Category? parent)
     {
         Name = name;
         Parent = parent;

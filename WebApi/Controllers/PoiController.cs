@@ -105,15 +105,9 @@ public class PoiController : ControllerBase
 
     private async Task<Poi> FromDTO(PoiDTO dto)
     {
-        var p = new Poi();
-        p.Title = dto.Title;
-        p.Latitude = dto.Latitude;
-        p.Longitude = dto.Longitude;
-        p.Description = dto.Description;
-        p.Website = dto.Website;
-        p.PriceStep = dto.PriceStep;
-        p.Address = dto.Address;
-        p.Categories = new List<Category>();
+        var p = new Poi(dto.Title, dto.Latitude, dto.Longitude, dto.Description, dto.Website, dto.Address, dto.PriceStep);
+
+        if (dto.Categories == null) throw new InvalidDataException();
         foreach (var cat in dto.Categories)
             try
             {
