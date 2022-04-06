@@ -8,7 +8,7 @@ public class UnitTest1
     [Fact]
     public void Test1()
     {
-        var c = new Category("test", null);
+        var c = new Category { Name = "test" };
         Assert.Equal("test", c.Name);
     }
 }
