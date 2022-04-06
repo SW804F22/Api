@@ -40,15 +40,19 @@ public class PoiController : ControllerBase
 
     [HttpGet]
     [Route("search/")]
+    [SwaggerOperation(Summary = "Search for PoI's", Description = "Search PoI's using any combination of name, category, unwanted category, price, location and range")]
+    [SwaggerResponse(200, "Success", typeof(Poi[]))]
+    [SwaggerResponse(404, "No Poi's matching criteria found or Category not found")]
+    [SwaggerResponse(400, "Invalid arguments")]
     public async Task<IActionResult> Search(
-        [FromQuery] string? name,
-        [FromQuery] IEnumerable<string> category,
-        [FromQuery] IEnumerable<string> notCategory,
-        [FromQuery] double? latitude,
-        [FromQuery] double? longitude,
-        [FromQuery] double? distance,
-        [FromQuery] IEnumerable<Price> prices,
-        [FromQuery] int limit = 50)
+        [FromQuery][SwaggerParameter("Name")] string? name,
+        [FromQuery][SwaggerParameter("List of categories to include in search")] IEnumerable<string> category,
+        [FromQuery][SwaggerParameter("List of categories not to include in search")] IEnumerable<string> notCategory,
+        [FromQuery][SwaggerParameter("Location latitude")] double? latitude,
+        [FromQuery][SwaggerParameter("Location longitude")] double? longitude,
+        [FromQuery][SwaggerParameter("Range distance from location to include in search")] double? distance,
+        [FromQuery][SwaggerParameter("List of price steps to include")] IEnumerable<Price> prices,
+        [FromQuery][SwaggerParameter("Maximum number of results")] int limit = 50)
     {
         var result = _context.Pois
             .AsNoTracking()
@@ -83,7 +87,7 @@ public class PoiController : ControllerBase
             result = result.Where(p => p.Categories.Any(x => category.Contains(x.Name)));
         }
 
-        if (notCategory.Any())
+        if(notCategory.Any())
         {
             foreach (var cat in notCategory)
                 try
@@ -96,6 +100,11 @@ public class PoiController : ControllerBase
                 }
 
             result = result.Where(p => p.Categories.All(x => !notCategory.Contains(x.Name)));
+        }
+
+        if(!result.Any())
+        {
+            return NotFound("No Poi's matching criteria");
         }
 
         return Ok(result.Take(limit));

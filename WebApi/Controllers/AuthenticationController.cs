@@ -48,7 +48,7 @@ public class AuthenticationController : ControllerBase
         };
         var result = await _userManager.CreateAsync(user, info.Password);
 
-        if (result.Succeeded) return Ok(user);
+        if (result.Succeeded) return Created("Registration complete!",user);
         return BadRequest(result.Errors);
     }
 }
