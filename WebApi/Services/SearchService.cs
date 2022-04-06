@@ -6,12 +6,10 @@ namespace WebApi.Services;
 
 public class SearchService
 {
-
     public SearchService(PoiContext context)
     {
         _context = context;
     }
-    
     private readonly PoiContext _context;
     public IQueryable<Poi> Range(IQueryable<Poi> set, double lat, double lon, double range)
     {
@@ -23,7 +21,6 @@ public class SearchService
         var result = temp.Where(y => y.dist < range).OrderBy(x => x.dist).Select(z => z.x);
         return result;
     }
-
     public IQueryable<Poi> Range(double lat, double lon, double range)
     {
         var result = _context.Pois

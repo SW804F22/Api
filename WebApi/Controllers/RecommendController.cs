@@ -12,8 +12,7 @@ public class RecommendController : ControllerBase
     {
         _recommender = recommender;
         _search = search;
-    } 
-    
+    }
     private readonly RecommenderService _recommender;
     private readonly SearchService _search;
     [HttpPost]

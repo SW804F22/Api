@@ -16,7 +16,6 @@ public class Poi
 {
     public Poi()
     {
-        
     }
 
     public Poi(string title, double lat, double lon, string description, string website, string address, Price price)
