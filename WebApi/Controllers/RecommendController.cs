@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApi.Models;
-using System.Net.Http;
+using WebApi.Services;
 
 namespace WebApi.Controllers;
 
@@ -8,16 +8,23 @@ namespace WebApi.Controllers;
 [Route("[controller]")]
 public class RecommendController : ControllerBase
 {
-    public RecommendController()
+    public RecommendController(RecommenderService recommender, SearchService search)
     {
-        _client = new HttpClient();
+        _recommender = recommender;
+        _search = search;
     } 
     
-    private HttpClient _client;
+    private readonly RecommenderService _recommender;
+    private readonly SearchService _search;
     [HttpPost]
-    public Task<ActionResult> Recommend([FromBody] Recommend parameters)
+    public async Task<ActionResult> Recommend([FromBody] Recommend parameters)
     {
-        
-        throw new NotImplementedException();
+        var pois = _search.Range(parameters.Latitude, parameters.Longitude, parameters.Range);
+        if (!pois.Any())
+        {
+            return NotFound();
+        }
+        var res = await _recommender.PostRecommendation(parameters.UserID, pois);
+        return Ok(res);
     }
 }

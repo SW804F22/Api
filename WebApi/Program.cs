@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using WebApi;
 using WebApi.Models;
+using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -59,6 +60,8 @@ builder.Services.Configure<IdentityOptions>(options =>
         .RequireAuthenticatedUser()
         .Build();
 });*/
+
+builder.Services.AddHttpClient<RecommenderService>();
 
 builder.Host.ConfigureLogging(logging =>
 {

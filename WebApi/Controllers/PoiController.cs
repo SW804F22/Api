@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
 using WebApi.Models;
+using WebApi.Services;
 
 namespace WebApi.Controllers;
 
@@ -11,10 +12,12 @@ namespace WebApi.Controllers;
 public class PoiController : ControllerBase
 {
     private readonly PoiContext _context;
+    private readonly SearchService _search;
 
-    public PoiController(PoiContext context)
+    public PoiController(PoiContext context, SearchService search)
     {
         _context = context;
+        _search = search;
     }
 
 
@@ -54,12 +57,7 @@ public class PoiController : ControllerBase
 
         if (latitude is not null && longitude is not null && distance is not null)
         {
-            var temp = result.Select(x => new
-            {
-                x,
-                dist = Math.Sqrt(Math.Pow(latitude.Value - x.Latitude, 2) + Math.Pow(longitude.Value - x.Longitude, 2))
-            });
-            result = temp.Where(y => y.dist < distance).OrderBy(x => x.dist).Select(z => z.x);
+            result = _search.Range(result, latitude.Value, longitude.Value, distance.Value);
         }
         else if (latitude != null || longitude != null || distance != null)
         {

@@ -16,12 +16,14 @@ public class RecommenderService
         _httpClient.BaseAddress = new Uri(address);
         
     }
-
-    public async Task<Object> PostRecommendation(IEnumerable<Poi> list)
+    public async Task<IEnumerable<Poi>> PostRecommendation(string user, IEnumerable<Poi> list)
     {
         var json = JsonConvert.SerializeObject(list);
         var data = new StringContent(json, Encoding.UTF8, "application/json");
-        var result = await _httpClient.PostAsync("recommend", data);
-        return result.Content;
+        var response = await _httpClient.PostAsync($"recommend/{user}", data);
+        response = response.EnsureSuccessStatusCode();
+        // TODO: Might need refactoring depending on the result from the api
+        var result = await response.Content.ReadFromJsonAsync<IEnumerable<Poi>>();
+        return result;
     }  
 }

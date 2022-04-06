@@ -35,7 +35,10 @@ public class AuthenticationController : ControllerBase
 
     [Route("Register")]
     [HttpPost]
-    public async Task<ActionResult> Register([FromBody] Register info)
+    [SwaggerOperation(Summary = "Register user", Description = "Register a new user with username, password, date of birth and gender")]
+    [SwaggerResponse(201, "Registration successful", typeof(User))]
+    [SwaggerResponse(400, "Registration failed")]
+    public async Task<ActionResult> Register([FromBody][SwaggerRequestBody("User information", Required = true)] Register info)
     {
         var user = new User
         {
