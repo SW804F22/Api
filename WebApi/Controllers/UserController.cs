@@ -44,7 +44,12 @@ public class UserController : ControllerBase
             return NotFound("User not found");
         }
 
-        result.UserName = dto.UserName;
+        if (dto.UserName != result.UserName)
+        {
+            result.UserName = dto.UserName;
+            result.NormalizedUserName = dto.UserName.Normalize();
+        }
+        
         result.Gender = dto.Gender;
         result.DateOfBirth = dto.DateOfBirth;
 
