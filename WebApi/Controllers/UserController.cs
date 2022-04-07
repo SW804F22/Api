@@ -1,4 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Swashbuckle.AspNetCore.Annotations;
+using WebApi.Models;
 
 namespace WebApi.Controllers;
 
@@ -6,7 +10,7 @@ namespace WebApi.Controllers;
 [Route("[controller]")]
 public class UserController : ControllerBase
 {
-    private PoiContext _context;
+    private readonly PoiContext _context;
 
     public UserController(PoiContext context)
     {
@@ -14,20 +18,67 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("id")]
-    public Task<ActionResult> GetUser(string id)
+    [SwaggerOperation(Summary = "Get user", Description = "Get user with id")]
+    [SwaggerResponse(404, "User not found")]
+    [SwaggerResponse(200, "Success", typeof(UserDTO))]
+    public async Task<ActionResult> GetUser([SwaggerParameter("Id of user to find")] string id)
     {
-        throw new NotImplementedException();
+        var result = await _context.Users.FindAsync(id);
+        if (result == null)
+        {
+            return NotFound("User not found");
+        }
+        return Ok(new UserDTO(result));
     }
 
     [HttpPut("id")]
-    public Task<ActionResult> EditUser(string id)
+    [SwaggerOperation("Update user information", "Update the users username, gender of date of birth")]
+    [SwaggerResponse(404, "User not found")]
+    [SwaggerResponse(400, "Something went wrong")]
+    [SwaggerResponse(200, "Update successful")]
+    public async Task<ActionResult> EditUser([SwaggerParameter("Id of user to update")] string id, [FromBody][SwaggerRequestBody("User information to change")] UserDTO dto)
     {
-        throw new NotImplementedException();
+        var result = await _context.Users.FindAsync(id);
+        if (result == null)
+        {
+            return NotFound("User not found");
+        }
+
+        result.UserName = dto.UserName;
+        result.Gender = dto.Gender;
+        result.DateOfBirth = dto.DateOfBirth;
+
+        var save = await _context.SaveChangesAsync();
+
+        if (save == 1)
+        {
+            return Ok();
+        }
+
+        return BadRequest("Something went wrong");
     }
 
     [HttpDelete("id")]
-    public Task<ActionResult> DeleteUser(string id)
+    [SwaggerOperation("Delete user", "Delete user with id")]
+    [SwaggerResponse(404, "User not found")]
+    [SwaggerResponse(400, "Something went wrong")]
+    [SwaggerResponse(200, "Delete successful")]
+    public async Task<ActionResult> DeleteUser([SwaggerParameter("Id of user to delete")] string id)
     {
-        throw new NotImplementedException();
+        var user = await _context.Users.FindAsync(id);
+        if (user == null)
+        {
+            return NotFound("User not found");
+        }
+        _context.Users.Remove(user);
+
+        var delete = await _context.SaveChangesAsync();
+
+        if (delete == 1)
+        {
+            return Ok("Delete successful");
+        }
+
+        return BadRequest("Something went wrong");
     }
 }
