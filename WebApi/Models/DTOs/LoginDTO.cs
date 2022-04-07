@@ -11,8 +11,9 @@ public class Login
         Username = u;
         Password = p;
     }
+
     [SwaggerSchema("Username", Nullable = false)]
-    [SwaggerSchemaExample("testuser")]
+    [SwaggerSchemaExample("Testuser")]
     public string Username { get; set; }
 
     [SwaggerSchema("Password", Nullable = false)]

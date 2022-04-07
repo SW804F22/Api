@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
 using WebApi.Models;
+using WebApi.Models.DTOs;
 using WebApi.Services;
 
 namespace WebApi.Controllers;

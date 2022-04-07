@@ -1,3 +1,4 @@
+using System.Drawing.Printing;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -8,9 +9,11 @@ public class SwaggerSchemaExampleFilter : ISchemaFilter
 {
     public void Apply(OpenApiSchema schema, SchemaFilterContext context)
     {
-        if (context.MemberInfo == null) return;
-        if (context.MemberInfo.GetCustomAttributes(true)
-                .FirstOrDefault() is SwaggerSchemaExampleAttribute schemaAttribute) ApplySchemaAttribute(schema, schemaAttribute);
+        if (context.MemberInfo != null && context.MemberInfo.GetCustomAttributes(typeof(SwaggerSchemaExampleAttribute), false).FirstOrDefault() is SwaggerSchemaExampleAttribute att)
+        {
+            ApplySchemaAttribute(schema, att);
+        }
+
     }
 
     private void ApplySchemaAttribute(OpenApiSchema schema, SwaggerSchemaExampleAttribute schemaAttribute)
