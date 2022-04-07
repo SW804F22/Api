@@ -87,7 +87,7 @@ public class PoiController : ControllerBase
             result = result.Where(p => p.Categories.Any(x => category.Contains(x.Name)));
         }
 
-        if(notCategory.Any())
+        if (notCategory.Any())
         {
             foreach (var cat in notCategory)
                 try
@@ -102,7 +102,7 @@ public class PoiController : ControllerBase
             result = result.Where(p => p.Categories.All(x => !notCategory.Contains(x.Name)));
         }
 
-        if(!result.Any())
+        if (!result.Any())
         {
             return NotFound("No Poi's matching criteria");
         }
