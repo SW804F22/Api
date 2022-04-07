@@ -49,7 +49,7 @@ public class UserController : ControllerBase
             result.UserName = dto.UserName;
             result.NormalizedUserName = dto.UserName.Normalize();
         }
-        
+
         result.Gender = dto.Gender;
         result.DateOfBirth = dto.DateOfBirth;
 
