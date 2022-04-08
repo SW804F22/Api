@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -82,6 +83,76 @@ public class UserController : ControllerBase
         if (delete == 1)
         {
             return Ok("Delete successful");
+        }
+
+        return BadRequest("Something went wrong");
+    }
+
+    [HttpGet]
+    [Route("visit/{id}")]
+    public async Task<ActionResult> GetCheckins(string id)
+    {
+        try
+        {
+            var user = await _context.Users.Include(u => u.Checkins).ThenInclude(c => c.Point).FirstAsync(u => u.Id == id);
+            return Ok(user.Checkins);
+        }
+        catch (InvalidOperationException)
+        {
+            return NotFound("User not found");
+        }
+    }
+
+    [HttpPost]
+    [Route("visit/{userId}/{poiId}")]
+    [SwaggerOperation("Register checkin", "Register checkin by user at a point of interest")]
+    [SwaggerResponse(200, "Checkin added")]
+    [SwaggerResponse(404, "Not found")]
+    [SwaggerResponse(400, "Something went wrong")]
+    public async Task<ActionResult> Visit([SwaggerParameter("User that checks in")] string userId, [SwaggerParameter("Point of interest checking in to")] Guid poiId)
+    {
+        try
+        {
+            var user = await _context.Users.Include(u => u.Checkins).FirstAsync(u => u.Id == userId);
+            var poi = await _context.Pois.FindAsync(poiId);
+            if (poi == null)
+            {
+                return NotFound("PoI not found");
+            }
+            var checkin = new Checkin(poi, DateTime.Now);
+            var add = await _context.Checkins.AddAsync(checkin);
+            user.Checkins.Add(add.Entity);
+            var res = await _context.SaveChangesAsync();
+            if (res > 0)
+            {
+                return Ok("Check in added");
+            }
+            return BadRequest("Something went wrong");
+        }
+        catch (InvalidOperationException)
+        {
+            return NotFound("User not found");
+        }
+    }
+
+    [Route("visit/{id}")]
+    [HttpDelete]
+    [SwaggerOperation("Delete a checkin", "Remove a checkin at a location the user no longer likes")]
+    [SwaggerResponse(200, "Checkin removed successfully")]
+    [SwaggerResponse(404, "Checkin not found")]
+    [SwaggerResponse(400, "Something went wrong")]
+    public async Task<ActionResult> UnVisit(Guid id)
+    {
+        var checkin = await _context.Checkins.FindAsync(id);
+        if (checkin == null)
+        {
+            return NotFound("Checkin not found");
+        }
+        _context.Checkins.Remove(checkin);
+        var result = await _context.SaveChangesAsync();
+        if (result > 0)
+        {
+            return Ok("Checking removed successfully");
         }
 
         return BadRequest("Something went wrong");
