@@ -5,6 +5,20 @@ namespace WebApi.Models.DTOs;
 [SwaggerSchema("Point of interest")]
 public class PoiDTO
 {
+    public PoiDTO(Poi p)
+    {
+        id = p.UUID;
+        Title = p.Title;
+        Latitude = p.Latitude;
+        Longitude = p.Longitude;
+        Description = p.Description;
+        Address = p.Address;
+        PriceStep = p.PriceStep;
+        Categories = p.Categories.Select(c => c.Name).ToList();
+    }
+    public PoiDTO() { }
+    public Guid? id { get; set; }
+
     [SwaggerSchema("Title of PoI", Nullable = true)]
     [SwaggerSchemaExample("Absalon Hotel")]
     public string Title { get; set; } = "";

@@ -24,14 +24,14 @@ public class PoiController : ControllerBase
 
     [HttpGet("id", Name = "GetPoi")]
     [SwaggerOperation(Summary = "Gets a Poi", Description = "Gets Poi from id")]
-    [SwaggerResponse(200, "Success", typeof(Poi))]
+    [SwaggerResponse(200, "Success", typeof(PoiDTO))]
     [SwaggerResponse(404, "Poi not found")]
     public async Task<ActionResult> GetPoi([SwaggerParameter("Id of Poi", Required = true)] Guid id)
     {
         try
         {
             var p = await _context.Pois.Include(p => p.Categories).FirstAsync(p => p.UUID == id);
-            return Ok(p);
+            return Ok(new PoiDTO(p));
         }
         catch (InvalidOperationException)
         {
@@ -42,7 +42,7 @@ public class PoiController : ControllerBase
     [HttpGet]
     [Route("search/")]
     [SwaggerOperation(Summary = "Search for PoI's", Description = "Search PoI's using any combination of name, category, unwanted category, price, location and range")]
-    [SwaggerResponse(200, "Success", typeof(Poi[]))]
+    [SwaggerResponse(200, "Success", typeof(PoiDTO[]))]
     [SwaggerResponse(404, "No Poi's matching criteria found or Category not found")]
     [SwaggerResponse(400, "Invalid arguments")]
     public async Task<IActionResult> Search(
@@ -108,7 +108,7 @@ public class PoiController : ControllerBase
             return NotFound("No Poi's matching criteria");
         }
 
-        return Ok(result.Take(limit));
+        return Ok(result.Take(limit).Select(p => new PoiDTO(p)));
     }
 
     private async Task<Poi> FromDTO(PoiDTO dto)
