@@ -193,4 +193,12 @@ public class PoiController : ControllerBase
 
         return Ok("Successful deletion");
     }
+    [HttpGet]
+    [Route("Category")]
+    public ActionResult SearchCategory([FromQuery] string query, [FromQuery] int limit = 50)
+    {
+        //TODO: implement score on best match
+        var result = _context.Categories.Where(c => c.Name.Contains(query));
+        return Ok(result.Select(c => c.Name).Take(limit));
+    }
 }
