@@ -113,7 +113,6 @@ public class PoiController : ControllerBase
 
         return Ok(result.Take(limit).Select(p => new PoiDTO(p)));
     }
-
     
     [HttpGet]
     [Route("search/name/{query}")]
