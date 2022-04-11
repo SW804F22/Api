@@ -1,4 +1,7 @@
 using Duende.IdentityServer.Extensions;
+using FuzzySharp;
+using FuzzySharp.SimilarityRatio;
+using FuzzySharp.SimilarityRatio.Scorer.StrategySensitive;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Swashbuckle.AspNetCore.Annotations;
@@ -110,6 +113,19 @@ public class PoiController : ControllerBase
 
         return Ok(result.Take(limit).Select(p => new PoiDTO(p)));
     }
+
+    
+    [HttpGet]
+    [Route("search/name/{query}")]
+    [SwaggerOperation("Search for Poi name", "Ger suggestions on the names of pois")]
+    [SwaggerResponse(200, "Success", typeof(IEnumerable<String>))]
+    public ActionResult SearchName(string query)
+    {
+        var pois = _context.Pois.AsNoTracking().Select(p => p.Title).Distinct();
+        var result = Process.ExtractSorted(query, pois, s => s, ScorerCache.Get<PartialTokenSetScorer>());
+        return Ok(result.Select(p => p.Value).Take(20));
+    }
+
 
     private async Task<Poi> FromDTO(PoiDTO dto)
     {
