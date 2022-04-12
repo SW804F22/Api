@@ -117,14 +117,19 @@ public class PoiController : ControllerBase
     [Route("search/name/{query}")]
     [SwaggerOperation("Search for Poi name", "Ger suggestions on the names of pois")]
     [SwaggerResponse(200, "Success", typeof(IEnumerable<String>))]
-    public ActionResult SearchName(string query)
+    public ActionResult SearchName([SwaggerParameter("Search string")] string query)
     {
         var pois = _context.Pois.AsNoTracking().Select(p => p.Title).Distinct();
         var result = Process.ExtractSorted(query, pois, s => s, ScorerCache.Get<PartialTokenSetScorer>());
         return Ok(result.Select(p => p.Value).Take(20));
     }
 
-
+    /// <summary>
+    /// Constructs a PoI from a PoIDTO
+    /// </summary>
+    /// <param name="dto">DTO object to construct from</param>
+    /// <returns>Poi object coresponding to the dto object passed</returns>
+    /// <exception cref="InvalidDataException">Categories not found</exception>
     private async Task<Poi> FromDTO(PoiDTO dto)
     {
         var p = new Poi(dto.Title, dto.Latitude, dto.Longitude, dto.Description, dto.Website, dto.Address, dto.PriceStep);
@@ -152,7 +157,11 @@ public class PoiController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> CreatePoi([FromBody] PoiDTO p)
+    [SwaggerOperation("Create PoI", "Create a new PoI with necessary information")]
+    [SwaggerResponse(201, "Creation success", typeof(PoiDTO))]
+    [SwaggerResponse(404, "Category not found")]
+    [SwaggerResponse(400, "At least one category required")]
+    public async Task<ActionResult> CreatePoi([FromBody][SwaggerRequestBody("DTO holding the information of the new PoI")] PoiDTO p)
     {
         Poi? newp = null;
         var message = "";
@@ -168,7 +177,7 @@ public class PoiController : ControllerBase
             }
 
             var result = await _context.SaveChangesAsync();
-            if (result >= 1) return Created("Success", newp);
+            if (result >= 1) return Created("Success", new PoiDTO(newp));
         }
         else
         {
@@ -179,7 +188,11 @@ public class PoiController : ControllerBase
     }
 
     [HttpPut("id")]
-    public async Task<ActionResult> EditPoi(Guid id, [FromBody] Poi poi)
+    [SwaggerOperation("Edit PoI", "Edit the information of a PoI")]
+    [SwaggerResponse(200, "Update success")]
+    [SwaggerResponse(404, "PoI not found")]
+    [SwaggerResponse(409, "Cannot update")]
+    public async Task<ActionResult> EditPoi([SwaggerParameter("Id of PoI to update")] Guid id, [FromBody][SwaggerRequestBody("DTO object containing information to update")] Poi poi)
     {
         var p = await _context.Pois.FindAsync(id);
         if (p == null) return NotFound($"Poi with id {id} not found");
@@ -196,7 +209,11 @@ public class PoiController : ControllerBase
     }
 
     [HttpDelete("id")]
-    public async Task<ActionResult> DeletePoi(Guid id)
+    [SwaggerOperation("Delete Poi", "Delete the PoI with id")]
+    [SwaggerResponse(200, "Successful deletion")]
+    [SwaggerResponse(404, "PoI not found")]
+    [SwaggerResponse(400, "An error occurred")]
+    public async Task<ActionResult> DeletePoi([SwaggerParameter("Id of PoI to delete")] Guid id)
     {
         var p = await _context.Pois.FindAsync(id);
         if (p == null) return NotFound($"Poi with id {id} not found");
@@ -209,7 +226,9 @@ public class PoiController : ControllerBase
     }
     [HttpGet]
     [Route("Category")]
-    public ActionResult SearchCategory([FromQuery] string query, [FromQuery] int limit = 50)
+    [SwaggerOperation("Search for category", "Search for categories by name")]
+    [SwaggerResponse(200, "Success", typeof(string[]))]
+    public ActionResult SearchCategory([FromQuery][SwaggerParameter("Search string")] string query, [FromQuery][SwaggerParameter("Amount of results")] int limit = 50)
     {
         var categories = _context.Categories.Select(c => c.Name);
         var result = Process.ExtractSorted(query, categories, s => s, ScorerCache.Get<TokenSetScorer>());

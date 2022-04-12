@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -9,7 +8,6 @@ namespace WebApi.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-[AllowAnonymous]
 public class AuthenticationController : ControllerBase
 {
     private readonly SignInManager<User> _signInManager;
@@ -59,7 +57,7 @@ public class AuthenticationController : ControllerBase
     [SwaggerResponse(200, "Password changed successful")]
     [SwaggerResponse(404, "User not found")]
     [SwaggerResponse(400, "Authentication failed")]
-    public async Task<ActionResult> ChangePassword([SwaggerParameter("Id of user")] string id, [FromBody][SwaggerRequestBody("Old and new password")] ChangePasswordDTO obj)
+    public async Task<ActionResult> ChangePassword([SwaggerParameter("Id of user")][SwaggerSchemaExample("9b279878-74fd-46c4-8980-307f80375723")] string id, [FromBody][SwaggerRequestBody("Old and new password")] ChangePasswordDTO obj)
     {
         var user = await _userManager.FindByIdAsync(id);
         if (user == null)

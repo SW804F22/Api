@@ -90,7 +90,10 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Route("visit/{id}")]
-    public async Task<ActionResult> GetCheckins(string id)
+    [SwaggerOperation("Get check in's", "Get list of PoI's the user have visited")]
+    [SwaggerResponse(200, "Success", typeof(IEnumerable<Checkin>))]
+    [SwaggerResponse(404, "User not found")]
+    public async Task<ActionResult> GetCheckins([SwaggerParameter("Id of user")] string id)
     {
         try
         {
@@ -141,7 +144,7 @@ public class UserController : ControllerBase
     [SwaggerResponse(200, "Checkin removed successfully")]
     [SwaggerResponse(404, "Checkin not found")]
     [SwaggerResponse(400, "Something went wrong")]
-    public async Task<ActionResult> UnVisit(Guid id)
+    public async Task<ActionResult> UnVisit([SwaggerParameter("Id of check in")] Guid id)
     {
         var checkin = await _context.Checkins.FindAsync(id);
         if (checkin == null)
