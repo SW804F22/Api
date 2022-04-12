@@ -211,8 +211,8 @@ public class PoiController : ControllerBase
     [Route("Category")]
     public ActionResult SearchCategory([FromQuery] string query, [FromQuery] int limit = 50)
     {
-        //TODO: implement score on best match
-        var result = _context.Categories.Where(c => c.Name.Contains(query));
-        return Ok(result.Select(c => c.Name).Take(limit));
+        var categories = _context.Categories.Select(c=> c.Name);
+        var result = Process.ExtractSorted(query, categories, s => s, ScorerCache.Get<TokenSetScorer>());
+        return Ok(result.Select(c => c.Value).Take(limit));
     }
 }
