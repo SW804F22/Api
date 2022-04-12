@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Identity;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebApi.Models;
-
+[SwaggerSchema("Gender")]
 public enum Gender
 {
     Unspecified,
