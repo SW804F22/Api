@@ -78,7 +78,28 @@ public class AuthenticationControllerTest : IClassFixture<TestDatabaseFixture>
         context.ChangeTracker.Clear();
 
         var result = await controller.Register(reg);
-        Assert.IsType<CreatedResult>(result);
+        var res = Assert.IsType<CreatedResult>(result);
+        var user = Assert.IsType<UserDTO>(res.Value);
+        Assert.NotNull(context.Users.First(u => u.Id == user.Id));
+    }
+
+    [Theory]
+    [InlineData("testpassword123")]
+    [InlineData("TESTPASSWORD123")]
+    [InlineData("TestPassword")]
+    [InlineData("Test123")]
+    public async Task FailsWhenPasswordNotValid(string password)
+    {
+        var context = Fixture.CreateContext();
+        var controller = Arrange(context);
+
+        context.Database.BeginTransaction();
+
+        var reg = new Register("TestUser", password, DateTime.Today, 0);
+        context.ChangeTracker.Clear();
+
+        var result = await controller.Register(reg);
+        Assert.IsType<BadRequestObjectResult>(result);
     }
 
 }
