@@ -63,6 +63,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 builder.Services.AddHttpClient<RecommenderService>();
 builder.Services.AddScoped<SearchService>();
+builder.Services.AddScoped<AuthenticateService>();
 
 builder.Host.ConfigureLogging(logging =>
 {

@@ -1,3 +1,5 @@
+using System;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApi;
 using WebApi.Models;
@@ -21,8 +23,11 @@ public class TestDatabaseFixture
                 {
                     context.Database.EnsureCreated();
                     Clear(context);
+                    var testuser = new User { UserName = "Test", NormalizedUserName = "TEST", DateOfBirth = DateTime.Now, Gender = 0 };
+                    var hasher = new PasswordHasher<User>();
+                    testuser.PasswordHash = hasher.HashPassword(testuser, "TestPassword123");
                     context.AddRange(
-                        new User() {UserName = "test"});
+                        testuser);
                     context.SaveChanges();
                 }
 
@@ -39,11 +44,11 @@ public class TestDatabaseFixture
 
     private void Clear(PoiContext context)
     {
-        string[] entities = {"UserClaims", "Checkins", "CategoryPoi", "Users", "Categories", "Pois"};
+        string[] entities = { "UserClaims", "Checkins", "CategoryPoi", "Users", "Categories", "Pois" };
         foreach (var e in entities)
         {
-            context.Database.ExecuteSqlRaw($"delete from {e}");   
+            context.Database.ExecuteSqlRaw($"delete from {e}");
         }
-        
+
     }
 }
