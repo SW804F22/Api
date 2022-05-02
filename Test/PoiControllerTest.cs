@@ -14,7 +14,7 @@ namespace Test;
 public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
 {
     private readonly TestDatabaseFixture Fixture;
-    
+
     public PoiControllerTest(TestDatabaseFixture fixture)
     {
         Fixture = fixture;
@@ -24,10 +24,14 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
     {
         var poi0 = new PoiDTO()
         {
-            Title ="Absalon Hotel", Latitude = 55.671565,Longitude = 12.561658,
+            Title = "Absalon Hotel",
+            Latitude = 55.671565,
+            Longitude = 12.561658,
             Description = "Newly renovated family owned hotel in trendy Vesterbro. Next to Meatpacking district, cafées, bars and designer shops",
-            Website = "http://www.absalon-hotel.dk", Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK", PriceStep = Price.Free,
-            Categories = new List<string>(){"Hotel"}
+            Website = "http://www.absalon-hotel.dk",
+            Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK",
+            PriceStep = Price.Free,
+            Categories = new List<string>() { "Hotel" }
         };
 
         await controller.CreatePoi(poi0);
@@ -42,22 +46,26 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
 
         var dto = new PoiDTO()
         {
-            Title ="Absalon Hotel", Latitude = 55.671565,Longitude = 12.561658,
+            Title = "Absalon Hotel",
+            Latitude = 55.671565,
+            Longitude = 12.561658,
             Description = "Newly renovated family owned hotel in trendy Vesterbro. Next to Meatpacking district, cafées, bars and designer shops",
-            Website = "http://www.absalon-hotel.dk", Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK", PriceStep = Price.Free,
-            Categories = new List<string>(){"Hotel"}
+            Website = "http://www.absalon-hotel.dk",
+            Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK",
+            PriceStep = Price.Free,
+            Categories = new List<string>() { "Hotel" }
         };
 
         await context.Database.BeginTransactionAsync();
-        
+
         var result = await controller.CreatePoi(dto);
         var res = Assert.IsType<CreatedResult>(result);
         var poi = Assert.IsType<PoiDTO>(res.Value);
-        
+
         Assert.Equal(dto.Title, poi.Title);
         Assert.NotNull(context.Pois.FirstOrDefault(p => p.Title == dto.Title));
-        Assert.Equal(3, context.Pois.Include(p => p.Categories).First(p=> p.Title == dto.Title).Categories.Count);
-        
+        Assert.Equal(3, context.Pois.Include(p => p.Categories).First(p => p.Title == dto.Title).Categories.Count);
+
         context.ChangeTracker.Clear();
     }
 
@@ -70,14 +78,18 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
 
         var dto = new PoiDTO()
         {
-            Title ="Absalon Hotel", Latitude = 55.671565,Longitude = 12.561658,
+            Title = "Absalon Hotel",
+            Latitude = 55.671565,
+            Longitude = 12.561658,
             Description = "Newly renovated family owned hotel in trendy Vesterbro. Next to Meatpacking district, cafées, bars and designer shops",
-            Website = "http://www.absalon-hotel.dk", Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK", PriceStep = Price.Free,
-            Categories = new List<string>(){"Unvalid category"}
+            Website = "http://www.absalon-hotel.dk",
+            Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK",
+            PriceStep = Price.Free,
+            Categories = new List<string>() { "Unvalid category" }
         };
 
         await context.Database.BeginTransactionAsync();
-        
+
         var result = await controller.CreatePoi(dto);
         Assert.IsType<NotFoundObjectResult>(result);
     }
@@ -91,14 +103,18 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
 
         var dto = new PoiDTO()
         {
-            Title ="Absalon Hotel", Latitude = 55.671565,Longitude = 12.561658,
+            Title = "Absalon Hotel",
+            Latitude = 55.671565,
+            Longitude = 12.561658,
             Description = "Newly renovated family owned hotel in trendy Vesterbro. Next to Meatpacking district, cafées, bars and designer shops",
-            Website = "http://www.absalon-hotel.dk", Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK", PriceStep = Price.Free,
+            Website = "http://www.absalon-hotel.dk",
+            Address = "Helgolandsgade 15 (Istedgade), 1653 København, DK",
+            PriceStep = Price.Free,
             Categories = new List<string>()
         };
 
         await context.Database.BeginTransactionAsync();
-        
+
         var result = await controller.CreatePoi(dto);
         Assert.IsType<BadRequestObjectResult>(result);
     }
@@ -115,12 +131,12 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var poi = context.Pois.First(p => p.Title == "Absalon Hotel");
 
         var result = await controller.GetPoi(poi.UUID.Value);
-        
+
         var res = Assert.IsType<OkObjectResult>(result);
         var poires = Assert.IsType<PoiDTO>(res.Value);
         Assert.Equal(poi.UUID, poires.id);
         Assert.Equal(poi.Title, poires.Title);
-        
+
         context.ChangeTracker.Clear();
     }
 
@@ -136,6 +152,6 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var result = await controller.GetPoi(id);
         Assert.IsType<NotFoundObjectResult>(result);
     }
-    
-    
+
+
 }

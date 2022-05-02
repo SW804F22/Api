@@ -136,10 +136,10 @@ public class AuthenticationControllerTest : IClassFixture<TestDatabaseFixture>
     {
         var context = Fixture.CreateContext();
         var controller = Arrange(context);
-        
+
         var user = context.Users.First(u => u.UserName == "Test");
         var pwd = new ChangePasswordDTO() { OldPassword = "VeryWrongPassword", NewPassword = "TestPassword321" };
-        
+
         var result = await controller.ChangePassword(user.Id, pwd);
         Assert.IsNotType<OkObjectResult>(result);
 
