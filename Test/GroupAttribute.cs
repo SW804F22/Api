@@ -11,7 +11,11 @@ public class GroupAttribute : Attribute, ITraitAttribute
 {
     public string Id { get; set; }
     public GroupAttribute(string id) => Id = id;
-    public GroupAttribute() { }
+
+    public GroupAttribute()
+    {
+        Id = "";
+    }
 }
 
 public class GroupDiscoverer : TraitDiscovererBase, ITraitDiscoverer
