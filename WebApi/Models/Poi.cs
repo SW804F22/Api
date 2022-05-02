@@ -30,6 +30,7 @@ public class Poi
         PriceStep = price;
         Categories = new List<Category>();
     }
+    
     [Key] public Guid? UUID { get; set; }
     public string Title { get; set; } = "";
     public double Latitude { get; set; } = 0.0;

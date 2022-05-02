@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
@@ -89,6 +90,34 @@ public class FakeUserManager : UserManager<User>
         {
             return IdentityResult.Failed();
         }
+    }
+
+    public override Task<User> FindByIdAsync(string userId)
+    {
+        return _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+    }
+
+    public override async Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword)
+    {
+        var validator = new PasswordValidator<User>();
+        var val = await validator.ValidateAsync(this, user, newPassword);
+        if (val.Succeeded)
+        {
+            var hasher = new PasswordHasher<User>();
+            var verify = hasher.VerifyHashedPassword(user, user.PasswordHash, currentPassword);
+            if (verify == PasswordVerificationResult.Success)
+            {
+                var hash = hasher.HashPassword(user, newPassword);
+                _context.Update(user);
+                user.PasswordHash = hash;
+                var res = await _context.SaveChangesAsync();
+                if (res == 1)
+                {
+                    return IdentityResult.Success;
+                }
+            }
+        }
+        return IdentityResult.Failed();
     }
 }
 

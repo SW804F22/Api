@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApi;
@@ -13,6 +15,38 @@ public class TestDatabaseFixture
     private static readonly object _lock = new();
     private static bool _databaseInitialized;
 
+    private IEnumerable<User> CreateUsers()
+    {
+        var result = new List<User>();
+        var user1 = new User()
+            { UserName = "Test", NormalizedUserName = "TEST", DateOfBirth = DateTime.Now, Gender = 0 };
+        result.Add(user1);
+        return result;
+    }
+
+    private IEnumerable<string> CreatePasswords()
+    {
+        return new[] {"TestPassword123"};
+    }
+
+    private IEnumerable<Category> CreateCategories()
+    {
+        var result = new List<Category>();
+        var travel = new Category("Travel and Transportation", null);
+        result.Add(travel);
+        var lodging = new Category("Lodging", travel);
+        result.Add(lodging);
+        var hotel = new Category("Hotel", lodging);
+        result.Add(hotel);
+        return result;
+    }
+
+    private IEnumerable<Poi> CreatePois()
+    {
+        var result = new List<Poi>();
+        return result;
+    }
+
     public TestDatabaseFixture()
     {
         lock (_lock)
@@ -23,11 +57,17 @@ public class TestDatabaseFixture
                 {
                     context.Database.EnsureCreated();
                     Clear(context);
-                    var testuser = new User { UserName = "Test", NormalizedUserName = "TEST", DateOfBirth = DateTime.Now, Gender = 0 };
                     var hasher = new PasswordHasher<User>();
-                    testuser.PasswordHash = hasher.HashPassword(testuser, "TestPassword123");
-                    context.AddRange(
-                        testuser);
+                    var _users = CreateUsers();
+                    foreach (var p in Enumerable.Zip(_users, CreatePasswords()))
+                    {
+                        var hash = hasher.HashPassword(p.First, p.Second);
+                        p.First.PasswordHash = hash;
+                    }
+                    context.AddRange(_users);
+                    context.AddRange(CreateCategories());
+                    context.AddRange(CreatePois());
+                    
                     context.SaveChanges();
                 }
 
