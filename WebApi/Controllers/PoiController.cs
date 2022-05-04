@@ -230,8 +230,12 @@ public class PoiController : ControllerBase
     [Route("Category")]
     [SwaggerOperation("Search for category", "Search for categories by name")]
     [SwaggerResponse(200, "Success", typeof(string[]))]
-    public ActionResult SearchCategory([FromQuery][SwaggerParameter("Search string")] string query, [FromQuery][SwaggerParameter("Amount of results")] int limit = 50)
+    public ActionResult SearchCategory([FromQuery][SwaggerParameter("Search string")] string? query, [FromQuery][SwaggerParameter("Amount of results")] int limit = 50)
     {
+        if (query == null)
+        {
+            return Ok(_context.Categories.Select(c => c.Name));
+        }
         var categories = _context.Categories.Select(c => c.Name);
         var result = Process.ExtractSorted(query, categories, s => s, ScorerCache.Get<TokenSetScorer>());
         return Ok(result.Select(c => c.Value).Take(limit).ToArray());
