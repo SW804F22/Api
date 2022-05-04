@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,16 @@ public class TestDatabaseFixture
         result.Add(lodging);
         var hotel = new Category("Hotel", lodging);
         result.Add(hotel);
+        var dinning = new Category("Dining and Drinking", null);
+        result.Add(dinning);
+        var bar = new Category("Bar", dinning);
+        result.Add(bar);
+        var beer = new Category("Beer Bar", bar);
+        result.Add(beer);
+        var cocktail = new Category("Cocktail Bar", bar);
+        result.Add(cocktail);
+        var sportsbar = new Category("Sports Bar", bar);
+        result.Add(sportsbar);
         return result;
     }
 
@@ -55,6 +66,7 @@ public class TestDatabaseFixture
             {
                 using (var context = CreateContext())
                 {
+                    context.Database.SetCommandTimeout(60);
                     context.Database.EnsureCreated();
                     Clear(context);
                     var hasher = new PasswordHasher<User>();
