@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
@@ -45,9 +47,21 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
             PriceStep = Price.Free,
             Categories = new List<string>() { "Hotel" }
         };
+        var poi2 = new PoiDTO()
+        {
+            Title = "Café Europa",
+            Latitude = 55.678662,
+            Longitude = 12.579335,
+            Description = "",
+            Website = "http://europa1989.dk/",
+            Address = "Amagertorv 1 (Højbro Plads), 1160 København, DK",
+            PriceStep = Price.Cheap,
+            Categories = new List<string>() {"Restaurant", "Coffee Shop"}
+        };
 
         await controller.CreatePoi(poi0);
         await controller.CreatePoi(poi1);
+        await controller.CreatePoi(poi2);
     }
 
     [Fact]
@@ -282,8 +296,144 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var res = Assert.IsType<OkObjectResult>(result);
         var cats = Assert.IsType<string[]>(res.Value);
         Assert.NotEmpty(cats);
-        Assert.All(cats, c=> c.Contains("bar"));
-    } 
+        Assert.Equal(context.Categories.Count(), cats.Length);
+        Assert.Matches(new Regex("Bar"), cats.First());
+    }
 
+    [Fact]
+    [Group("Search Category")]
+    public void AllCategoriesWhenQueryNull()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+
+        var result = controller.SearchCategory(null);
+        var res = Assert.IsType<OkObjectResult>(result);
+        var cats = Assert.IsType<string[]>(res.Value);
+        Assert.NotEmpty(cats);
+        Assert.Equal(context.Categories.Count(), cats.Length);
+
+    }
+
+    [Theory]
+    [Group("Search Category")]
+    [InlineData(0)]
+    [InlineData(2)]
+    [InlineData(5)]
+    public void SearchCategoryLimitWorks(int limit)
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+
+        var result = controller.SearchCategory("bar", limit);
+        var res = Assert.IsType<OkObjectResult>(result);
+        var cats = Assert.IsType<string[]>(res.Value);
+        Assert.Equal(limit, cats.Length);
+    }
+
+    [Theory]
+    [Group("Search Category")]
+    [InlineData("")]
+    [InlineData("Test")]
+    [InlineData("Hotel")]
+    [InlineData("Bar")]
+    [InlineData("Gibberish")]
+    [InlineData("jffsgldf")]
+    public void CategorySearchAnyQueryYieldsResults(string query)
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+
+        var result = controller.SearchCategory(null);
+        var res = Assert.IsType<OkObjectResult>(result);
+        var cats = Assert.IsType<string[]>(res.Value);
+        Assert.NotEmpty(cats);
+        Assert.Equal(context.Categories.Count(), cats.Length);
+    }
+
+    [Theory]
+    [Group("Search Poi Name")]
+    [InlineData("Abs")]
+    [InlineData("Absalon")]
+    [InlineData("absalon")]
+    [InlineData("Absalon Hotel")]
+    [InlineData("bbsalom")]
+    public async Task IncrementalSearchGivesSameResult(string query)
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(controller);
+
+        var result = controller.SearchName(query);
+        var res = Assert.IsType<OkObjectResult>(result);
+        var pois = Assert.IsType<string[]>(res.Value);
+        Assert.Equal(context.Pois.Count(), pois.Length);
+        Assert.Equal("Absalon Hotel", pois.First());
+    }
+
+    [Fact]
+    [Group("Search Poi Name")]
+    public async Task SearchGibberishStillResult()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(controller);
+
+        var result = controller.SearchName("This is a test that doesn't match any poi");
+        var res = Assert.IsType<OkObjectResult>(result);
+        var pois = Assert.IsType<string[]>(res.Value);
+        Assert.Equal(context.Pois.Count(), pois.Length);
+        context.ChangeTracker.Clear();
+    }
+
+    [Fact]
+    [Group("Poi Search")]
+    public async Task SearchNameSuccess()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(controller);
+
+        var result = await controller.Search("Hotel", Enumerable.Empty<string>(), Enumerable.Empty<string>(), null, null, null, Enumerable.Empty<Price>());
+        var res = Assert.IsType<OkObjectResult>(result);
+        var pois = Assert.IsType<PoiDTO[]>(res.Value);
+        Assert.Equal(1, pois.Length);
+        context.ChangeTracker.Clear();
+    }
+
+    [Fact]
+    [Group("Poi Search")]
+    public async Task SearchCategorySuccess()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(controller);
+
+        var result = await controller.Search(null, new []{"Hotel"}, Enumerable.Empty<string>(), null, null, null, Enumerable.Empty<Price>());
+        var res = Assert.IsType<OkObjectResult>(result);
+        var pois = Assert.IsType<PoiDTO[]>(res.Value);
+        Assert.Equal(2, pois.Length);
+        context.ChangeTracker.Clear();
+    }
+    
+    [Fact]
+    [Group("Poi Search")]
+    public async Task SearchNotCategorySuccess()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new PoiController(context, new SearchService(context));
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(controller);
+
+        var result = await controller.Search(null, Enumerable.Empty<string>(), new []{"Hotel"}, null, null, null, Enumerable.Empty<Price>());
+        var res = Assert.IsType<OkObjectResult>(result);
+        var pois = Assert.IsType<PoiDTO[]>(res.Value);
+        Assert.Equal(1, pois.Length);
+        context.ChangeTracker.Clear();
+    }
 
 }

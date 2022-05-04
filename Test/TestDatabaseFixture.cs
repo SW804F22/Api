@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NuGet.DependencyResolver;
 using WebApi;
 using WebApi.Models;
 
@@ -49,6 +50,12 @@ public class TestDatabaseFixture
         result.Add(cocktail);
         var sportsbar = new Category("Sports Bar", bar);
         result.Add(sportsbar);
+        var restaurant = new Category("Restaurant", dinning);
+        result.Add(restaurant);
+        var cafe = new Category("Café", dinning);
+        result.Add(cafe);
+        var coffe = new Category("Coffee Shop", cafe);
+        result.Add(coffe);
         return result;
     }
 

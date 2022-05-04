@@ -111,17 +111,17 @@ public class PoiController : ControllerBase
             return NotFound("No Poi's matching criteria");
         }
 
-        return Ok(result.Take(limit).Select(p => new PoiDTO(p)));
+        return Ok(result.Take(limit).Select(p => new PoiDTO(p)).ToArray());
     }
     [HttpGet]
     [Route("search/name/{query}")]
-    [SwaggerOperation("Search for Poi name", "Ger suggestions on the names of pois")]
+    [SwaggerOperation("Search for Poi name", "Get suggestions on the names of pois")]
     [SwaggerResponse(200, "Success", typeof(IEnumerable<String>))]
     public ActionResult SearchName([SwaggerParameter("Search string")] string query)
     {
         var pois = _context.Pois.AsNoTracking().Select(p => p.Title).Distinct();
         var result = Process.ExtractSorted(query, pois, s => s, ScorerCache.Get<PartialTokenSetScorer>());
-        return Ok(result.Select(p => p.Value).Take(20));
+        return Ok(result.Select(p => p.Value).Take(20).ToArray());
     }
 
     /// <summary>
@@ -222,7 +222,6 @@ public class PoiController : ControllerBase
         _context.Pois.Remove(p);
         var result = await _context.SaveChangesAsync();
         if (result < 1) return BadRequest("An unexpected error occured");
-
         return Ok("Successful deletion");
     }
     
@@ -234,7 +233,7 @@ public class PoiController : ControllerBase
     {
         if (query == null)
         {
-            return Ok(_context.Categories.Select(c => c.Name));
+            return Ok(_context.Categories.Select(c => c.Name).ToArray());
         }
         var categories = _context.Categories.Select(c => c.Name);
         var result = Process.ExtractSorted(query, categories, s => s, ScorerCache.Get<TokenSetScorer>());
