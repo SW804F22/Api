@@ -56,7 +56,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
             Website = "http://europa1989.dk/",
             Address = "Amagertorv 1 (Højbro Plads), 1160 København, DK",
             PriceStep = Price.Cheap,
-            Categories = new List<string>() {"Restaurant", "Coffee Shop"}
+            Categories = new List<string>() { "Restaurant", "Coffee Shop" }
         };
 
         await controller.CreatePoi(poi0);
@@ -120,10 +120,11 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var result = await controller.CreatePoi(dto);
         Assert.IsType<NotFoundObjectResult>(result);
     }
-    
-    public static IEnumerable<object[]> Data(){
-        yield return new object[] { null};
-        yield return new object[] { new List<string>()};
+
+    public static IEnumerable<object[]> Data()
+    {
+        yield return new object[] { null };
+        yield return new object[] { new List<string>() };
     }
 
     [Theory]
@@ -192,11 +193,11 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
     {
         var context = Fixture.CreateContext();
         var controller = new PoiController(context, new SearchService(context));
-        
+
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
         var poi = context.Pois.First(p => p.Title == "Absalon Hotel");
-        
+
         var dto = new PoiDTO()
         {
             id = poi.UUID,
@@ -209,10 +210,10 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
             PriceStep = Price.Expensive,
             Categories = null
         };
-        
+
         var result = await controller.EditPoi(dto.id.Value, dto);
         Assert.IsType<OkObjectResult>(result);
-        
+
         Assert.Null(context.Pois.FirstOrDefault(p => p.Title == "Absalon Hotel"));
         Assert.NotNull(context.Pois.FirstOrDefault(p => p.Title == "Hotel Absalon"));
         Assert.NotNull(context.Pois.FirstOrDefault(p => Math.Abs(p.Latitude - 55.7) < 0.01));
@@ -221,7 +222,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         Assert.NotNull(context.Pois.FirstOrDefault(p => p.Website == "test web"));
         Assert.NotNull(context.Pois.FirstOrDefault(p => p.Address == "test address"));
         Assert.NotNull(context.Pois.FirstOrDefault(p => p.PriceStep == Price.Expensive));
-        
+
         context.ChangeTracker.Clear();
     }
 
@@ -231,7 +232,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
     {
         var context = Fixture.CreateContext();
         var controller = new PoiController(context, new SearchService(context));
-        
+
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
 
@@ -247,7 +248,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
             PriceStep = Price.Expensive,
             Categories = null
         };
-        
+
         var result = await controller.EditPoi(dto.id.Value, dto);
         Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
@@ -259,10 +260,10 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
     {
         var context = Fixture.CreateContext();
         var controller = new PoiController(context, new SearchService(context));
-        
+
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
-        
+
         var poi = context.Pois.First(p => p.Title == "Absalon Hotel");
 
         var result = await controller.DeletePoi(poi.UUID.Value);
@@ -276,7 +277,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
     {
         var context = Fixture.CreateContext();
         var controller = new PoiController(context, new SearchService(context));
-        
+
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
 
@@ -413,13 +414,13 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
 
-        var result = await controller.Search(null, new []{"Hotel"}, Enumerable.Empty<string>(), null, null, null, Enumerable.Empty<Price>());
+        var result = await controller.Search(null, new[] { "Hotel" }, Enumerable.Empty<string>(), null, null, null, Enumerable.Empty<Price>());
         var res = Assert.IsType<OkObjectResult>(result);
         var pois = Assert.IsType<PoiDTO[]>(res.Value);
         Assert.Equal(2, pois.Length);
         context.ChangeTracker.Clear();
     }
-    
+
     [Fact]
     [Group("Poi Search")]
     public async Task SearchNotCategorySuccess()
@@ -429,7 +430,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
 
-        var result = await controller.Search(null, Enumerable.Empty<string>(), new []{"Hotel"}, null, null, null, Enumerable.Empty<Price>());
+        var result = await controller.Search(null, Enumerable.Empty<string>(), new[] { "Hotel" }, null, null, null, Enumerable.Empty<Price>());
         var res = Assert.IsType<OkObjectResult>(result);
         var pois = Assert.IsType<PoiDTO[]>(res.Value);
         Assert.Equal(1, pois.Length);

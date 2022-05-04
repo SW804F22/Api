@@ -217,14 +217,14 @@ public class PoiController : ControllerBase
     [SwaggerResponse(400, "An error occurred")]
     public async Task<ActionResult> DeletePoi([SwaggerParameter("Id of PoI to delete")] Guid id)
     {
-        var p = await _context.Pois.FirstOrDefaultAsync(p=> p.UUID == id);
+        var p = await _context.Pois.FirstOrDefaultAsync(p => p.UUID == id);
         if (p == null) return NotFound($"Poi with id {id} not found");
         _context.Pois.Remove(p);
         var result = await _context.SaveChangesAsync();
         if (result < 1) return BadRequest("An unexpected error occured");
         return Ok("Successful deletion");
     }
-    
+
     [HttpGet]
     [Route("Category")]
     [SwaggerOperation("Search for category", "Search for categories by name")]
