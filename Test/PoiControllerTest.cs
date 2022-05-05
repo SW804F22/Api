@@ -521,7 +521,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
 
     [Fact]
     [Group("Search Poi")]
-    public async Task SeachNotFoundWhenNoMatch()
+    public async Task SearchNotFoundWhenNoMatch()
     {
         var context = Fixture.CreateContext();
         var controller = new PoiController(context, new SearchService(context));

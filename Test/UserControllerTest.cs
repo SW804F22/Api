@@ -188,4 +188,84 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         var result = await controller.GetCheckins(Guid.NewGuid().ToString());
         Assert.IsType<NotFoundObjectResult>(result);
     }
+
+    [Fact]
+    [Group("Visit")]
+    public async Task CreateCheckinSuccess()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new UserController(context);
+        
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(context);
+
+        var user = context.Users.First();
+        var poi = context.Pois.First();
+        var result = await controller.Visit(user.Id, poi.UUID.Value);
+        Assert.IsType<OkObjectResult>(result);
+        Assert.Equal(1, context.Checkins.Count());
+        context.ChangeTracker.Clear();
+    }
+
+    [Fact]
+    [Group("Visit")]
+    public async Task CreateCheckinNotFoundInvalidUser()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new UserController(context);
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(context);
+        var user = context.Users.First();
+        var poi = context.Pois.First();
+        var result = await controller.Visit(Guid.NewGuid().ToString(), poi.UUID.Value);
+        Assert.IsType<NotFoundObjectResult>(result);
+        context.ChangeTracker.Clear();
+    }
+    
+    [Fact]
+    [Group("Visit")]
+    public async Task CreateCheckinNotFoundInvalidPoi()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new UserController(context);
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(context);
+        var user = context.Users.First();
+        var poi = context.Pois.First();
+        var result = await controller.Visit(user.Id, Guid.NewGuid());
+        Assert.IsType<NotFoundObjectResult>(result);
+        context.ChangeTracker.Clear();
+    }
+
+    [Fact]
+    [Group("Unvisit")]
+    public async Task RemoveCheckinSuccess()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new UserController(context);
+        await context.Database.BeginTransactionAsync();
+        await CreatePois(context);
+        var user = context.Users.First();
+        var poi = context.Pois.First();
+        await controller.Visit(user.Id, poi.UUID.Value);
+
+        var checkin = context.Checkins.First();
+        var result = await controller.UnVisit(checkin.UUID);
+        Assert.IsType<OkObjectResult>(result);
+        context.ChangeTracker.Clear();
+    }
+    
+    [Fact]
+    [Group("Unvisit")]
+    public async Task RemoveCheckinNotFoundWrongId()
+    {
+        var context = Fixture.CreateContext();
+        var controller = new UserController(context);
+
+        var result = await controller.UnVisit(Guid.NewGuid());
+        Assert.IsType<NotFoundObjectResult>(result);
+
+    }
+    
+    
 }
