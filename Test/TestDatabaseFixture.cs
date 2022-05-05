@@ -21,8 +21,9 @@ public class TestDatabaseFixture
     {
         var result = new List<User>();
         var user1 = new User()
-        { UserName = "Test", NormalizedUserName = "TEST", DateOfBirth = DateTime.Now, Gender = 0 };
+        { UserName = "Test", NormalizedUserName = "TEST", DateOfBirth = DateTime.Now, Gender = Gender.Unspecified };
         result.Add(user1);
+        
         return result;
     }
 
@@ -59,12 +60,6 @@ public class TestDatabaseFixture
         return result;
     }
 
-    private IEnumerable<Poi> CreatePois()
-    {
-        var result = new List<Poi>();
-        return result;
-    }
-
     public TestDatabaseFixture()
     {
         lock (_lock)
@@ -85,7 +80,6 @@ public class TestDatabaseFixture
                     }
                     context.AddRange(_users);
                     context.AddRange(CreateCategories());
-                    context.AddRange(CreatePois());
 
                     context.SaveChanges();
                 }
