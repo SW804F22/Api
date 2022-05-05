@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Moq;
 using WebApi;
 using WebApi.Models;
+using WebApi.Services;
 
 namespace Test;
 
@@ -121,4 +124,17 @@ public class FakeUserManager : UserManager<User>
     }
 }
 
+public class MockRecommenderService : RecommenderService
+{
+    public MockRecommenderService() : base(new Mock<HttpClient>().Object)
+    {
+    }
+
+    public override Task<IEnumerable<Poi>> PostRecommendation(string user, IEnumerable<Poi> list)
+    {
+        var rng = new Random();
+        var result = list.OrderBy(a => rng.Next()).ToList();
+        return Task.FromResult(result.ToArray().AsEnumerable());
+    }
+}
 
