@@ -23,7 +23,7 @@ public class TestDatabaseFixture
         var user1 = new User()
         { UserName = "Test", NormalizedUserName = "TEST", DateOfBirth = DateTime.Now, Gender = Gender.Unspecified };
         result.Add(user1);
-        
+
         return result;
     }
 

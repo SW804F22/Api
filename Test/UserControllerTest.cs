@@ -20,7 +20,7 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
     {
         Fixture = fixture;
     }
-    
+
     private async Task CreatePois(PoiContext context)
     {
         var controller = new PoiController(context, new SearchService(context));
@@ -106,7 +106,7 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         var result = await controller.EditUser(user.Id, dto);
         Assert.IsType<OkObjectResult>(result);
         Assert.Null(context.Users.FirstOrDefault(u => u.UserName == "Test"));
-        Assert.NotNull(context.Users.FirstOrDefault(u=> u.UserName == "TestUser123"));
+        Assert.NotNull(context.Users.FirstOrDefault(u => u.UserName == "TestUser123"));
         user = context.Users.First(u => u.UserName == "TestUser123");
         Assert.Equal(Gender.Female, user.Gender);
         Assert.Equal(DateTime.MinValue, user.DateOfBirth);
@@ -157,7 +157,7 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         var result = await controller.DeleteUser(Guid.NewGuid().ToString());
         Assert.IsType<NotFoundObjectResult>(result);
     }
-    
+
     [Fact]
     [Group("Get Checkins")]
     public async Task GetCheckinsSuccess()

@@ -123,7 +123,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
 
     public static IEnumerable<object[]> Data()
     {
-        yield return new object[] { null };
+        yield return new object[] { null! };
         yield return new object[] { new List<string>() };
     }
 
@@ -445,12 +445,12 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var controller = new PoiController(context, new SearchService(context));
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
-        
+
         var result = await controller.Search(null, Enumerable.Empty<string>(), Enumerable.Empty<string>(), 55.67, 12.57, 1, Enumerable.Empty<Price>());
         var res = Assert.IsType<OkObjectResult>(result);
         var pois = Assert.IsType<PoiDTO[]>(res.Value);
         Assert.Equal(3, pois.Length);
-        
+
         context.ChangeTracker.Clear();
     }
 
@@ -462,18 +462,18 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var controller = new PoiController(context, new SearchService(context));
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
-        
-        var result = await controller.Search(null, Enumerable.Empty<string>(), Enumerable.Empty<string>(), null, null, null, new []
+
+        var result = await controller.Search(null, Enumerable.Empty<string>(), Enumerable.Empty<string>(), null, null, null, new[]
             {
                 Price.Free
             });
         var res = Assert.IsType<OkObjectResult>(result);
         var pois = Assert.IsType<PoiDTO[]>(res.Value);
         Assert.Equal(2, pois.Length);
-        
+
         context.ChangeTracker.Clear();
     }
-    
+
     [Theory]
     [Group("Search Poi")]
     [InlineData(null, 12, 0.1)]
@@ -485,7 +485,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var controller = new PoiController(context, new SearchService(context));
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
-        
+
         var result = await controller.Search(null, Enumerable.Empty<string>(), Enumerable.Empty<string>(), lat, lon, dist, Enumerable.Empty<Price>());
         Assert.IsType<BadRequestObjectResult>(result);
         context.ChangeTracker.Clear();
@@ -499,12 +499,12 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var controller = new PoiController(context, new SearchService(context));
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
-        
-        var result = await controller.Search(null, Enumerable.Empty<string>(), new []{"This is not a category"}, null, null, null, Enumerable.Empty<Price>());
+
+        var result = await controller.Search(null, Enumerable.Empty<string>(), new[] { "This is not a category" }, null, null, null, Enumerable.Empty<Price>());
         Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
     }
-    
+
     [Fact]
     [Group("Search Poi")]
     public async Task SearchNotFoundWhenWrongCategories()
@@ -513,8 +513,8 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var controller = new PoiController(context, new SearchService(context));
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
-        
-        var result = await controller.Search(null, new []{"This is not a category"}, Enumerable.Empty<string>(), null, null, null, Enumerable.Empty<Price>());
+
+        var result = await controller.Search(null, new[] { "This is not a category" }, Enumerable.Empty<string>(), null, null, null, Enumerable.Empty<Price>());
         Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
     }
@@ -527,7 +527,7 @@ public class PoiControllerTest : IClassFixture<TestDatabaseFixture>
         var controller = new PoiController(context, new SearchService(context));
         await context.Database.BeginTransactionAsync();
         await CreatePois(controller);
-        
+
         var result = await controller.Search("This is a test and should not match", Enumerable.Empty<string>(), Enumerable.Empty<string>(), null, null, null, Enumerable.Empty<Price>());
         Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
