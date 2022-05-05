@@ -28,8 +28,8 @@ public class AuthenticationControllerTest : IClassFixture<TestDatabaseFixture>
     {
         Fixture = fixture;
     }
-    
-    
+
+
 
     [Fact]
     [Group("Login")]

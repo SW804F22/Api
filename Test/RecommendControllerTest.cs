@@ -20,7 +20,7 @@ public class RecommendControllerTest : IClassFixture<TestDatabaseFixture>
     {
         Fixture = fixture;
     }
-    
+
     private async Task CreatePois(PoiController controller)
     {
         var poi0 = new PoiDTO()
@@ -81,7 +81,7 @@ public class RecommendControllerTest : IClassFixture<TestDatabaseFixture>
         var result = await controller.Recommend(rec);
         var res = Assert.IsType<OkObjectResult>(result);
         var pois = Assert.IsType<Poi[]>(res.Value);
-        Assert.Equal(3,pois.Length);
+        Assert.Equal(3, pois.Length);
         context.ChangeTracker.Clear();
     }
 
@@ -101,7 +101,7 @@ public class RecommendControllerTest : IClassFixture<TestDatabaseFixture>
             UserID = Guid.NewGuid().ToString()
         };
         var result = await controller.Recommend(rec);
-        var res = Assert.IsType<NotFoundObjectResult>(result);
+        Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
     }
 
@@ -122,11 +122,11 @@ public class RecommendControllerTest : IClassFixture<TestDatabaseFixture>
             UserID = user.Id
         };
         var result = await controller.Recommend(rec);
-        var res = Assert.IsType<NotFoundObjectResult>(result);
+        Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
     }
-    
-    
-    
+
+
+
 
 }

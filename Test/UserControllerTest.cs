@@ -195,7 +195,7 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
     {
         var context = Fixture.CreateContext();
         var controller = new UserController(context);
-        
+
         await context.Database.BeginTransactionAsync();
         await CreatePois(context);
 
@@ -215,13 +215,12 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         var controller = new UserController(context);
         await context.Database.BeginTransactionAsync();
         await CreatePois(context);
-        var user = context.Users.First();
         var poi = context.Pois.First();
         var result = await controller.Visit(Guid.NewGuid().ToString(), poi.UUID.Value);
         Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
     }
-    
+
     [Fact]
     [Group("Visit")]
     public async Task CreateCheckinNotFoundInvalidPoi()
@@ -231,7 +230,6 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         await context.Database.BeginTransactionAsync();
         await CreatePois(context);
         var user = context.Users.First();
-        var poi = context.Pois.First();
         var result = await controller.Visit(user.Id, Guid.NewGuid());
         Assert.IsType<NotFoundObjectResult>(result);
         context.ChangeTracker.Clear();
@@ -254,7 +252,7 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         Assert.IsType<OkObjectResult>(result);
         context.ChangeTracker.Clear();
     }
-    
+
     [Fact]
     [Group("Unvisit")]
     public async Task RemoveCheckinNotFoundWrongId()
@@ -266,6 +264,6 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         Assert.IsType<NotFoundObjectResult>(result);
 
     }
-    
-    
+
+
 }
