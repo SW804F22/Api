@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Drawing.Printing;
 using Microsoft.OpenApi.Any;
 using Microsoft.OpenApi.Models;
@@ -5,6 +6,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace WebApi.Models;
 
+[ExcludeFromCodeCoverage]
 public class SwaggerSchemaExampleFilter : ISchemaFilter
 {
     public void Apply(OpenApiSchema schema, SchemaFilterContext context)

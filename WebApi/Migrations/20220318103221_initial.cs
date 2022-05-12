@@ -1,10 +1,13 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿
 
 #nullable disable
 
+using System;
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebApi.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

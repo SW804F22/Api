@@ -111,17 +111,17 @@ public class PoiController : ControllerBase
             return NotFound("No Poi's matching criteria");
         }
 
-        return Ok(result.Take(limit).Select(p => new PoiDTO(p)));
+        return Ok(result.Take(limit).Select(p => new PoiDTO(p)).ToArray());
     }
     [HttpGet]
     [Route("search/name/{query}")]
-    [SwaggerOperation("Search for Poi name", "Ger suggestions on the names of pois")]
+    [SwaggerOperation("Search for Poi name", "Get suggestions on the names of pois")]
     [SwaggerResponse(200, "Success", typeof(IEnumerable<String>))]
     public ActionResult SearchName([SwaggerParameter("Search string")] string query)
     {
         var pois = _context.Pois.AsNoTracking().Select(p => p.Title).Distinct();
         var result = Process.ExtractSorted(query, pois, s => s, ScorerCache.Get<PartialTokenSetScorer>());
-        return Ok(result.Select(p => p.Value).Take(20));
+        return Ok(result.Select(p => p.Value).Take(20).ToArray());
     }
 
     /// <summary>
@@ -133,8 +133,7 @@ public class PoiController : ControllerBase
     private async Task<Poi> FromDTO(PoiDTO dto)
     {
         var p = new Poi(dto.Title, dto.Latitude, dto.Longitude, dto.Description, dto.Website, dto.Address, dto.PriceStep);
-
-        if (dto.Categories == null) throw new InvalidDataException();
+        // Categories cannot be null because it is checked before method is called
         foreach (var cat in dto.Categories)
             try
             {
@@ -192,7 +191,7 @@ public class PoiController : ControllerBase
     [SwaggerResponse(200, "Update success")]
     [SwaggerResponse(404, "PoI not found")]
     [SwaggerResponse(409, "Cannot update")]
-    public async Task<ActionResult> EditPoi([SwaggerParameter("Id of PoI to update")] Guid id, [FromBody][SwaggerRequestBody("DTO object containing information to update")] Poi poi)
+    public async Task<ActionResult> EditPoi([SwaggerParameter("Id of PoI to update")] Guid id, [FromBody][SwaggerRequestBody("DTO object containing information to update")] PoiDTO poi)
     {
         var p = await _context.Pois.FindAsync(id);
         if (p == null) return NotFound($"Poi with id {id} not found");
@@ -202,6 +201,9 @@ public class PoiController : ControllerBase
         p.Latitude = poi.Latitude;
         p.Longitude = poi.Longitude;
         p.Description = poi.Description;
+        p.Website = poi.Website;
+        p.Address = poi.Address;
+        p.PriceStep = poi.PriceStep;
         var result = await _context.SaveChangesAsync();
         if (result != 1) return Conflict("An error occurred while updating");
 
@@ -215,15 +217,14 @@ public class PoiController : ControllerBase
     [SwaggerResponse(400, "An error occurred")]
     public async Task<ActionResult> DeletePoi([SwaggerParameter("Id of PoI to delete")] Guid id)
     {
-        var p = await _context.Pois.FindAsync(id);
+        var p = await _context.Pois.FirstOrDefaultAsync(p => p.UUID == id);
         if (p == null) return NotFound($"Poi with id {id} not found");
-
         _context.Pois.Remove(p);
         var result = await _context.SaveChangesAsync();
-        if (result != 1) return BadRequest("An unexpected error occured");
-
+        if (result < 1) return BadRequest("An unexpected error occured");
         return Ok("Successful deletion");
     }
+
     [HttpGet]
     [Route("Category")]
     [SwaggerOperation("Search for category", "Search for categories by name")]
@@ -232,10 +233,10 @@ public class PoiController : ControllerBase
     {
         if (query == null)
         {
-            return Ok(_context.Categories.Select(c => c.Name));
+            return Ok(_context.Categories.Select(c => c.Name).ToArray());
         }
         var categories = _context.Categories.Select(c => c.Name);
         var result = Process.ExtractSorted(query, categories, s => s, ScorerCache.Get<TokenSetScorer>());
-        return Ok(result.Select(c => c.Value).Take(limit));
+        return Ok(result.Select(c => c.Value).Take(limit).ToArray());
     }
 }

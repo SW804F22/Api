@@ -1,9 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿
 
 #nullable disable
 
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.EntityFrameworkCore.Migrations;
 namespace WebApi.Migrations
 {
+    [ExcludeFromCodeCoverage]
     public partial class poi_with_address : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)

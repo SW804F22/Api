@@ -36,8 +36,6 @@ public class AuthenticationController : ControllerBase
         {
             return NotFound("User not found");
         }
-
-
     }
 
     [Route("Register")]
@@ -72,7 +70,6 @@ public class AuthenticationController : ControllerBase
         {
             return NotFound("User not found");
         }
-
         var res = await _authenticationService.ChangePassword(user, obj.OldPassword, obj.NewPassword);
         if (res.Succeeded)
         {
