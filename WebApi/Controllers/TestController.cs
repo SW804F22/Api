@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers;
@@ -26,3 +26,4 @@ public class TestController : ControllerBase
         return Ok(e.SubCategories);
     }
 }
+*/
