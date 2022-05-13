@@ -1,25 +1,14 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
 using System.Threading.Tasks;
-using Duende.IdentityServer.Services;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Moq;
-using NuGet.Protocol;
 using WebApi;
 using WebApi.Controllers;
 using WebApi.Models;
+using WebApi.Models.DTOs;
 using WebApi.Services;
 using Xunit;
-using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
+
 
 namespace Test;
 
@@ -40,7 +29,10 @@ public class AuthenticationControllerTest : IClassFixture<TestDatabaseFixture>
         Fixture = fixture;
     }
 
+
+
     [Fact]
+    [Group("Login")]
     public async Task CanLogIn()
     {
         var controller = Arrange(Fixture.CreateContext());
@@ -58,6 +50,7 @@ public class AuthenticationControllerTest : IClassFixture<TestDatabaseFixture>
     [InlineData("wrongusername", "TestPassword123")]
     [InlineData("Test", "WrongPassword123")]
     [InlineData("WrongUsername", "WrongPassword123")]
+    [Group("Login")]
     public async Task LoginFails(string username, string password)
     {
         var controller = Arrange(Fixture.CreateContext());
@@ -67,6 +60,7 @@ public class AuthenticationControllerTest : IClassFixture<TestDatabaseFixture>
     }
 
     [Fact]
+    [Group("Register")]
     public async Task CanCreateNewUser()
     {
         var context = Fixture.CreateContext();
@@ -78,7 +72,78 @@ public class AuthenticationControllerTest : IClassFixture<TestDatabaseFixture>
         context.ChangeTracker.Clear();
 
         var result = await controller.Register(reg);
-        Assert.IsType<CreatedResult>(result);
+        var res = Assert.IsType<CreatedResult>(result);
+        var user = Assert.IsType<UserDTO>(res.Value);
+        Assert.NotNull(context.Users.First(u => u.Id == user.Id));
     }
 
+    [Theory]
+    [InlineData("testpassword123")]
+    [InlineData("TESTPASSWORD123")]
+    [InlineData("TestPassword")]
+    [InlineData("Test123")]
+    [Group("Register")]
+    public async Task RegisterFailsWhenPasswordNotValid(string password)
+    {
+        var context = Fixture.CreateContext();
+        var controller = Arrange(context);
+
+        var reg = new Register("TestUser", password, DateTime.Today, 0);
+
+        var result = await controller.Register(reg);
+        Assert.IsType<BadRequestObjectResult>(result);
+    }
+
+
+    [Fact]
+    [Group("Change password")]
+    public async Task ChangePasswordSuccess()
+    {
+        var context = Fixture.CreateContext();
+        var controller = Arrange(context);
+
+        var user = context.Users.First(u => u.UserName == "Test");
+        var pwd = new ChangePasswordDTO() { OldPassword = "TestPassword123", NewPassword = "TestPassword321" };
+        await context.Database.BeginTransactionAsync();
+        var result = await controller.ChangePassword(user.Id, pwd);
+
+        var res = Assert.IsType<OkObjectResult>(result);
+        Assert.Equal(200, res.StatusCode);
+        Assert.Equal("Password changed successful", res.Value);
+
+        var oldLogin = await controller.Login(new Login("Test", "TestPassword123"));
+        Assert.IsNotType<OkObjectResult>(oldLogin);
+
+        var newLogin = await controller.Login(new Login("Test", "TestPassword321"));
+        Assert.IsType<OkObjectResult>(newLogin);
+        context.ChangeTracker.Clear();
+    }
+    [Fact]
+    [Group("Change password")]
+    public async Task ChangePasswordFailsWhenWrongUser()
+    {
+        var context = Fixture.CreateContext();
+        var controller = Arrange(context);
+
+        var userid = Guid.NewGuid();
+        var pwd = new ChangePasswordDTO() { OldPassword = "Test", NewPassword = "Teeeest" };
+
+        var result = await controller.ChangePassword(userid.ToString(), pwd);
+        Assert.IsType<NotFoundObjectResult>(result);
+    }
+
+    [Fact]
+    [Group("Change password")]
+    public async Task ChangePasswordFailsWithWrongPassword()
+    {
+        var context = Fixture.CreateContext();
+        var controller = Arrange(context);
+
+        var user = context.Users.First(u => u.UserName == "Test");
+        var pwd = new ChangePasswordDTO() { OldPassword = "VeryWrongPassword", NewPassword = "TestPassword321" };
+
+        var result = await controller.ChangePassword(user.Id, pwd);
+        Assert.IsNotType<OkObjectResult>(result);
+
+    }
 }

@@ -58,7 +58,7 @@ public class UserController : ControllerBase
 
         if (save == 1)
         {
-            return Ok();
+            return Ok("Update success");
         }
 
         return BadRequest("Something went wrong");
@@ -80,7 +80,7 @@ public class UserController : ControllerBase
 
         var delete = await _context.SaveChangesAsync();
 
-        if (delete == 1)
+        if (delete >= 1)
         {
             return Ok("Delete successful");
         }
@@ -98,7 +98,7 @@ public class UserController : ControllerBase
         try
         {
             var user = await _context.Users.Include(u => u.Checkins).ThenInclude(c => c.Point).FirstAsync(u => u.Id == id);
-            return Ok(user.Checkins);
+            return Ok(user.Checkins.ToArray());
         }
         catch (InvalidOperationException)
         {

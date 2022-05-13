@@ -1,4 +1,7 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Moq;
 using WebApi;
 using WebApi.Models;
+using WebApi.Services;
 
 namespace Test;
 
@@ -90,6 +94,47 @@ public class FakeUserManager : UserManager<User>
             return IdentityResult.Failed();
         }
     }
+
+    public override Task<User> FindByIdAsync(string userId)
+    {
+        return _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
+    }
+
+    public override async Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword)
+    {
+        var validator = new PasswordValidator<User>();
+        var val = await validator.ValidateAsync(this, user, newPassword);
+        if (val.Succeeded)
+        {
+            var hasher = new PasswordHasher<User>();
+            var verify = hasher.VerifyHashedPassword(user, user.PasswordHash, currentPassword);
+            if (verify == PasswordVerificationResult.Success)
+            {
+                var hash = hasher.HashPassword(user, newPassword);
+                _context.Update(user);
+                user.PasswordHash = hash;
+                var res = await _context.SaveChangesAsync();
+                if (res == 1)
+                {
+                    return IdentityResult.Success;
+                }
+            }
+        }
+        return IdentityResult.Failed();
+    }
 }
 
+public class MockRecommenderService : RecommenderService
+{
+    public MockRecommenderService() : base(new Mock<HttpClient>().Object)
+    {
+    }
+
+    public override Task<IEnumerable<Poi>> PostRecommendation(string user, IEnumerable<Poi> list)
+    {
+        var rng = new Random();
+        var result = list.OrderBy(a => rng.Next()).ToList();
+        return Task.FromResult(result.ToArray().AsEnumerable());
+    }
+}
 

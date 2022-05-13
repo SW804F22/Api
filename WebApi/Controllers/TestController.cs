@@ -1,10 +1,14 @@
-/*using Microsoft.AspNetCore.Mvc;
+/*
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace WebApi.Controllers;
 
 //[ApiController]
 [Route("[controller]")]
+[ExcludeFromCodeCoverage]
 public class TestController : ControllerBase
 {
     private readonly PoiContext _context;

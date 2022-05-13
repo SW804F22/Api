@@ -12,7 +12,7 @@ public class RecommenderService
         _httpClient = httpClient;
         _httpClient.BaseAddress = new Uri(address);
     }
-    public async Task<IEnumerable<Poi>> PostRecommendation(string user, IEnumerable<Poi> list)
+    public virtual async Task<IEnumerable<Poi>> PostRecommendation(string user, IEnumerable<Poi> list)
     {
         var json = JsonConvert.SerializeObject(list);
         var data = new StringContent(json, Encoding.UTF8, "application/json");

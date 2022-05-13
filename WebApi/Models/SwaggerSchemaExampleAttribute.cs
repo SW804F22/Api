@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace WebApi.Models;
 
 [AttributeUsage(
@@ -6,6 +8,7 @@ namespace WebApi.Models;
     AttributeTargets.Parameter |
     AttributeTargets.Property |
     AttributeTargets.Enum)]
+[ExcludeFromCodeCoverage]
 public class SwaggerSchemaExampleAttribute : Attribute
 {
     public SwaggerSchemaExampleAttribute(string example)
