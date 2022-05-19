@@ -174,7 +174,7 @@ public class UserControllerTest : IClassFixture<TestDatabaseFixture>
         var result = await controller.GetCheckins(user.Id);
         var res = Assert.IsType<OkObjectResult>(result);
         var checkins = Assert.IsType<Checkin[]>(res.Value);
-        Assert.Equal(1, checkins.Length);
+        Assert.Single(checkins);
         context.ChangeTracker.Clear();
     }
 

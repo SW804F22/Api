@@ -135,7 +135,7 @@ public class MockRecommenderService : RecommenderService
     {
         var rng = new Random();
         var result = list.OrderBy(a => rng.Next()).ToList();
-        return Task.FromResult(result.Select(p=> new PoiDTO(p)).ToArray().AsEnumerable());
+        return Task.FromResult(result.Select(p => new PoiDTO(p)).ToArray().AsEnumerable());
     }
 }
 

@@ -16,7 +16,7 @@ public class RecommenderService
     }
     public virtual async Task<IEnumerable<PoiDTO>> PostRecommendation(string user, IEnumerable<Poi> list)
     {
-        var json = JsonConvert.SerializeObject(list.Select(p=> new PoiDTO(p)));
+        var json = JsonConvert.SerializeObject(list.Select(p => new PoiDTO(p)));
         var data = new StringContent(json, Encoding.UTF8, "application/json");
         var response = await _httpClient.PostAsync($"recommend/{user}", data);
         response = response.EnsureSuccessStatusCode();
