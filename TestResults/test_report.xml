@@ -1,1056 +1,367 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Root CoveredStatements="501" TotalStatements="592" CoveragePercent="85" ReportType="DetailedXml" DotCoverVersion="2022.1.1">
-  <FileIndices>
-    <File Index="1" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Controllers/AuthenticationController.cs" ChecksumAlgorithm="SHA256" Checksum="A906CD32C137AF091327A03B74D885CF3BF388554BC10B1E58D21D97854C7B8B" />
-    <File Index="2" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Controllers/PoiController.cs" ChecksumAlgorithm="SHA256" Checksum="C0EB5A5C460C3B00BA062ECB66DF836AF690E3E590D3DA5CB12FC58EDBE1CF07" />
-    <File Index="3" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Controllers/RecommendController.cs" ChecksumAlgorithm="SHA256" Checksum="D89EFCFA65261DF3505A45AE1C40C990A2322D4B126AB4AECF991AE1DC35D883" />
-    <File Index="4" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Controllers/TestController.cs" ChecksumAlgorithm="SHA256" Checksum="BFA6E973EB6B500E4F574C71C3D7F77016D352683DB7DD3439A72458172A8F36" />
-    <File Index="5" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Controllers/UserController.cs" ChecksumAlgorithm="SHA256" Checksum="1725FCA5C68C59B2A00B9BBF7418AA0D0C87DB210BACDD9C3F0BCD15C866BB10" />
-    <File Index="6" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Migrations/20220318103221_initial.cs" ChecksumAlgorithm="SHA256" Checksum="E842AF887AE75F015B02EB1548153C31B0AFC5B73211E9A613A701D0E81CF4B1" />
-    <File Index="7" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Migrations/20220318103221_initial.Designer.cs" ChecksumAlgorithm="SHA256" Checksum="0E24E29B460BE405131443884951EDD12B6DEFAE91F68C5A6A28B8B0EF1D7B3D" />
-    <File Index="8" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Migrations/20220321141847_update_poi.cs" ChecksumAlgorithm="SHA256" Checksum="7611D15B6901AF35860E0242FA7B6AFFAD2A17D29584B770FA734AAFB15B1A7E" />
-    <File Index="9" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Migrations/20220321141847_update_poi.Designer.cs" ChecksumAlgorithm="SHA256" Checksum="6FFE3ECF35841818AD1C4A987770E107C081CD5BA750930F407CFFE8B626ACB0" />
-    <File Index="10" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Migrations/20220322103020_poi_with_address.cs" ChecksumAlgorithm="SHA256" Checksum="B841B00C6DBD7359FCAAAA3F9A747E1BD31F6B8D5B144F3213D86EB83CC565EE" />
-    <File Index="11" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Migrations/20220322103020_poi_with_address.Designer.cs" ChecksumAlgorithm="SHA256" Checksum="CC10956813FF2F2E6040A76FF7D24DE01DB5583EC145EC3E599DB911DD99933F" />
-    <File Index="12" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Migrations/PoiContextModelSnapshot.cs" ChecksumAlgorithm="SHA256" Checksum="63E5C38045D65CE010AA51AC2C352D8AC93CA5447ADB1017103F7A91BC8F8E89" />
-    <File Index="13" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/Category.cs" ChecksumAlgorithm="SHA256" Checksum="23A8C7FFB0D465A80D21666305F54C68F85731FCAB53F98BC62F179732FEC9EB" />
-    <File Index="14" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/Checkin.cs" ChecksumAlgorithm="SHA256" Checksum="73DCD88D614B204C587128E54797BDD5411CEAFB1A6054B4052E012FA3F95573" />
-    <File Index="15" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/DTOs/ChangePasswordDTO.cs" ChecksumAlgorithm="SHA256" Checksum="A95CFBF6905FA23D69E4425AF85EA2AE2479826807C9DD8618ADA1C3ED86A77D" />
-    <File Index="16" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/DTOs/LoginDTO.cs" ChecksumAlgorithm="SHA256" Checksum="9A9532DAE34C56FE58EE790FDABDC71613B106C00030E2B7110744319E4825AC" />
-    <File Index="17" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/DTOs/PoiDTO.cs" ChecksumAlgorithm="SHA256" Checksum="5A36CE2D40B63C24FB9A6C5B18B258A05E00CCDC88A49B4BB90046D20E35EE4C" />
-    <File Index="18" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/DTOs/RecommedDTO.cs" ChecksumAlgorithm="SHA256" Checksum="A53088E34EDB18874DBB403CFC3C880C37D15CA6AE5946968978BF98E4C76A15" />
-    <File Index="19" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/DTOs/RegisterDTO.cs" ChecksumAlgorithm="SHA256" Checksum="188C291F64BF024B59DFF48AE9ADF5D3CB23DF135C79EE83C6BA2042C954A94A" />
-    <File Index="20" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/DTOs/UserDTO.cs" ChecksumAlgorithm="SHA256" Checksum="1F06ABB993728938DB12114EC777A8014BF353CACBCCD4FBC4913DF99EBEF2FE" />
-    <File Index="21" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/Poi.cs" ChecksumAlgorithm="SHA256" Checksum="76500BFF78726024DF864E4EA811CF9F403B7AE77C3A202FE80963C37DD5A587" />
-    <File Index="22" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/SwaggerSchemaExampleAttribute.cs" ChecksumAlgorithm="SHA256" Checksum="B9A53CE07B02FC3F65B4FF01581E895211C4C64E043E2E694A63E0E3CD53DDD7" />
-    <File Index="23" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/SwaggerSchemaExampleFilter.cs" ChecksumAlgorithm="SHA256" Checksum="CD90CECABAC6B6D021E1B57748CB93EE17541C330195B84F653AAC793EAEAC0D" />
-    <File Index="24" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Models/User.cs" ChecksumAlgorithm="SHA256" Checksum="E6B58A7C6056EBC7C91A7429DC12A873E84D2AE2C5BEF54DCE56F5B5FE3A3E3A" />
-    <File Index="25" Name="/mnt/Data/RiderProjects/WebApi/WebApi/PoiContext.cs" ChecksumAlgorithm="SHA256" Checksum="EB3DE57C75521791EB8FCCF38ACD457B0D5CB95248D4AE6412F226F0B344BEE7" />
-    <File Index="26" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Program.cs" ChecksumAlgorithm="SHA256" Checksum="8203004F769F25F0F211DE5EBC750F8FF0421E8A19947C4583CFBC25BE375685" />
-    <File Index="27" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Services/AuthenticateService.cs" ChecksumAlgorithm="SHA256" Checksum="38F70692E8E344C93E83245F193EE82FC9FBC3BA24383EE1B4F2762E0BB22FB5" />
-    <File Index="28" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Services/RecommenderService.cs" ChecksumAlgorithm="SHA256" Checksum="660E8990CBC3A760229127A00ABB7B9ACBE4A2519F9651125541624125E14EB8" />
-    <File Index="29" Name="/mnt/Data/RiderProjects/WebApi/WebApi/Services/SearchService.cs" ChecksumAlgorithm="SHA256" Checksum="985A9DD27AB980F20672DA77C3A4FB20831BA3B79192D1388EF79568E4054C2E" />
-    <File Index="30" Name="/mnt/Data/RiderProjects/WebApi/WebApi/obj/Debug/net6.0/WebApi.GlobalUsings.g.cs" ChecksumAlgorithm="SHA256" Checksum="CCD39F62D91A1F67C3525178C0131DFFF718B35C5E58BEB14F6A80827F21EAD1" />
-    <File Index="31" Name="/mnt/Data/RiderProjects/WebApi/WebApi/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" ChecksumAlgorithm="SHA256" Checksum="1B52E6E7B0366EDD343E8FF595132040B1A28FB88B5C0213CE840AD95CD98C80" />
-    <File Index="32" Name="/mnt/Data/RiderProjects/WebApi/WebApi/obj/Debug/net6.0/WebApi.AssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="FC7D8B4851C62D14EC18C66C447FA690B7DFF6AE5D8F82857F0F05555D9B566F" />
-    <File Index="33" Name="/mnt/Data/RiderProjects/WebApi/WebApi/obj/Debug/net6.0/WebApi.MvcApplicationPartsAssemblyInfo.cs" ChecksumAlgorithm="SHA256" Checksum="ED211955DC3164533F67603F695406899A75CCAC886760C7FCF1F872E3EF4277" />
-  </FileIndices>
-  <Assembly Name="WebApi" CoveredStatements="501" TotalStatements="592" CoveragePercent="85">
-    <Namespace Name="WebApi" CoveredStatements="20" TotalStatements="21" CoveragePercent="95">
+<SolutionRoot CoveredStatements="501" TotalStatements="592" CoveragePercent="85" ReportType="Xml" DotCoverVersion="2022.1.1">
+  <Project Name="WebApi" CoveredStatements="501" TotalStatements="592" CoveragePercent="85">
+    <Namespace Name="WebApi" CoveredStatements="501" TotalStatements="533" CoveragePercent="94">
+      <Namespace Name="Controllers" CoveredStatements="265" TotalStatements="272" CoveragePercent="97">
+        <Type Name="AuthenticationController" CoveredStatements="30" TotalStatements="30" CoveragePercent="100">
+          <Constructor Name="AuthenticationController(AuthenticateService)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Method Name="ChangePassword(string,ChangePasswordDTO):Task&lt;ActionResult&gt;" CoveredStatements="11" TotalStatements="11" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="11" TotalStatements="11" CoveragePercent="100" />
+          </Method>
+          <Method Name="Login(Login):Task&lt;ActionResult&gt;" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+          </Method>
+          <Method Name="Register(Register):Task&lt;ActionResult&gt;" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="PoiController" CoveredStatements="141" TotalStatements="144" CoveragePercent="98">
+          <Constructor Name="PoiController(PoiContext,SearchService)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <Method Name="CreatePoi(PoiDTO):Task&lt;ActionResult&gt;" CoveredStatements="19" TotalStatements="20" CoveragePercent="95">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="19" TotalStatements="20" CoveragePercent="95" />
+          </Method>
+          <Method Name="DeletePoi(Guid):Task&lt;ActionResult&gt;" CoveredStatements="9" TotalStatements="10" CoveragePercent="90">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="9" TotalStatements="10" CoveragePercent="90" />
+          </Method>
+          <Method Name="EditPoi(Guid,PoiDTO):Task&lt;ActionResult&gt;" CoveredStatements="16" TotalStatements="17" CoveragePercent="94">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="16" TotalStatements="17" CoveragePercent="94" />
+          </Method>
+          <Method Name="FromDTO(PoiDTO):Task&lt;Poi&gt;" CoveredStatements="21" TotalStatements="21" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="21" TotalStatements="21" CoveragePercent="100" />
+          </Method>
+          <Method Name="GetPoi(Guid):Task&lt;ActionResult&gt;" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+          </Method>
+          <Method Name="Search(string,IEnumerable&lt;string&gt;,IEnumerable&lt;string&gt;,Nullable&lt;double&gt;,Nullable&lt;double&gt;,Nullable&lt;double&gt;,IEnumerable&lt;Price&gt;,int):Task&lt;IActionResult&gt;" CoveredStatements="46" TotalStatements="46" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="46" TotalStatements="46" CoveragePercent="100" />
+          </Method>
+          <Method Name="SearchCategory(string,int):ActionResult" CoveredStatements="10" TotalStatements="10" CoveragePercent="100">
+            <OwnCoverage CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+            <AnonymousMethod Name="(string):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <AnonymousMethod Name="(ExtractedResult&lt;string&gt;):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </Method>
+          <Method Name="SearchName(string):ActionResult" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+            <OwnCoverage CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+            <AnonymousMethod Name="(string):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <AnonymousMethod Name="(ExtractedResult&lt;string&gt;):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="RecommendController" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
+          <Constructor Name="RecommendController(RecommenderService,SearchService,PoiContext)" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <Method Name="Recommend(Recommend):Task&lt;ActionResult&gt;" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="12" TotalStatements="12" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="UserController" CoveredStatements="76" TotalStatements="80" CoveragePercent="95">
+          <Constructor Name="UserController(PoiContext)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Method Name="DeleteUser(string):Task&lt;ActionResult&gt;" CoveredStatements="11" TotalStatements="12" CoveragePercent="92">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="11" TotalStatements="12" CoveragePercent="92" />
+          </Method>
+          <Method Name="EditUser(string,UserDTO):Task&lt;ActionResult&gt;" CoveredStatements="17" TotalStatements="18" CoveragePercent="94">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="17" TotalStatements="18" CoveragePercent="94" />
+          </Method>
+          <Method Name="GetCheckins(string):Task&lt;ActionResult&gt;" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+          </Method>
+          <Method Name="GetUser(string):Task&lt;ActionResult&gt;" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          </Method>
+          <Method Name="UnVisit(Guid):Task&lt;ActionResult&gt;" CoveredStatements="11" TotalStatements="12" CoveragePercent="92">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="11" TotalStatements="12" CoveragePercent="92" />
+          </Method>
+          <Method Name="Visit(string,Guid):Task&lt;ActionResult&gt;" CoveredStatements="18" TotalStatements="19" CoveragePercent="95">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="18" TotalStatements="19" CoveragePercent="95" />
+          </Method>
+        </Type>
+      </Namespace>
+      <Namespace Name="Models" CoveredStatements="179" TotalStatements="193" CoveragePercent="93">
+        <Namespace Name="DTOs" CoveredStatements="65" TotalStatements="65" CoveragePercent="100">
+          <Type Name="ChangePasswordDTO" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
+            <Constructor Name="ChangePasswordDTO()" CoveredStatements="2" TotalStatements="2" CoveragePercent="100" />
+            <AutoProperty Name="NewPassword:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="OldPassword:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+          </Type>
+          <Type Name="PoiDTO" CoveredStatements="47" TotalStatements="47" CoveragePercent="100">
+            <Constructor Name="PoiDTO(Poi)" CoveredStatements="19" TotalStatements="19" CoveragePercent="100">
+              <OwnCoverage CoveredStatements="18" TotalStatements="18" CoveragePercent="100" />
+              <AnonymousMethod Name="(Category):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </Constructor>
+            <Constructor Name="PoiDTO()" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+            <AutoProperty Name="Address:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Categories:List&lt;string&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Description:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="id:Nullable&lt;Guid&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Latitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Longitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="PriceStep:Price" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Title:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Website:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+          </Type>
+          <Type Name="Recommend" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
+            <Constructor Name="Recommend()" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+            <AutoProperty Name="Latitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Longitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Range:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="UserID:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+          </Type>
+        </Namespace>
+        <Type Name="Category" CoveredStatements="13" TotalStatements="19" CoveragePercent="68">
+          <Constructor Name="Category()" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Constructor Name="Category(string,Category)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <AutoProperty Name="Id:int" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="Locations:ICollection&lt;Poi&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="Name:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Parent:Category" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="SubCategories:ICollection&lt;Category&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Checkin" CoveredStatements="10" TotalStatements="16" CoveragePercent="63">
+          <Constructor Name="Checkin()" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+          <Constructor Name="Checkin(Poi,DateTime)" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <AutoProperty Name="Point:Poi" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Timestamp:DateTime" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="UUID:Guid" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Login" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
+          <Constructor Name="Login(string,string)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <AutoProperty Name="Password:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Username:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Poi" CoveredStatements="46" TotalStatements="47" CoveragePercent="98">
+          <Constructor Name="Poi()" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+          <Constructor Name="Poi(string,double,double,string,string,string,Price)" CoveredStatements="19" TotalStatements="19" CoveragePercent="100" />
+          <AutoProperty Name="Address:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Categories:ICollection&lt;Category&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Description:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Latitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Longitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="PriceStep:Price" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Title:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="UUID:Nullable&lt;Guid&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Website:string" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Register" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
+          <Constructor Name="Register(string,string,DateTime,Gender)" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          <AutoProperty Name="DateOfBirth:DateTime" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Gender:Gender" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Password:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Username:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="User" CoveredStatements="6" TotalStatements="7" CoveragePercent="86">
+          <Constructor Name="User()" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <AutoProperty Name="Checkins:ICollection&lt;Checkin&gt;" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="DateOfBirth:Nullable&lt;DateTime&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Gender:Gender" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="UserDTO" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
+          <Constructor Name="UserDTO(User)" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          <AutoProperty Name="DateOfBirth:DateTime" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Gender:Gender" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Id:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="UserName:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+      </Namespace>
+      <Namespace Name="Services" CoveredStatements="37" TotalStatements="47" CoveragePercent="79">
+        <Type Name="AuthenticateService" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
+          <Constructor Name="AuthenticateService(SignInManager&lt;User&gt;,UserManager&lt;User&gt;)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <Method Name="ChangePassword(User,string,string):Task&lt;IdentityResult&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+          </Method>
+          <Method Name="FindUser(string):Task&lt;User&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+          </Method>
+          <Method Name="Login(string,string):Task&lt;ValueTuple&lt;SignInResult,User&gt;&gt;" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          </Method>
+          <Method Name="Register(User,string):Task&lt;IdentityResult&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="RecommenderService" CoveredStatements="6" TotalStatements="16" CoveragePercent="38">
+          <Constructor Name="RecommenderService(HttpClient)" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <Method Name="PostRecommendation(string,IEnumerable&lt;Poi&gt;):Task&lt;IEnumerable&lt;PoiDTO&gt;&gt;" CoveredStatements="0" TotalStatements="10" CoveragePercent="0">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="10" CoveragePercent="0">
+              <OwnCoverage CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+              <AnonymousMethod Name="(Poi):PoiDTO" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            </InternalCompiledMethod>
+          </Method>
+        </Type>
+        <Type Name="SearchService" CoveredStatements="13" TotalStatements="13" CoveragePercent="100">
+          <Constructor Name="SearchService(PoiContext)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Method Name="Range(IQueryable&lt;Poi&gt;,double,double,double):IQueryable&lt;Poi&gt;" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <Method Name="Range(double,double,double):IQueryable&lt;Poi&gt;" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        </Type>
+      </Namespace>
       <Type Name="PoiContext" CoveredStatements="20" TotalStatements="21" CoveragePercent="95">
-        <Method Name=".ctor(Microsoft.EntityFrameworkCore.DbContextOptions&lt;WebApi.PoiContext&gt;):System.Void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-          <Statement FileIndex="25" Line="9" Column="63" EndLine="9" EndColumn="76" Covered="True" />
-          <Statement FileIndex="25" Line="10" Column="5" EndLine="10" EndColumn="6" Covered="True" />
-          <Statement FileIndex="25" Line="11" Column="5" EndLine="11" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_Categories():Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.Category&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="17" Column="42" EndLine="17" EndColumn="46" Covered="True" />
-        </Method>
-        <Method Name="get_Checkins():Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.Checkin&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="15" Column="39" EndLine="15" EndColumn="43" Covered="True" />
-        </Method>
-        <Method Name="get_Claims():Microsoft.EntityFrameworkCore.DbSet&lt;Microsoft.AspNetCore.Identity.IdentityUserClaim&lt;System.String&gt;&gt;" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="25" Line="16" Column="55" EndLine="16" EndColumn="59" Covered="False" />
-        </Method>
-        <Method Name="get_Pois():Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.Poi&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="14" Column="31" EndLine="14" EndColumn="35" Covered="True" />
-        </Method>
-        <Method Name="get_Users():Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.User&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="13" Column="33" EndLine="13" EndColumn="37" Covered="True" />
-        </Method>
-        <Method Name="OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder):System.Void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-          <Statement FileIndex="25" Line="20" Column="5" EndLine="20" EndColumn="6" Covered="True" />
-          <Statement FileIndex="25" Line="21" Column="9" EndLine="21" EndColumn="44" Covered="True" />
-          <Statement FileIndex="25" Line="22" Column="9" EndLine="22" EndColumn="54" Covered="True" />
-          <Statement FileIndex="25" Line="23" Column="9" EndLine="23" EndColumn="52" Covered="True" />
-          <Statement FileIndex="25" Line="24" Column="9" EndLine="24" EndColumn="60" Covered="True" />
-          <Statement FileIndex="25" Line="25" Column="9" EndLine="25" EndColumn="80" Covered="True" />
-          <Statement FileIndex="25" Line="26" Column="9" EndLine="26" EndColumn="63" Covered="True" />
-          <Statement FileIndex="25" Line="27" Column="5" EndLine="27" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="set_Categories(Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.Category&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="17" Column="47" EndLine="17" EndColumn="51" Covered="True" />
-        </Method>
-        <Method Name="set_Checkins(Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.Checkin&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="15" Column="44" EndLine="15" EndColumn="48" Covered="True" />
-        </Method>
-        <Method Name="set_Claims(Microsoft.EntityFrameworkCore.DbSet&lt;Microsoft.AspNetCore.Identity.IdentityUserClaim&lt;System.String&gt;&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="16" Column="60" EndLine="16" EndColumn="64" Covered="True" />
-        </Method>
-        <Method Name="set_Pois(Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.Poi&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="14" Column="36" EndLine="14" EndColumn="40" Covered="True" />
-        </Method>
-        <Method Name="set_Users(Microsoft.EntityFrameworkCore.DbSet&lt;WebApi.Models.User&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="25" Line="13" Column="38" EndLine="13" EndColumn="42" Covered="True" />
-        </Method>
-      </Type>
-    </Namespace>
-    <Namespace Name="WebApi.Controllers" CoveredStatements="265" TotalStatements="272" CoveragePercent="97">
-      <Type Name="AuthenticationController" CoveredStatements="30" TotalStatements="30" CoveragePercent="100">
-        <Type Name="&lt;ChangePassword&gt;d__4" CoveredStatements="11" TotalStatements="11" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="11" TotalStatements="11" CoveragePercent="100">
-            <Statement FileIndex="1" Line="67" Column="5" EndLine="67" EndColumn="6" Covered="True" />
-            <Statement FileIndex="1" Line="68" Column="9" EndLine="68" EndColumn="62" Covered="True" />
-            <Statement FileIndex="1" Line="69" Column="9" EndLine="69" EndColumn="26" Covered="True" />
-            <Statement FileIndex="1" Line="70" Column="9" EndLine="70" EndColumn="10" Covered="True" />
-            <Statement FileIndex="1" Line="71" Column="13" EndLine="71" EndColumn="47" Covered="True" />
-            <Statement FileIndex="1" Line="73" Column="9" EndLine="73" EndColumn="103" Covered="True" />
-            <Statement FileIndex="1" Line="74" Column="9" EndLine="74" EndColumn="27" Covered="True" />
-            <Statement FileIndex="1" Line="75" Column="9" EndLine="75" EndColumn="10" Covered="True" />
-            <Statement FileIndex="1" Line="76" Column="13" EndLine="76" EndColumn="54" Covered="True" />
-            <Statement FileIndex="1" Line="78" Column="9" EndLine="78" EndColumn="57" Covered="True" />
-            <Statement FileIndex="1" Line="79" Column="5" EndLine="79" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;Login&gt;d__2" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-            <Statement FileIndex="1" Line="29" Column="5" EndLine="29" EndColumn="6" Covered="True" />
-            <Statement FileIndex="1" Line="31" Column="9" EndLine="31" EndColumn="10" Covered="True" />
-            <Statement FileIndex="1" Line="32" Column="13" EndLine="32" EndColumn="85" Covered="True" />
-            <Statement FileIndex="1" Line="33" Column="13" EndLine="33" EndColumn="97" Covered="True" />
-            <Statement FileIndex="1" Line="35" Column="9" EndLine="35" EndColumn="42" Covered="True" />
-            <Statement FileIndex="1" Line="36" Column="9" EndLine="36" EndColumn="10" Covered="True" />
-            <Statement FileIndex="1" Line="37" Column="13" EndLine="37" EndColumn="47" Covered="True" />
-            <Statement FileIndex="1" Line="39" Column="5" EndLine="39" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;Register&gt;d__3" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
-            <Statement FileIndex="1" Line="47" Column="5" EndLine="47" EndColumn="6" Covered="True" />
-            <Statement FileIndex="1" Line="48" Column="9" EndLine="53" EndColumn="11" Covered="True" />
-            <Statement FileIndex="1" Line="54" Column="9" EndLine="54" EndColumn="81" Covered="True" />
-            <Statement FileIndex="1" Line="56" Column="9" EndLine="56" EndColumn="30" Covered="True" />
-            <Statement FileIndex="1" Line="56" Column="31" EndLine="56" EndColumn="91" Covered="True" />
-            <Statement FileIndex="1" Line="57" Column="9" EndLine="57" EndColumn="42" Covered="True" />
-            <Statement FileIndex="1" Line="58" Column="5" EndLine="58" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Method Name=".ctor(WebApi.Services.AuthenticateService):System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Statement FileIndex="1" Line="17" Column="5" EndLine="17" EndColumn="79" Covered="True" />
-          <Statement FileIndex="1" Line="18" Column="5" EndLine="18" EndColumn="6" Covered="True" />
-          <Statement FileIndex="1" Line="19" Column="9" EndLine="19" EndColumn="56" Covered="True" />
-          <Statement FileIndex="1" Line="20" Column="5" EndLine="20" EndColumn="6" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="PoiController" CoveredStatements="141" TotalStatements="144" CoveragePercent="98">
-        <Type Name="&lt;&gt;c" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Method Name="&lt;SearchCategory&gt;b__10_2(System.String):System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-            <Statement FileIndex="2" Line="239" Column="68" EndLine="239" EndColumn="69" Covered="True" />
-          </Method>
-          <Method Name="&lt;SearchCategory&gt;b__10_3(FuzzySharp.Extractor.ExtractedResult&lt;System.String&gt;):System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-            <Statement FileIndex="2" Line="240" Column="38" EndLine="240" EndColumn="45" Covered="True" />
-          </Method>
-          <Method Name="&lt;SearchName&gt;b__5_1(System.String):System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-            <Statement FileIndex="2" Line="123" Column="62" EndLine="123" EndColumn="63" Covered="True" />
-          </Method>
-          <Method Name="&lt;SearchName&gt;b__5_2(FuzzySharp.Extractor.ExtractedResult&lt;System.String&gt;):System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-            <Statement FileIndex="2" Line="124" Column="38" EndLine="124" EndColumn="45" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;CreatePoi&gt;d__7" CoveredStatements="19" TotalStatements="20" CoveragePercent="95">
-          <Method Name="MoveNext():System.Void" CoveredStatements="19" TotalStatements="20" CoveragePercent="95">
-            <Statement FileIndex="2" Line="164" Column="5" EndLine="164" EndColumn="6" Covered="True" />
-            <Statement FileIndex="2" Line="165" Column="9" EndLine="165" EndColumn="26" Covered="True" />
-            <Statement FileIndex="2" Line="166" Column="9" EndLine="166" EndColumn="26" Covered="True" />
-            <Statement FileIndex="2" Line="167" Column="9" EndLine="167" EndColumn="43" Covered="True" />
-            <Statement FileIndex="2" Line="168" Column="9" EndLine="168" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="170" Column="13" EndLine="170" EndColumn="14" Covered="True" />
-            <Statement FileIndex="2" Line="171" Column="17" EndLine="171" EndColumn="80" Covered="True" />
-            <Statement FileIndex="2" Line="172" Column="13" EndLine="172" EndColumn="14" Covered="True" />
-            <Statement FileIndex="2" Line="173" Column="13" EndLine="173" EndColumn="43" Covered="True" />
-            <Statement FileIndex="2" Line="174" Column="13" EndLine="174" EndColumn="14" Covered="True" />
-            <Statement FileIndex="2" Line="175" Column="17" EndLine="175" EndColumn="69" Covered="True" />
-            <Statement FileIndex="2" Line="178" Column="13" EndLine="178" EndColumn="60" Covered="True" />
-            <Statement FileIndex="2" Line="179" Column="13" EndLine="179" EndColumn="29" Covered="True" />
-            <Statement FileIndex="2" Line="179" Column="30" EndLine="179" EndColumn="74" Covered="True" />
-            <Statement FileIndex="2" Line="180" Column="9" EndLine="180" EndColumn="10" Covered="False" />
-            <Statement FileIndex="2" Line="182" Column="9" EndLine="182" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="183" Column="13" EndLine="183" EndColumn="56" Covered="True" />
-            <Statement FileIndex="2" Line="184" Column="9" EndLine="184" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="186" Column="9" EndLine="186" EndColumn="69" Covered="True" />
-            <Statement FileIndex="2" Line="187" Column="5" EndLine="187" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;DeletePoi&gt;d__9" CoveredStatements="9" TotalStatements="10" CoveragePercent="90">
-          <Method Name="MoveNext():System.Void" CoveredStatements="9" TotalStatements="10" CoveragePercent="90">
-            <Statement FileIndex="2" Line="219" Column="5" EndLine="219" EndColumn="6" Covered="True" />
-            <Statement FileIndex="2" Line="220" Column="9" EndLine="220" EndColumn="76" Covered="True" />
-            <Statement FileIndex="2" Line="221" Column="9" EndLine="221" EndColumn="23" Covered="True" />
-            <Statement FileIndex="2" Line="221" Column="24" EndLine="221" EndColumn="71" Covered="True" />
-            <Statement FileIndex="2" Line="222" Column="9" EndLine="222" EndColumn="33" Covered="True" />
-            <Statement FileIndex="2" Line="223" Column="9" EndLine="223" EndColumn="56" Covered="True" />
-            <Statement FileIndex="2" Line="224" Column="9" EndLine="224" EndColumn="24" Covered="True" />
-            <Statement FileIndex="2" Line="224" Column="25" EndLine="224" EndColumn="74" Covered="False" />
-            <Statement FileIndex="2" Line="225" Column="9" EndLine="225" EndColumn="42" Covered="True" />
-            <Statement FileIndex="2" Line="226" Column="5" EndLine="226" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;EditPoi&gt;d__8" CoveredStatements="16" TotalStatements="17" CoveragePercent="94">
-          <Method Name="MoveNext():System.Void" CoveredStatements="16" TotalStatements="17" CoveragePercent="94">
-            <Statement FileIndex="2" Line="195" Column="5" EndLine="195" EndColumn="6" Covered="True" />
-            <Statement FileIndex="2" Line="196" Column="9" EndLine="196" EndColumn="51" Covered="True" />
-            <Statement FileIndex="2" Line="197" Column="9" EndLine="197" EndColumn="23" Covered="True" />
-            <Statement FileIndex="2" Line="197" Column="24" EndLine="197" EndColumn="71" Covered="True" />
-            <Statement FileIndex="2" Line="199" Column="9" EndLine="199" EndColumn="33" Covered="True" />
-            <Statement FileIndex="2" Line="200" Column="9" EndLine="200" EndColumn="29" Covered="True" />
-            <Statement FileIndex="2" Line="201" Column="9" EndLine="201" EndColumn="35" Covered="True" />
-            <Statement FileIndex="2" Line="202" Column="9" EndLine="202" EndColumn="37" Covered="True" />
-            <Statement FileIndex="2" Line="203" Column="9" EndLine="203" EndColumn="41" Covered="True" />
-            <Statement FileIndex="2" Line="204" Column="9" EndLine="204" EndColumn="33" Covered="True" />
-            <Statement FileIndex="2" Line="205" Column="9" EndLine="205" EndColumn="33" Covered="True" />
-            <Statement FileIndex="2" Line="206" Column="9" EndLine="206" EndColumn="37" Covered="True" />
-            <Statement FileIndex="2" Line="207" Column="9" EndLine="207" EndColumn="56" Covered="True" />
-            <Statement FileIndex="2" Line="208" Column="9" EndLine="208" EndColumn="25" Covered="True" />
-            <Statement FileIndex="2" Line="208" Column="26" EndLine="208" EndColumn="78" Covered="False" />
-            <Statement FileIndex="2" Line="210" Column="9" EndLine="210" EndColumn="37" Covered="True" />
-            <Statement FileIndex="2" Line="211" Column="5" EndLine="211" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;FromDTO&gt;d__6" CoveredStatements="21" TotalStatements="21" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="21" TotalStatements="21" CoveragePercent="100">
-            <Statement FileIndex="2" Line="134" Column="5" EndLine="134" EndColumn="6" Covered="True" />
-            <Statement FileIndex="2" Line="135" Column="9" EndLine="135" EndColumn="123" Covered="True" />
-            <Statement FileIndex="2" Line="137" Column="9" EndLine="137" EndColumn="16" Covered="True" />
-            <Statement FileIndex="2" Line="137" Column="29" EndLine="137" EndColumn="43" Covered="True" />
-            <Statement FileIndex="2" Line="137" Column="18" EndLine="137" EndColumn="25" Covered="True" />
-            <Statement FileIndex="2" Line="139" Column="13" EndLine="139" EndColumn="14" Covered="True" />
-            <Statement FileIndex="2" Line="140" Column="17" EndLine="141" EndColumn="80" Covered="True" />
-            <Statement FileIndex="2" Line="142" Column="17" EndLine="142" EndColumn="39" Covered="True" />
-            <Statement FileIndex="2" Line="144" Column="17" EndLine="144" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="145" Column="21" EndLine="145" EndColumn="38" Covered="True" />
-            <Statement FileIndex="2" Line="146" Column="21" EndLine="146" EndColumn="53" Covered="True" />
-            <Statement FileIndex="2" Line="147" Column="25" EndLine="147" EndColumn="47" Covered="True" />
-            <Statement FileIndex="2" Line="148" Column="17" EndLine="148" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="143" Column="17" EndLine="143" EndColumn="43" Covered="True" />
-            <Statement FileIndex="2" Line="149" Column="13" EndLine="149" EndColumn="14" Covered="True" />
-            <Statement FileIndex="2" Line="150" Column="13" EndLine="150" EndColumn="48" Covered="True" />
-            <Statement FileIndex="2" Line="151" Column="13" EndLine="151" EndColumn="14" Covered="True" />
-            <Statement FileIndex="2" Line="152" Column="17" EndLine="152" EndColumn="56" Covered="True" />
-            <Statement FileIndex="2" Line="137" Column="26" EndLine="137" EndColumn="28" Covered="True" />
-            <Statement FileIndex="2" Line="155" Column="9" EndLine="155" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="156" Column="5" EndLine="156" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;GetPoi&gt;d__3" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-            <Statement FileIndex="2" Line="33" Column="5" EndLine="33" EndColumn="6" Covered="True" />
-            <Statement FileIndex="2" Line="35" Column="9" EndLine="35" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="36" Column="13" EndLine="36" EndColumn="98" Covered="True" />
-            <Statement FileIndex="2" Line="37" Column="13" EndLine="37" EndColumn="38" Covered="True" />
-            <Statement FileIndex="2" Line="39" Column="9" EndLine="39" EndColumn="42" Covered="True" />
-            <Statement FileIndex="2" Line="40" Column="9" EndLine="40" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="41" Column="13" EndLine="41" EndColumn="60" Covered="True" />
-            <Statement FileIndex="2" Line="43" Column="5" EndLine="43" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;Search&gt;d__4" CoveredStatements="46" TotalStatements="46" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="46" TotalStatements="46" CoveragePercent="100">
-            <Statement FileIndex="2" Line="60" Column="5" EndLine="60" EndColumn="6" Covered="True" />
-            <Statement FileIndex="2" Line="61" Column="9" EndLine="64" EndColumn="28" Covered="True" />
-            <Statement FileIndex="2" Line="66" Column="9" EndLine="66" EndColumn="83" Covered="True" />
-            <Statement FileIndex="2" Line="67" Column="9" EndLine="67" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="68" Column="13" EndLine="68" EndColumn="93" Covered="True" />
-            <Statement FileIndex="2" Line="69" Column="9" EndLine="69" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="70" Column="14" EndLine="70" EndColumn="76" Covered="True" />
-            <Statement FileIndex="2" Line="71" Column="9" EndLine="71" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="72" Column="13" EndLine="72" EndColumn="85" Covered="True" />
-            <Statement FileIndex="2" Line="75" Column="9" EndLine="75" EndColumn="26" Covered="True" />
-            <Statement FileIndex="2" Line="75" Column="27" EndLine="75" EndColumn="84" Covered="True" />
-            <Statement FileIndex="2" Line="77" Column="9" EndLine="77" EndColumn="26" Covered="True" />
-            <Statement FileIndex="2" Line="77" Column="27" EndLine="77" EndColumn="78" Covered="True" />
-            <Statement FileIndex="2" Line="79" Column="9" EndLine="79" EndColumn="28" Covered="True" />
-            <Statement FileIndex="2" Line="80" Column="9" EndLine="80" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="81" Column="13" EndLine="81" EndColumn="20" Covered="True" />
-            <Statement FileIndex="2" Line="81" Column="33" EndLine="81" EndColumn="41" Covered="True" />
-            <Statement FileIndex="2" Line="81" Column="22" EndLine="81" EndColumn="29" Covered="True" />
-            <Statement FileIndex="2" Line="83" Column="17" EndLine="83" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="84" Column="21" EndLine="84" EndColumn="78" Covered="True" />
-            <Statement FileIndex="2" Line="85" Column="17" EndLine="85" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="86" Column="17" EndLine="86" EndColumn="50" Covered="True" />
-            <Statement FileIndex="2" Line="87" Column="17" EndLine="87" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="88" Column="21" EndLine="88" EndColumn="80" Covered="True" />
-            <Statement FileIndex="2" Line="81" Column="30" EndLine="81" EndColumn="32" Covered="True" />
-            <Statement FileIndex="2" Line="91" Column="13" EndLine="91" EndColumn="90" Covered="True" />
-            <Statement FileIndex="2" Line="92" Column="9" EndLine="92" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="94" Column="9" EndLine="94" EndColumn="31" Covered="True" />
-            <Statement FileIndex="2" Line="95" Column="9" EndLine="95" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="96" Column="13" EndLine="96" EndColumn="20" Covered="True" />
-            <Statement FileIndex="2" Line="96" Column="33" EndLine="96" EndColumn="44" Covered="True" />
-            <Statement FileIndex="2" Line="96" Column="22" EndLine="96" EndColumn="29" Covered="True" />
-            <Statement FileIndex="2" Line="98" Column="17" EndLine="98" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="99" Column="21" EndLine="99" EndColumn="78" Covered="True" />
-            <Statement FileIndex="2" Line="100" Column="17" EndLine="100" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="101" Column="17" EndLine="101" EndColumn="50" Covered="True" />
-            <Statement FileIndex="2" Line="102" Column="17" EndLine="102" EndColumn="18" Covered="True" />
-            <Statement FileIndex="2" Line="103" Column="21" EndLine="103" EndColumn="80" Covered="True" />
-            <Statement FileIndex="2" Line="96" Column="30" EndLine="96" EndColumn="32" Covered="True" />
-            <Statement FileIndex="2" Line="106" Column="13" EndLine="106" EndColumn="94" Covered="True" />
-            <Statement FileIndex="2" Line="107" Column="9" EndLine="107" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="109" Column="9" EndLine="109" EndColumn="27" Covered="True" />
-            <Statement FileIndex="2" Line="110" Column="9" EndLine="110" EndColumn="10" Covered="True" />
-            <Statement FileIndex="2" Line="111" Column="13" EndLine="111" EndColumn="59" Covered="True" />
-            <Statement FileIndex="2" Line="114" Column="9" EndLine="114" EndColumn="76" Covered="True" />
-            <Statement FileIndex="2" Line="115" Column="5" EndLine="115" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Method Name=".ctor(WebApi.PoiContext,WebApi.Services.SearchService):System.Void" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-          <Statement FileIndex="2" Line="21" Column="5" EndLine="21" EndColumn="67" Covered="True" />
-          <Statement FileIndex="2" Line="22" Column="5" EndLine="22" EndColumn="6" Covered="True" />
-          <Statement FileIndex="2" Line="23" Column="9" EndLine="23" EndColumn="28" Covered="True" />
-          <Statement FileIndex="2" Line="24" Column="9" EndLine="24" EndColumn="26" Covered="True" />
-          <Statement FileIndex="2" Line="25" Column="5" EndLine="25" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="SearchCategory(System.String,System.Int32):Microsoft.AspNetCore.Mvc.ActionResult" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-          <Statement FileIndex="2" Line="233" Column="5" EndLine="233" EndColumn="6" Covered="True" />
-          <Statement FileIndex="2" Line="234" Column="9" EndLine="234" EndColumn="27" Covered="True" />
-          <Statement FileIndex="2" Line="235" Column="9" EndLine="235" EndColumn="10" Covered="True" />
-          <Statement FileIndex="2" Line="236" Column="13" EndLine="236" EndColumn="74" Covered="True" />
-          <Statement FileIndex="2" Line="238" Column="9" EndLine="238" EndColumn="66" Covered="True" />
-          <Statement FileIndex="2" Line="239" Column="9" EndLine="239" EndColumn="106" Covered="True" />
-          <Statement FileIndex="2" Line="240" Column="9" EndLine="240" EndColumn="70" Covered="True" />
-          <Statement FileIndex="2" Line="241" Column="5" EndLine="241" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="SearchName(System.String):Microsoft.AspNetCore.Mvc.ActionResult" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-          <Statement FileIndex="2" Line="121" Column="5" EndLine="121" EndColumn="6" Covered="True" />
-          <Statement FileIndex="2" Line="122" Column="9" EndLine="122" EndColumn="81" Covered="True" />
-          <Statement FileIndex="2" Line="123" Column="9" EndLine="123" EndColumn="107" Covered="True" />
-          <Statement FileIndex="2" Line="124" Column="9" EndLine="124" EndColumn="67" Covered="True" />
-          <Statement FileIndex="2" Line="125" Column="5" EndLine="125" EndColumn="6" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="RecommendController" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
-        <Type Name="&lt;Recommend&gt;d__4" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
-            <Statement FileIndex="3" Line="27" Column="5" EndLine="27" EndColumn="6" Covered="True" />
-            <Statement FileIndex="3" Line="28" Column="9" EndLine="28" EndColumn="70" Covered="True" />
-            <Statement FileIndex="3" Line="29" Column="9" EndLine="29" EndColumn="26" Covered="True" />
-            <Statement FileIndex="3" Line="30" Column="9" EndLine="30" EndColumn="10" Covered="True" />
-            <Statement FileIndex="3" Line="31" Column="13" EndLine="31" EndColumn="47" Covered="True" />
-            <Statement FileIndex="3" Line="33" Column="9" EndLine="33" EndColumn="95" Covered="True" />
-            <Statement FileIndex="3" Line="34" Column="9" EndLine="34" EndColumn="25" Covered="True" />
-            <Statement FileIndex="3" Line="35" Column="9" EndLine="35" EndColumn="10" Covered="True" />
-            <Statement FileIndex="3" Line="36" Column="13" EndLine="36" EndColumn="55" Covered="True" />
-            <Statement FileIndex="3" Line="38" Column="9" EndLine="38" EndColumn="82" Covered="True" />
-            <Statement FileIndex="3" Line="39" Column="9" EndLine="39" EndColumn="24" Covered="True" />
-            <Statement FileIndex="3" Line="40" Column="5" EndLine="40" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Method Name=".ctor(WebApi.Services.RecommenderService,WebApi.Services.SearchService,WebApi.PoiContext):System.Void" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
-          <Statement FileIndex="3" Line="13" Column="5" EndLine="13" EndColumn="105" Covered="True" />
-          <Statement FileIndex="3" Line="14" Column="5" EndLine="14" EndColumn="6" Covered="True" />
-          <Statement FileIndex="3" Line="15" Column="9" EndLine="15" EndColumn="36" Covered="True" />
-          <Statement FileIndex="3" Line="16" Column="9" EndLine="16" EndColumn="26" Covered="True" />
-          <Statement FileIndex="3" Line="17" Column="9" EndLine="17" EndColumn="28" Covered="True" />
-          <Statement FileIndex="3" Line="18" Column="5" EndLine="18" EndColumn="6" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="UserController" CoveredStatements="76" TotalStatements="80" CoveragePercent="95">
-        <Type Name="&lt;DeleteUser&gt;d__4" CoveredStatements="11" TotalStatements="12" CoveragePercent="92">
-          <Method Name="MoveNext():System.Void" CoveredStatements="11" TotalStatements="12" CoveragePercent="92">
-            <Statement FileIndex="5" Line="73" Column="5" EndLine="73" EndColumn="6" Covered="True" />
-            <Statement FileIndex="5" Line="74" Column="9" EndLine="74" EndColumn="55" Covered="True" />
-            <Statement FileIndex="5" Line="75" Column="9" EndLine="75" EndColumn="26" Covered="True" />
-            <Statement FileIndex="5" Line="76" Column="9" EndLine="76" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="77" Column="13" EndLine="77" EndColumn="47" Covered="True" />
-            <Statement FileIndex="5" Line="79" Column="9" EndLine="79" EndColumn="37" Covered="True" />
-            <Statement FileIndex="5" Line="81" Column="9" EndLine="81" EndColumn="56" Covered="True" />
-            <Statement FileIndex="5" Line="83" Column="9" EndLine="83" EndColumn="25" Covered="True" />
-            <Statement FileIndex="5" Line="84" Column="9" EndLine="84" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="85" Column="13" EndLine="85" EndColumn="44" Covered="True" />
-            <Statement FileIndex="5" Line="88" Column="9" EndLine="88" EndColumn="51" Covered="False" />
-            <Statement FileIndex="5" Line="89" Column="5" EndLine="89" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;EditUser&gt;d__3" CoveredStatements="17" TotalStatements="18" CoveragePercent="94">
-          <Method Name="MoveNext():System.Void" CoveredStatements="17" TotalStatements="18" CoveragePercent="94">
-            <Statement FileIndex="5" Line="41" Column="5" EndLine="41" EndColumn="6" Covered="True" />
-            <Statement FileIndex="5" Line="42" Column="9" EndLine="42" EndColumn="57" Covered="True" />
-            <Statement FileIndex="5" Line="43" Column="9" EndLine="43" EndColumn="28" Covered="True" />
-            <Statement FileIndex="5" Line="44" Column="9" EndLine="44" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="45" Column="13" EndLine="45" EndColumn="47" Covered="True" />
-            <Statement FileIndex="5" Line="48" Column="9" EndLine="48" EndColumn="45" Covered="True" />
-            <Statement FileIndex="5" Line="49" Column="9" EndLine="49" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="50" Column="13" EndLine="50" EndColumn="44" Covered="True" />
-            <Statement FileIndex="5" Line="51" Column="13" EndLine="51" EndColumn="66" Covered="True" />
-            <Statement FileIndex="5" Line="52" Column="9" EndLine="52" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="54" Column="9" EndLine="54" EndColumn="36" Covered="True" />
-            <Statement FileIndex="5" Line="55" Column="9" EndLine="55" EndColumn="46" Covered="True" />
-            <Statement FileIndex="5" Line="57" Column="9" EndLine="57" EndColumn="54" Covered="True" />
-            <Statement FileIndex="5" Line="59" Column="9" EndLine="59" EndColumn="23" Covered="True" />
-            <Statement FileIndex="5" Line="60" Column="9" EndLine="60" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="61" Column="13" EndLine="61" EndColumn="41" Covered="True" />
-            <Statement FileIndex="5" Line="64" Column="9" EndLine="64" EndColumn="51" Covered="False" />
-            <Statement FileIndex="5" Line="65" Column="5" EndLine="65" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;GetCheckins&gt;d__5" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
-            <Statement FileIndex="5" Line="97" Column="5" EndLine="97" EndColumn="6" Covered="True" />
-            <Statement FileIndex="5" Line="99" Column="9" EndLine="99" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="100" Column="13" EndLine="100" EndColumn="124" Covered="True" />
-            <Statement FileIndex="5" Line="101" Column="13" EndLine="101" EndColumn="48" Covered="True" />
-            <Statement FileIndex="5" Line="103" Column="9" EndLine="103" EndColumn="42" Covered="True" />
-            <Statement FileIndex="5" Line="104" Column="9" EndLine="104" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="105" Column="13" EndLine="105" EndColumn="47" Covered="True" />
-            <Statement FileIndex="5" Line="107" Column="5" EndLine="107" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;GetUser&gt;d__2" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
-            <Statement FileIndex="5" Line="26" Column="5" EndLine="26" EndColumn="6" Covered="True" />
-            <Statement FileIndex="5" Line="27" Column="9" EndLine="27" EndColumn="57" Covered="True" />
-            <Statement FileIndex="5" Line="28" Column="9" EndLine="28" EndColumn="28" Covered="True" />
-            <Statement FileIndex="5" Line="29" Column="9" EndLine="29" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="30" Column="13" EndLine="30" EndColumn="47" Covered="True" />
-            <Statement FileIndex="5" Line="32" Column="9" EndLine="32" EndColumn="40" Covered="True" />
-            <Statement FileIndex="5" Line="33" Column="5" EndLine="33" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;UnVisit&gt;d__7" CoveredStatements="11" TotalStatements="12" CoveragePercent="92">
-          <Method Name="MoveNext():System.Void" CoveredStatements="11" TotalStatements="12" CoveragePercent="92">
-            <Statement FileIndex="5" Line="148" Column="5" EndLine="148" EndColumn="6" Covered="True" />
-            <Statement FileIndex="5" Line="149" Column="9" EndLine="149" EndColumn="61" Covered="True" />
-            <Statement FileIndex="5" Line="150" Column="9" EndLine="150" EndColumn="29" Covered="True" />
-            <Statement FileIndex="5" Line="151" Column="9" EndLine="151" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="152" Column="13" EndLine="152" EndColumn="50" Covered="True" />
-            <Statement FileIndex="5" Line="154" Column="9" EndLine="154" EndColumn="43" Covered="True" />
-            <Statement FileIndex="5" Line="155" Column="9" EndLine="155" EndColumn="56" Covered="True" />
-            <Statement FileIndex="5" Line="156" Column="9" EndLine="156" EndColumn="24" Covered="True" />
-            <Statement FileIndex="5" Line="157" Column="9" EndLine="157" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="158" Column="13" EndLine="158" EndColumn="56" Covered="True" />
-            <Statement FileIndex="5" Line="161" Column="9" EndLine="161" EndColumn="51" Covered="False" />
-            <Statement FileIndex="5" Line="162" Column="5" EndLine="162" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;Visit&gt;d__6" CoveredStatements="18" TotalStatements="19" CoveragePercent="95">
-          <Method Name="MoveNext():System.Void" CoveredStatements="18" TotalStatements="19" CoveragePercent="95">
-            <Statement FileIndex="5" Line="116" Column="5" EndLine="116" EndColumn="6" Covered="True" />
-            <Statement FileIndex="5" Line="118" Column="9" EndLine="118" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="119" Column="13" EndLine="119" EndColumn="102" Covered="True" />
-            <Statement FileIndex="5" Line="120" Column="13" EndLine="120" EndColumn="60" Covered="True" />
-            <Statement FileIndex="5" Line="121" Column="13" EndLine="121" EndColumn="29" Covered="True" />
-            <Statement FileIndex="5" Line="122" Column="13" EndLine="122" EndColumn="14" Covered="True" />
-            <Statement FileIndex="5" Line="123" Column="17" EndLine="123" EndColumn="50" Covered="True" />
-            <Statement FileIndex="5" Line="125" Column="13" EndLine="125" EndColumn="58" Covered="True" />
-            <Statement FileIndex="5" Line="126" Column="13" EndLine="126" EndColumn="65" Covered="True" />
-            <Statement FileIndex="5" Line="127" Column="13" EndLine="127" EndColumn="43" Covered="True" />
-            <Statement FileIndex="5" Line="128" Column="13" EndLine="128" EndColumn="57" Covered="True" />
-            <Statement FileIndex="5" Line="129" Column="13" EndLine="129" EndColumn="25" Covered="True" />
-            <Statement FileIndex="5" Line="130" Column="13" EndLine="130" EndColumn="14" Covered="True" />
-            <Statement FileIndex="5" Line="131" Column="17" EndLine="131" EndColumn="45" Covered="True" />
-            <Statement FileIndex="5" Line="133" Column="13" EndLine="133" EndColumn="55" Covered="False" />
-            <Statement FileIndex="5" Line="135" Column="9" EndLine="135" EndColumn="42" Covered="True" />
-            <Statement FileIndex="5" Line="136" Column="9" EndLine="136" EndColumn="10" Covered="True" />
-            <Statement FileIndex="5" Line="137" Column="13" EndLine="137" EndColumn="47" Covered="True" />
-            <Statement FileIndex="5" Line="139" Column="5" EndLine="139" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Method Name=".ctor(WebApi.PoiContext):System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Statement FileIndex="5" Line="16" Column="5" EndLine="16" EndColumn="46" Covered="True" />
-          <Statement FileIndex="5" Line="17" Column="5" EndLine="17" EndColumn="6" Covered="True" />
-          <Statement FileIndex="5" Line="18" Column="9" EndLine="18" EndColumn="28" Covered="True" />
-          <Statement FileIndex="5" Line="19" Column="5" EndLine="19" EndColumn="6" Covered="True" />
-        </Method>
-      </Type>
-    </Namespace>
-    <Namespace Name="WebApi.Models" CoveredStatements="114" TotalStatements="128" CoveragePercent="89">
-      <Type Name="Category" CoveredStatements="13" TotalStatements="19" CoveragePercent="68">
-        <Method Name=".ctor():System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Statement FileIndex="13" Line="5" Column="5" EndLine="5" EndColumn="22" Covered="True" />
-          <Statement FileIndex="13" Line="6" Column="5" EndLine="6" EndColumn="6" Covered="True" />
-          <Statement FileIndex="13" Line="7" Column="9" EndLine="7" EndColumn="19" Covered="True" />
-          <Statement FileIndex="13" Line="8" Column="5" EndLine="8" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name=".ctor(System.String,WebApi.Models.Category):System.Void" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-          <Statement FileIndex="13" Line="9" Column="5" EndLine="9" EndColumn="51" Covered="True" />
-          <Statement FileIndex="13" Line="10" Column="5" EndLine="10" EndColumn="6" Covered="True" />
-          <Statement FileIndex="13" Line="11" Column="9" EndLine="11" EndColumn="21" Covered="True" />
-          <Statement FileIndex="13" Line="12" Column="9" EndLine="12" EndColumn="25" Covered="True" />
-          <Statement FileIndex="13" Line="13" Column="5" EndLine="13" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_Id():System.Int32" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="13" Line="15" Column="21" EndLine="15" EndColumn="25" Covered="False" />
-        </Method>
-        <Method Name="get_Locations():System.Collections.Generic.ICollection&lt;WebApi.Models.Poi&gt;" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="13" Line="19" Column="42" EndLine="19" EndColumn="46" Covered="False" />
-        </Method>
-        <Method Name="get_Name():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="13" Line="16" Column="26" EndLine="16" EndColumn="30" Covered="True" />
-        </Method>
-        <Method Name="get_Parent():WebApi.Models.Category" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="13" Line="17" Column="31" EndLine="17" EndColumn="35" Covered="True" />
-        </Method>
-        <Method Name="get_SubCategories():System.Collections.Generic.ICollection&lt;WebApi.Models.Category&gt;" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="13" Line="18" Column="51" EndLine="18" EndColumn="55" Covered="False" />
-        </Method>
-        <Method Name="set_Id(System.Int32):System.Void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="13" Line="15" Column="26" EndLine="15" EndColumn="30" Covered="False" />
-        </Method>
-        <Method Name="set_Locations(System.Collections.Generic.ICollection&lt;WebApi.Models.Poi&gt;):System.Void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="13" Line="19" Column="47" EndLine="19" EndColumn="51" Covered="False" />
-        </Method>
-        <Method Name="set_Name(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="13" Line="16" Column="31" EndLine="16" EndColumn="35" Covered="True" />
-        </Method>
-        <Method Name="set_Parent(WebApi.Models.Category):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="13" Line="17" Column="36" EndLine="17" EndColumn="40" Covered="True" />
-        </Method>
-        <Method Name="set_SubCategories(System.Collections.Generic.ICollection&lt;WebApi.Models.Category&gt;):System.Void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="13" Line="18" Column="56" EndLine="18" EndColumn="60" Covered="False" />
-        </Method>
-      </Type>
-      <Type Name="Checkin" CoveredStatements="10" TotalStatements="16" CoveragePercent="63">
-        <Method Name=".ctor():System.Void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0">
-          <Statement FileIndex="14" Line="7" Column="5" EndLine="7" EndColumn="21" Covered="False" />
-          <Statement FileIndex="14" Line="8" Column="5" EndLine="8" EndColumn="6" Covered="False" />
-          <Statement FileIndex="14" Line="9" Column="9" EndLine="9" EndColumn="31" Covered="False" />
-          <Statement FileIndex="14" Line="10" Column="5" EndLine="10" EndColumn="6" Covered="False" />
-        </Method>
-        <Method Name=".ctor(WebApi.Models.Poi,System.DateTime):System.Void" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
-          <Statement FileIndex="14" Line="11" Column="5" EndLine="11" EndColumn="38" Covered="True" />
-          <Statement FileIndex="14" Line="12" Column="5" EndLine="12" EndColumn="6" Covered="True" />
-          <Statement FileIndex="14" Line="13" Column="9" EndLine="13" EndColumn="19" Covered="True" />
-          <Statement FileIndex="14" Line="14" Column="9" EndLine="14" EndColumn="23" Covered="True" />
-          <Statement FileIndex="14" Line="15" Column="9" EndLine="15" EndColumn="31" Covered="True" />
-          <Statement FileIndex="14" Line="16" Column="5" EndLine="16" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_Point():WebApi.Models.Poi" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="14" Line="18" Column="25" EndLine="18" EndColumn="29" Covered="False" />
-        </Method>
-        <Method Name="get_Timestamp():System.DateTime" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="14" Line="19" Column="33" EndLine="19" EndColumn="37" Covered="False" />
-        </Method>
-        <Method Name="get_UUID():System.Guid" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="14" Line="17" Column="30" EndLine="17" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="set_Point(WebApi.Models.Poi):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="14" Line="18" Column="30" EndLine="18" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="set_Timestamp(System.DateTime):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="14" Line="19" Column="38" EndLine="19" EndColumn="42" Covered="True" />
-        </Method>
-        <Method Name="set_UUID(System.Guid):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="14" Line="17" Column="35" EndLine="17" EndColumn="39" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="Login" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
-        <Method Name=".ctor(System.String,System.String):System.Void" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-          <Statement FileIndex="16" Line="9" Column="5" EndLine="9" EndColumn="37" Covered="True" />
-          <Statement FileIndex="16" Line="10" Column="5" EndLine="10" EndColumn="6" Covered="True" />
-          <Statement FileIndex="16" Line="11" Column="9" EndLine="11" EndColumn="22" Covered="True" />
-          <Statement FileIndex="16" Line="12" Column="9" EndLine="12" EndColumn="22" Covered="True" />
-          <Statement FileIndex="16" Line="13" Column="5" EndLine="13" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_Password():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="16" Line="21" Column="30" EndLine="21" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="get_Username():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="16" Line="17" Column="30" EndLine="17" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="set_Password(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="16" Line="21" Column="35" EndLine="21" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="set_Username(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="16" Line="17" Column="35" EndLine="17" EndColumn="39" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="Poi" CoveredStatements="46" TotalStatements="47" CoveragePercent="98">
-        <Method Name=".ctor():System.Void" CoveredStatements="10" TotalStatements="10" CoveragePercent="100">
-          <Statement FileIndex="21" Line="35" Column="41" EndLine="35" EndColumn="43" Covered="True" />
-          <Statement FileIndex="21" Line="36" Column="44" EndLine="36" EndColumn="47" Covered="True" />
-          <Statement FileIndex="21" Line="37" Column="45" EndLine="37" EndColumn="48" Covered="True" />
-          <Statement FileIndex="21" Line="38" Column="47" EndLine="38" EndColumn="49" Covered="True" />
-          <Statement FileIndex="21" Line="39" Column="43" EndLine="39" EndColumn="45" Covered="True" />
-          <Statement FileIndex="21" Line="40" Column="43" EndLine="40" EndColumn="45" Covered="True" />
-          <Statement FileIndex="21" Line="41" Column="44" EndLine="41" EndColumn="54" Covered="True" />
-          <Statement FileIndex="21" Line="17" Column="5" EndLine="17" EndColumn="17" Covered="True" />
-          <Statement FileIndex="21" Line="18" Column="5" EndLine="18" EndColumn="6" Covered="True" />
-          <Statement FileIndex="21" Line="19" Column="5" EndLine="19" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name=".ctor(System.String,System.Double,System.Double,System.String,System.String,System.String,WebApi.Models.Price):System.Void" CoveredStatements="19" TotalStatements="19" CoveragePercent="100">
-          <Statement FileIndex="21" Line="35" Column="41" EndLine="35" EndColumn="43" Covered="True" />
-          <Statement FileIndex="21" Line="36" Column="44" EndLine="36" EndColumn="47" Covered="True" />
-          <Statement FileIndex="21" Line="37" Column="45" EndLine="37" EndColumn="48" Covered="True" />
-          <Statement FileIndex="21" Line="38" Column="47" EndLine="38" EndColumn="49" Covered="True" />
-          <Statement FileIndex="21" Line="39" Column="43" EndLine="39" EndColumn="45" Covered="True" />
-          <Statement FileIndex="21" Line="40" Column="43" EndLine="40" EndColumn="45" Covered="True" />
-          <Statement FileIndex="21" Line="41" Column="44" EndLine="41" EndColumn="54" Covered="True" />
-          <Statement FileIndex="21" Line="21" Column="5" EndLine="21" EndColumn="118" Covered="True" />
-          <Statement FileIndex="21" Line="22" Column="5" EndLine="22" EndColumn="6" Covered="True" />
-          <Statement FileIndex="21" Line="23" Column="9" EndLine="23" EndColumn="23" Covered="True" />
-          <Statement FileIndex="21" Line="24" Column="9" EndLine="24" EndColumn="24" Covered="True" />
-          <Statement FileIndex="21" Line="25" Column="9" EndLine="25" EndColumn="25" Covered="True" />
-          <Statement FileIndex="21" Line="26" Column="9" EndLine="26" EndColumn="35" Covered="True" />
-          <Statement FileIndex="21" Line="27" Column="9" EndLine="27" EndColumn="27" Covered="True" />
-          <Statement FileIndex="21" Line="28" Column="9" EndLine="28" EndColumn="31" Covered="True" />
-          <Statement FileIndex="21" Line="29" Column="9" EndLine="29" EndColumn="27" Covered="True" />
-          <Statement FileIndex="21" Line="30" Column="9" EndLine="30" EndColumn="27" Covered="True" />
-          <Statement FileIndex="21" Line="31" Column="9" EndLine="31" EndColumn="43" Covered="True" />
-          <Statement FileIndex="21" Line="32" Column="5" EndLine="32" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_Address():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="40" Column="29" EndLine="40" EndColumn="33" Covered="True" />
-        </Method>
-        <Method Name="get_Categories():System.Collections.Generic.ICollection&lt;WebApi.Models.Category&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="42" Column="48" EndLine="42" EndColumn="52" Covered="True" />
-        </Method>
-        <Method Name="get_Description():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="38" Column="33" EndLine="38" EndColumn="37" Covered="True" />
-        </Method>
-        <Method Name="get_Latitude():System.Double" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="36" Column="30" EndLine="36" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="get_Longitude():System.Double" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="37" Column="31" EndLine="37" EndColumn="35" Covered="True" />
-        </Method>
-        <Method Name="get_PriceStep():WebApi.Models.Price" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="41" Column="30" EndLine="41" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="get_Title():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="35" Column="27" EndLine="35" EndColumn="31" Covered="True" />
-        </Method>
-        <Method Name="get_UUID():System.Nullable&lt;System.Guid&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="34" Column="31" EndLine="34" EndColumn="35" Covered="True" />
-        </Method>
-        <Method Name="get_Website():System.String" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="21" Line="39" Column="29" EndLine="39" EndColumn="33" Covered="False" />
-        </Method>
-        <Method Name="set_Address(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="40" Column="34" EndLine="40" EndColumn="38" Covered="True" />
-        </Method>
-        <Method Name="set_Categories(System.Collections.Generic.ICollection&lt;WebApi.Models.Category&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="42" Column="53" EndLine="42" EndColumn="57" Covered="True" />
-        </Method>
-        <Method Name="set_Description(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="38" Column="38" EndLine="38" EndColumn="42" Covered="True" />
-        </Method>
-        <Method Name="set_Latitude(System.Double):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="36" Column="35" EndLine="36" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="set_Longitude(System.Double):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="37" Column="36" EndLine="37" EndColumn="40" Covered="True" />
-        </Method>
-        <Method Name="set_PriceStep(WebApi.Models.Price):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="41" Column="35" EndLine="41" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="set_Title(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="35" Column="32" EndLine="35" EndColumn="36" Covered="True" />
-        </Method>
-        <Method Name="set_UUID(System.Nullable&lt;System.Guid&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="34" Column="36" EndLine="34" EndColumn="40" Covered="True" />
-        </Method>
-        <Method Name="set_Website(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="21" Line="39" Column="34" EndLine="39" EndColumn="38" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="Register" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
-        <Method Name=".ctor(System.String,System.String,System.DateTime,WebApi.Models.Gender):System.Void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
-          <Statement FileIndex="19" Line="7" Column="5" EndLine="7" EndColumn="70" Covered="True" />
-          <Statement FileIndex="19" Line="8" Column="5" EndLine="8" EndColumn="6" Covered="True" />
-          <Statement FileIndex="19" Line="9" Column="9" EndLine="9" EndColumn="25" Covered="True" />
-          <Statement FileIndex="19" Line="10" Column="9" EndLine="10" EndColumn="25" Covered="True" />
-          <Statement FileIndex="19" Line="11" Column="9" EndLine="11" EndColumn="27" Covered="True" />
-          <Statement FileIndex="19" Line="12" Column="9" EndLine="12" EndColumn="20" Covered="True" />
-          <Statement FileIndex="19" Line="13" Column="5" EndLine="13" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_DateOfBirth():System.DateTime" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="22" Column="35" EndLine="22" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="get_Gender():WebApi.Models.Gender" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="25" Column="28" EndLine="25" EndColumn="32" Covered="True" />
-        </Method>
-        <Method Name="get_Password():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="19" Column="30" EndLine="19" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="get_Username():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="16" Column="30" EndLine="16" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="set_DateOfBirth(System.DateTime):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="22" Column="40" EndLine="22" EndColumn="44" Covered="True" />
-        </Method>
-        <Method Name="set_Gender(WebApi.Models.Gender):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="25" Column="33" EndLine="25" EndColumn="37" Covered="True" />
-        </Method>
-        <Method Name="set_Password(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="19" Column="35" EndLine="19" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="set_Username(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="19" Line="16" Column="35" EndLine="16" EndColumn="39" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="User" CoveredStatements="6" TotalStatements="7" CoveragePercent="86">
-        <Method Name=".ctor():System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="24" Line="16" Column="42" EndLine="16" EndColumn="60" Covered="True" />
-        </Method>
-        <Method Name="get_Checkins():System.Collections.Generic.ICollection&lt;WebApi.Models.Checkin&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="24" Line="18" Column="45" EndLine="18" EndColumn="49" Covered="True" />
-        </Method>
-        <Method Name="get_DateOfBirth():System.Nullable&lt;System.DateTime&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="24" Line="15" Column="36" EndLine="15" EndColumn="40" Covered="True" />
-        </Method>
-        <Method Name="get_Gender():WebApi.Models.Gender" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="24" Line="16" Column="28" EndLine="16" EndColumn="32" Covered="True" />
-        </Method>
-        <Method Name="set_Checkins(System.Collections.Generic.ICollection&lt;WebApi.Models.Checkin&gt;):System.Void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="24" Line="18" Column="50" EndLine="18" EndColumn="54" Covered="False" />
-        </Method>
-        <Method Name="set_DateOfBirth(System.Nullable&lt;System.DateTime&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="24" Line="15" Column="41" EndLine="15" EndColumn="45" Covered="True" />
-        </Method>
-        <Method Name="set_Gender(WebApi.Models.Gender):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="24" Line="16" Column="33" EndLine="16" EndColumn="37" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="UserDTO" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
-        <Method Name=".ctor(WebApi.Models.User):System.Void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
-          <Statement FileIndex="20" Line="8" Column="5" EndLine="8" EndColumn="30" Covered="True" />
-          <Statement FileIndex="20" Line="9" Column="5" EndLine="9" EndColumn="6" Covered="True" />
-          <Statement FileIndex="20" Line="10" Column="9" EndLine="10" EndColumn="22" Covered="True" />
-          <Statement FileIndex="20" Line="11" Column="9" EndLine="11" EndColumn="34" Covered="True" />
-          <Statement FileIndex="20" Line="12" Column="9" EndLine="12" EndColumn="46" Covered="True" />
-          <Statement FileIndex="20" Line="13" Column="9" EndLine="13" EndColumn="30" Covered="True" />
-          <Statement FileIndex="20" Line="14" Column="5" EndLine="14" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_DateOfBirth():System.DateTime" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="23" Column="35" EndLine="23" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="get_Gender():WebApi.Models.Gender" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="26" Column="28" EndLine="26" EndColumn="32" Covered="True" />
-        </Method>
-        <Method Name="get_Id():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="17" Column="24" EndLine="17" EndColumn="28" Covered="True" />
-        </Method>
-        <Method Name="get_UserName():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="20" Column="30" EndLine="20" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="set_DateOfBirth(System.DateTime):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="23" Column="40" EndLine="23" EndColumn="44" Covered="True" />
-        </Method>
-        <Method Name="set_Gender(WebApi.Models.Gender):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="26" Column="33" EndLine="26" EndColumn="37" Covered="True" />
-        </Method>
-        <Method Name="set_Id(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="17" Column="29" EndLine="17" EndColumn="33" Covered="True" />
-        </Method>
-        <Method Name="set_UserName(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="20" Line="20" Column="35" EndLine="20" EndColumn="39" Covered="True" />
-        </Method>
-      </Type>
-    </Namespace>
-    <Namespace Name="WebApi.Models.DTOs" CoveredStatements="65" TotalStatements="65" CoveragePercent="100">
-      <Type Name="ChangePasswordDTO" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
-        <Method Name=".ctor():System.Void" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
-          <Statement FileIndex="15" Line="10" Column="47" EndLine="10" EndColumn="49" Covered="True" />
-          <Statement FileIndex="15" Line="13" Column="47" EndLine="13" EndColumn="49" Covered="True" />
-        </Method>
-        <Method Name="get_NewPassword():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="15" Line="13" Column="33" EndLine="13" EndColumn="37" Covered="True" />
-        </Method>
-        <Method Name="get_OldPassword():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="15" Line="10" Column="33" EndLine="10" EndColumn="37" Covered="True" />
-        </Method>
-        <Method Name="set_NewPassword(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="15" Line="13" Column="38" EndLine="13" EndColumn="42" Covered="True" />
-        </Method>
-        <Method Name="set_OldPassword(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="15" Line="10" Column="38" EndLine="10" EndColumn="42" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="PoiDTO" CoveredStatements="47" TotalStatements="47" CoveragePercent="100">
-        <Type Name="&lt;&gt;c" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Method Name="&lt;.ctor&gt;b__0_0(WebApi.Models.Category):System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-            <Statement FileIndex="17" Line="17" Column="47" EndLine="17" EndColumn="53" Covered="True" />
-          </Method>
-        </Type>
-        <Method Name=".ctor():System.Void" CoveredStatements="10" TotalStatements="10" CoveragePercent="100">
-          <Statement FileIndex="17" Line="24" Column="41" EndLine="24" EndColumn="43" Covered="True" />
-          <Statement FileIndex="17" Line="27" Column="44" EndLine="27" EndColumn="47" Covered="True" />
-          <Statement FileIndex="17" Line="30" Column="45" EndLine="30" EndColumn="48" Covered="True" />
-          <Statement FileIndex="17" Line="33" Column="47" EndLine="33" EndColumn="49" Covered="True" />
-          <Statement FileIndex="17" Line="36" Column="43" EndLine="36" EndColumn="45" Covered="True" />
-          <Statement FileIndex="17" Line="39" Column="43" EndLine="39" EndColumn="45" Covered="True" />
-          <Statement FileIndex="17" Line="42" Column="44" EndLine="42" EndColumn="54" Covered="True" />
-          <Statement FileIndex="17" Line="19" Column="5" EndLine="19" EndColumn="20" Covered="True" />
-          <Statement FileIndex="17" Line="19" Column="21" EndLine="19" EndColumn="22" Covered="True" />
-          <Statement FileIndex="17" Line="19" Column="23" EndLine="19" EndColumn="24" Covered="True" />
-        </Method>
-        <Method Name=".ctor(WebApi.Models.Poi):System.Void" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
-          <Statement FileIndex="17" Line="24" Column="41" EndLine="24" EndColumn="43" Covered="True" />
-          <Statement FileIndex="17" Line="27" Column="44" EndLine="27" EndColumn="47" Covered="True" />
-          <Statement FileIndex="17" Line="30" Column="45" EndLine="30" EndColumn="48" Covered="True" />
-          <Statement FileIndex="17" Line="33" Column="47" EndLine="33" EndColumn="49" Covered="True" />
-          <Statement FileIndex="17" Line="36" Column="43" EndLine="36" EndColumn="45" Covered="True" />
-          <Statement FileIndex="17" Line="39" Column="43" EndLine="39" EndColumn="45" Covered="True" />
-          <Statement FileIndex="17" Line="42" Column="44" EndLine="42" EndColumn="54" Covered="True" />
-          <Statement FileIndex="17" Line="8" Column="5" EndLine="8" EndColumn="25" Covered="True" />
-          <Statement FileIndex="17" Line="9" Column="5" EndLine="9" EndColumn="6" Covered="True" />
-          <Statement FileIndex="17" Line="10" Column="9" EndLine="10" EndColumn="21" Covered="True" />
-          <Statement FileIndex="17" Line="11" Column="9" EndLine="11" EndColumn="25" Covered="True" />
-          <Statement FileIndex="17" Line="12" Column="9" EndLine="12" EndColumn="31" Covered="True" />
-          <Statement FileIndex="17" Line="13" Column="9" EndLine="13" EndColumn="33" Covered="True" />
-          <Statement FileIndex="17" Line="14" Column="9" EndLine="14" EndColumn="37" Covered="True" />
-          <Statement FileIndex="17" Line="15" Column="9" EndLine="15" EndColumn="29" Covered="True" />
-          <Statement FileIndex="17" Line="16" Column="9" EndLine="16" EndColumn="33" Covered="True" />
-          <Statement FileIndex="17" Line="17" Column="9" EndLine="17" EndColumn="64" Covered="True" />
-          <Statement FileIndex="17" Line="18" Column="5" EndLine="18" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="get_Address():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="39" Column="29" EndLine="39" EndColumn="33" Covered="True" />
-        </Method>
-        <Method Name="get_Categories():System.Collections.Generic.List&lt;System.String&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="44" Column="39" EndLine="44" EndColumn="43" Covered="True" />
-        </Method>
-        <Method Name="get_Description():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="33" Column="33" EndLine="33" EndColumn="37" Covered="True" />
-        </Method>
-        <Method Name="get_id():System.Nullable&lt;System.Guid&gt;" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="20" Column="23" EndLine="20" EndColumn="27" Covered="True" />
-        </Method>
-        <Method Name="get_Latitude():System.Double" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="27" Column="30" EndLine="27" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="get_Longitude():System.Double" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="30" Column="31" EndLine="30" EndColumn="35" Covered="True" />
-        </Method>
-        <Method Name="get_PriceStep():WebApi.Models.Price" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="42" Column="30" EndLine="42" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="get_Title():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="24" Column="27" EndLine="24" EndColumn="31" Covered="True" />
-        </Method>
-        <Method Name="get_Website():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="36" Column="29" EndLine="36" EndColumn="33" Covered="True" />
-        </Method>
-        <Method Name="set_Address(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="39" Column="34" EndLine="39" EndColumn="38" Covered="True" />
-        </Method>
-        <Method Name="set_Categories(System.Collections.Generic.List&lt;System.String&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="44" Column="44" EndLine="44" EndColumn="48" Covered="True" />
-        </Method>
-        <Method Name="set_Description(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="33" Column="38" EndLine="33" EndColumn="42" Covered="True" />
-        </Method>
-        <Method Name="set_id(System.Nullable&lt;System.Guid&gt;):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="20" Column="28" EndLine="20" EndColumn="32" Covered="True" />
-        </Method>
-        <Method Name="set_Latitude(System.Double):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="27" Column="35" EndLine="27" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="set_Longitude(System.Double):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="30" Column="36" EndLine="30" EndColumn="40" Covered="True" />
-        </Method>
-        <Method Name="set_PriceStep(WebApi.Models.Price):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="42" Column="35" EndLine="42" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="set_Title(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="24" Column="32" EndLine="24" EndColumn="36" Covered="True" />
-        </Method>
-        <Method Name="set_Website(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="17" Line="36" Column="34" EndLine="36" EndColumn="38" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="Recommend" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
-        <Method Name=".ctor():System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Statement FileIndex="18" Line="9" Column="42" EndLine="9" EndColumn="44" Covered="True" />
-          <Statement FileIndex="18" Line="12" Column="44" EndLine="12" EndColumn="47" Covered="True" />
-          <Statement FileIndex="18" Line="15" Column="45" EndLine="15" EndColumn="48" Covered="True" />
-          <Statement FileIndex="18" Line="18" Column="41" EndLine="18" EndColumn="44" Covered="True" />
-        </Method>
-        <Method Name="get_Latitude():System.Double" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="12" Column="30" EndLine="12" EndColumn="34" Covered="True" />
-        </Method>
-        <Method Name="get_Longitude():System.Double" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="15" Column="31" EndLine="15" EndColumn="35" Covered="True" />
-        </Method>
-        <Method Name="get_Range():System.Double" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="18" Column="27" EndLine="18" EndColumn="31" Covered="True" />
-        </Method>
-        <Method Name="get_UserID():System.String" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="9" Column="28" EndLine="9" EndColumn="32" Covered="True" />
-        </Method>
-        <Method Name="set_Latitude(System.Double):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="12" Column="35" EndLine="12" EndColumn="39" Covered="True" />
-        </Method>
-        <Method Name="set_Longitude(System.Double):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="15" Column="36" EndLine="15" EndColumn="40" Covered="True" />
-        </Method>
-        <Method Name="set_Range(System.Double):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="18" Column="32" EndLine="18" EndColumn="36" Covered="True" />
-        </Method>
-        <Method Name="set_UserID(System.String):System.Void" CoveredStatements="1" TotalStatements="1" CoveragePercent="100">
-          <Statement FileIndex="18" Line="9" Column="33" EndLine="9" EndColumn="37" Covered="True" />
-        </Method>
-      </Type>
-    </Namespace>
-    <Namespace Name="WebApi.Services" CoveredStatements="37" TotalStatements="47" CoveragePercent="79">
-      <Type Name="AuthenticateService" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
-        <Type Name="&lt;ChangePassword&gt;d__6" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-            <Statement FileIndex="27" Line="34" Column="5" EndLine="34" EndColumn="6" Covered="True" />
-            <Statement FileIndex="27" Line="35" Column="9" EndLine="35" EndColumn="75" Covered="True" />
-            <Statement FileIndex="27" Line="36" Column="5" EndLine="36" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;FindUser&gt;d__5" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-            <Statement FileIndex="27" Line="29" Column="5" EndLine="29" EndColumn="6" Covered="True" />
-            <Statement FileIndex="27" Line="30" Column="9" EndLine="30" EndColumn="53" Covered="True" />
-            <Statement FileIndex="27" Line="31" Column="5" EndLine="31" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;Login&gt;d__3" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-            <Statement FileIndex="27" Line="18" Column="5" EndLine="18" EndColumn="6" Covered="True" />
-            <Statement FileIndex="27" Line="19" Column="9" EndLine="19" EndColumn="65" Covered="True" />
-            <Statement FileIndex="27" Line="20" Column="9" EndLine="20" EndColumn="94" Covered="True" />
-            <Statement FileIndex="27" Line="21" Column="5" EndLine="21" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Type Name="&lt;Register&gt;d__4" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-          <Method Name="MoveNext():System.Void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
-            <Statement FileIndex="27" Line="24" Column="5" EndLine="24" EndColumn="6" Covered="True" />
-            <Statement FileIndex="27" Line="25" Column="9" EndLine="25" EndColumn="63" Covered="True" />
-            <Statement FileIndex="27" Line="26" Column="5" EndLine="26" EndColumn="6" Covered="True" />
-          </Method>
-        </Type>
-        <Method Name=".ctor(Microsoft.AspNetCore.Identity.SignInManager&lt;WebApi.Models.User&gt;,Microsoft.AspNetCore.Identity.UserManager&lt;WebApi.Models.User&gt;):System.Void" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-          <Statement FileIndex="27" Line="11" Column="5" EndLine="11" EndColumn="83" Covered="True" />
-          <Statement FileIndex="27" Line="12" Column="5" EndLine="12" EndColumn="6" Covered="True" />
-          <Statement FileIndex="27" Line="13" Column="9" EndLine="13" EndColumn="33" Covered="True" />
-          <Statement FileIndex="27" Line="14" Column="9" EndLine="14" EndColumn="29" Covered="True" />
-          <Statement FileIndex="27" Line="15" Column="5" EndLine="15" EndColumn="6" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="RecommenderService" CoveredStatements="6" TotalStatements="16" CoveragePercent="38">
-        <Type Name="&lt;&gt;c" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Method Name="&lt;PostRecommendation&gt;b__3_0(WebApi.Models.Poi):WebApi.Models.DTOs.PoiDTO" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-            <Statement FileIndex="28" Line="19" Column="64" EndLine="19" EndColumn="77" Covered="False" />
-          </Method>
-        </Type>
-        <Type Name="&lt;PostRecommendation&gt;d__3" CoveredStatements="0" TotalStatements="9" CoveragePercent="0">
-          <Method Name="MoveNext():System.Void" CoveredStatements="0" TotalStatements="9" CoveragePercent="0">
-            <Statement FileIndex="28" Line="18" Column="5" EndLine="18" EndColumn="6" Covered="False" />
-            <Statement FileIndex="28" Line="19" Column="9" EndLine="19" EndColumn="80" Covered="False" />
-            <Statement FileIndex="28" Line="20" Column="9" EndLine="20" EndColumn="79" Covered="False" />
-            <Statement FileIndex="28" Line="21" Column="9" EndLine="21" EndColumn="79" Covered="False" />
-            <Statement FileIndex="28" Line="22" Column="9" EndLine="22" EndColumn="55" Covered="False" />
-            <Statement FileIndex="28" Line="24" Column="9" EndLine="24" EndColumn="86" Covered="False" />
-            <Statement FileIndex="28" Line="25" Column="9" EndLine="25" EndColumn="67" Covered="False" />
-            <Statement FileIndex="28" Line="26" Column="9" EndLine="26" EndColumn="23" Covered="False" />
-            <Statement FileIndex="28" Line="27" Column="5" EndLine="27" EndColumn="6" Covered="False" />
-          </Method>
-        </Type>
-        <Method Name=".ctor(System.Net.Http.HttpClient):System.Void" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
-          <Statement FileIndex="28" Line="11" Column="5" EndLine="11" EndColumn="59" Covered="True" />
-          <Statement FileIndex="28" Line="12" Column="5" EndLine="12" EndColumn="53" Covered="True" />
-          <Statement FileIndex="28" Line="13" Column="5" EndLine="13" EndColumn="6" Covered="True" />
-          <Statement FileIndex="28" Line="14" Column="9" EndLine="14" EndColumn="34" Covered="True" />
-          <Statement FileIndex="28" Line="15" Column="9" EndLine="15" EndColumn="52" Covered="True" />
-          <Statement FileIndex="28" Line="16" Column="5" EndLine="16" EndColumn="6" Covered="True" />
-        </Method>
-      </Type>
-      <Type Name="SearchService" CoveredStatements="13" TotalStatements="13" CoveragePercent="100">
-        <Method Name=".ctor(WebApi.PoiContext):System.Void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Statement FileIndex="29" Line="9" Column="5" EndLine="9" EndColumn="45" Covered="True" />
-          <Statement FileIndex="29" Line="10" Column="5" EndLine="10" EndColumn="6" Covered="True" />
-          <Statement FileIndex="29" Line="11" Column="9" EndLine="11" EndColumn="28" Covered="True" />
-          <Statement FileIndex="29" Line="12" Column="5" EndLine="12" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="Range(System.Double,System.Double,System.Double):System.Linq.IQueryable&lt;WebApi.Models.Poi&gt;" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
-          <Statement FileIndex="29" Line="25" Column="5" EndLine="25" EndColumn="6" Covered="True" />
-          <Statement FileIndex="29" Line="26" Column="9" EndLine="29" EndColumn="28" Covered="True" />
-          <Statement FileIndex="29" Line="30" Column="9" EndLine="30" EndColumn="47" Covered="True" />
-          <Statement FileIndex="29" Line="31" Column="5" EndLine="31" EndColumn="6" Covered="True" />
-        </Method>
-        <Method Name="Range(System.Linq.IQueryable&lt;WebApi.Models.Poi&gt;,System.Double,System.Double,System.Double):System.Linq.IQueryable&lt;WebApi.Models.Poi&gt;" CoveredStatements="5" TotalStatements="5" CoveragePercent="100">
-          <Statement FileIndex="29" Line="15" Column="5" EndLine="15" EndColumn="6" Covered="True" />
-          <Statement FileIndex="29" Line="16" Column="9" EndLine="20" EndColumn="12" Covered="True" />
-          <Statement FileIndex="29" Line="21" Column="9" EndLine="21" EndColumn="92" Covered="True" />
-          <Statement FileIndex="29" Line="22" Column="9" EndLine="22" EndColumn="23" Covered="True" />
-          <Statement FileIndex="29" Line="23" Column="5" EndLine="23" EndColumn="6" Covered="True" />
-        </Method>
+        <Constructor Name="PoiContext(DbContextOptions&lt;PoiContext&gt;)" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <AutoProperty Name="Categories:DbSet&lt;Category&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Checkins:DbSet&lt;Checkin&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Claims:DbSet&lt;IdentityUserClaim&lt;string&gt;&gt;" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Pois:DbSet&lt;Poi&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Users:DbSet&lt;User&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <Method Name="OnModelCreating(ModelBuilder):void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
       </Type>
     </Namespace>
     <Type Name="Program" CoveredStatements="0" TotalStatements="59" CoveragePercent="0">
-      <Type Name="&lt;&gt;c" CoveredStatements="0" TotalStatements="23" CoveragePercent="0">
-        <Method Name="&lt;&lt;Main&gt;$&gt;b__0_0(Microsoft.AspNetCore.Mvc.MvcNewtonsoftJsonOptions):System.Void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="26" Line="14" Column="58" EndLine="15" EndColumn="33" Covered="False" />
-        </Method>
-        <Method Name="&lt;&lt;Main&gt;$&gt;b__0_1(Microsoft.AspNetCore.Mvc.JsonOptions):System.Void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0">
-          <Statement FileIndex="26" Line="16" Column="16" EndLine="16" EndColumn="17" Covered="False" />
-          <Statement FileIndex="26" Line="16" Column="18" EndLine="16" EndColumn="93" Covered="False" />
-          <Statement FileIndex="26" Line="16" Column="94" EndLine="16" EndColumn="95" Covered="False" />
-        </Method>
-        <Method Name="&lt;&lt;Main&gt;$&gt;b__0_2(Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions):System.Void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0">
-          <Statement FileIndex="26" Line="20" Column="1" EndLine="20" EndColumn="2" Covered="False" />
-          <Statement FileIndex="26" Line="21" Column="5" EndLine="21" EndColumn="94" Covered="False" />
-          <Statement FileIndex="26" Line="22" Column="5" EndLine="22" EndColumn="27" Covered="False" />
-          <Statement FileIndex="26" Line="23" Column="5" EndLine="23" EndColumn="50" Covered="False" />
-          <Statement FileIndex="26" Line="24" Column="1" EndLine="24" EndColumn="2" Covered="False" />
-        </Method>
-        <Method Name="&lt;&lt;Main&gt;$&gt;b__0_4(Microsoft.AspNetCore.Identity.IdentityOptions):System.Void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="26" Line="30" Column="54" EndLine="30" EndColumn="99" Covered="False" />
-        </Method>
-        <Method Name="&lt;&lt;Main&gt;$&gt;b__0_5(Microsoft.AspNetCore.Identity.IdentityOptions):System.Void" CoveredStatements="0" TotalStatements="9" CoveragePercent="0">
-          <Statement FileIndex="26" Line="45" Column="1" EndLine="45" EndColumn="2" Covered="False" />
-          <Statement FileIndex="26" Line="47" Column="5" EndLine="47" EndColumn="42" Covered="False" />
-          <Statement FileIndex="26" Line="48" Column="5" EndLine="48" EndColumn="46" Covered="False" />
-          <Statement FileIndex="26" Line="49" Column="5" EndLine="49" EndColumn="53" Covered="False" />
-          <Statement FileIndex="26" Line="50" Column="5" EndLine="50" EndColumn="46" Covered="False" />
-          <Statement FileIndex="26" Line="51" Column="5" EndLine="51" EndColumn="41" Covered="False" />
-          <Statement FileIndex="26" Line="52" Column="5" EndLine="52" EndColumn="46" Covered="False" />
-          <Statement FileIndex="26" Line="54" Column="5" EndLine="54" EndColumn="52" Covered="False" />
-          <Statement FileIndex="26" Line="55" Column="1" EndLine="55" EndColumn="2" Covered="False" />
-        </Method>
-        <Method Name="&lt;&lt;Main&gt;$&gt;b__0_6(Microsoft.Extensions.Logging.ILoggingBuilder):System.Void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0">
-          <Statement FileIndex="26" Line="69" Column="1" EndLine="69" EndColumn="2" Covered="False" />
-          <Statement FileIndex="26" Line="70" Column="5" EndLine="70" EndColumn="30" Covered="False" />
-          <Statement FileIndex="26" Line="71" Column="5" EndLine="71" EndColumn="26" Covered="False" />
-          <Statement FileIndex="26" Line="72" Column="1" EndLine="72" EndColumn="2" Covered="False" />
-        </Method>
-      </Type>
-      <Type Name="&lt;&gt;c__DisplayClass0_0" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-        <Method Name="&lt;&lt;Main&gt;$&gt;b__3(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder):System.Void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0">
-          <Statement FileIndex="26" Line="27" Column="5" EndLine="27" EndColumn="85" Covered="False" />
-        </Method>
-      </Type>
-      <Method Name="&lt;Main&gt;$(System.String[]):System.Void" CoveredStatements="0" TotalStatements="35" CoveragePercent="0">
-        <Statement FileIndex="26" Line="10" Column="1" EndLine="10" EndColumn="50" Covered="False" />
-        <Statement FileIndex="26" Line="14" Column="1" EndLine="16" EndColumn="97" Covered="False" />
-        <Statement FileIndex="26" Line="18" Column="1" EndLine="18" EndColumn="44" Covered="False" />
-        <Statement FileIndex="26" Line="19" Column="1" EndLine="24" EndColumn="4" Covered="False" />
-        <Statement FileIndex="26" Line="26" Column="1" EndLine="28" EndColumn="3" Covered="False" />
-        <Statement FileIndex="26" Line="30" Column="1" EndLine="31" EndColumn="45" Covered="False" />
-        <Statement FileIndex="26" Line="44" Column="1" EndLine="55" EndColumn="4" Covered="False" />
-        <Statement FileIndex="26" Line="64" Column="1" EndLine="64" EndColumn="54" Covered="False" />
-        <Statement FileIndex="26" Line="65" Column="1" EndLine="65" EndColumn="45" Covered="False" />
-        <Statement FileIndex="26" Line="66" Column="1" EndLine="66" EndColumn="51" Covered="False" />
-        <Statement FileIndex="26" Line="68" Column="1" EndLine="72" EndColumn="4" Covered="False" />
-        <Statement FileIndex="26" Line="74" Column="1" EndLine="74" EndColumn="60" Covered="False" />
-        <Statement FileIndex="26" Line="75" Column="1" EndLine="75" EndColumn="27" Covered="False" />
-        <Statement FileIndex="26" Line="77" Column="1" EndLine="77" EndColumn="18" Covered="False" />
-        <Statement FileIndex="26" Line="78" Column="1" EndLine="78" EndColumn="20" Covered="False" />
-        <Statement FileIndex="26" Line="80" Column="1" EndLine="80" EndColumn="37" Covered="False" />
-        <Statement FileIndex="26" Line="81" Column="1" EndLine="81" EndColumn="2" Covered="False" />
-        <Statement FileIndex="26" Line="82" Column="5" EndLine="82" EndColumn="37" Covered="False" />
-        <Statement FileIndex="26" Line="83" Column="5" EndLine="83" EndColumn="33" Covered="False" />
-        <Statement FileIndex="26" Line="84" Column="1" EndLine="84" EndColumn="2" Covered="False" />
-        <Statement FileIndex="26" Line="86" Column="1" EndLine="86" EndColumn="2" Covered="False" />
-        <Statement FileIndex="26" Line="87" Column="5" EndLine="87" EndColumn="39" Covered="False" />
-        <Statement FileIndex="26" Line="88" Column="5" EndLine="88" EndColumn="19" Covered="False" />
-        <Statement FileIndex="26" Line="89" Column="1" EndLine="89" EndColumn="2" Covered="False" />
-        <Statement FileIndex="26" Line="91" Column="8" EndLine="91" EndColumn="46" Covered="False" />
-        <Statement FileIndex="26" Line="92" Column="1" EndLine="92" EndColumn="2" Covered="False" />
-        <Statement FileIndex="26" Line="93" Column="5" EndLine="93" EndColumn="42" Covered="False" />
-        <Statement FileIndex="26" Line="95" Column="5" EndLine="95" EndColumn="61" Covered="False" />
-        <Statement FileIndex="26" Line="96" Column="5" EndLine="96" EndColumn="38" Covered="False" />
-        <Statement FileIndex="26" Line="98" Column="1" EndLine="98" EndColumn="2" Covered="False" />
-        <Statement FileIndex="26" Line="100" Column="1" EndLine="100" EndColumn="27" Covered="False" />
-        <Statement FileIndex="26" Line="102" Column="1" EndLine="102" EndColumn="24" Covered="False" />
-        <Statement FileIndex="26" Line="103" Column="1" EndLine="103" EndColumn="25" Covered="False" />
-        <Statement FileIndex="26" Line="105" Column="1" EndLine="105" EndColumn="22" Covered="False" />
-        <Statement FileIndex="26" Line="107" Column="1" EndLine="107" EndColumn="11" Covered="False" />
+      <Method Name="&lt;Main&gt;$(string[]):void" CoveredStatements="0" TotalStatements="59" CoveragePercent="0">
+        <OwnCoverage CoveredStatements="0" TotalStatements="35" CoveragePercent="0" />
+        <AnonymousMethod Name="(MvcNewtonsoftJsonOptions):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <AnonymousMethod Name="(JsonOptions):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <AnonymousMethod Name="(SwaggerGenOptions):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <AnonymousMethod Name="(DbContextOptionsBuilder):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <AnonymousMethod Name="(IdentityOptions):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <AnonymousMethod Name="(IdentityOptions):void" CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+        <AnonymousMethod Name="(ILoggingBuilder):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
       </Method>
     </Type>
-  </Assembly>
-</Root>
+  </Project>
+</SolutionRoot>
