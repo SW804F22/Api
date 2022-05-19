@@ -1,0 +1,1947 @@
+﻿{
+  "DotCoverVersion": "2022.1.1",
+  "Kind": "SolutionRoot",
+  "CoveredStatements": 501,
+  "TotalStatements": 592,
+  "CoveragePercent": 85,
+  "Children": [
+    {
+      "Kind": "Project",
+      "Name": "WebApi",
+      "CoveredStatements": 501,
+      "TotalStatements": 592,
+      "CoveragePercent": 85,
+      "Children": [
+        {
+          "Kind": "Namespace",
+          "Name": "WebApi",
+          "CoveredStatements": 501,
+          "TotalStatements": 533,
+          "CoveragePercent": 94,
+          "Children": [
+            {
+              "Kind": "Namespace",
+              "Name": "Controllers",
+              "CoveredStatements": 265,
+              "TotalStatements": 272,
+              "CoveragePercent": 97,
+              "Children": [
+                {
+                  "Kind": "Type",
+                  "Name": "AuthenticationController",
+                  "CoveredStatements": 30,
+                  "TotalStatements": 30,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "AuthenticationController(AuthenticateService)",
+                      "CoveredStatements": 4,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "ChangePassword(string,ChangePasswordDTO):Task<ActionResult>",
+                      "CoveredStatements": 11,
+                      "TotalStatements": 11,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 11,
+                          "TotalStatements": 11,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Login(Login):Task<ActionResult>",
+                      "CoveredStatements": 8,
+                      "TotalStatements": 8,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 8,
+                          "TotalStatements": 8,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Register(Register):Task<ActionResult>",
+                      "CoveredStatements": 7,
+                      "TotalStatements": 7,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 7,
+                          "TotalStatements": 7,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "PoiController",
+                  "CoveredStatements": 141,
+                  "TotalStatements": 144,
+                  "CoveragePercent": 98,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "PoiController(PoiContext,SearchService)",
+                      "CoveredStatements": 5,
+                      "TotalStatements": 5,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "CreatePoi(PoiDTO):Task<ActionResult>",
+                      "CoveredStatements": 19,
+                      "TotalStatements": 20,
+                      "CoveragePercent": 95,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 19,
+                          "TotalStatements": 20,
+                          "CoveragePercent": 95
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "DeletePoi(Guid):Task<ActionResult>",
+                      "CoveredStatements": 9,
+                      "TotalStatements": 10,
+                      "CoveragePercent": 90,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 9,
+                          "TotalStatements": 10,
+                          "CoveragePercent": 90
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "EditPoi(Guid,PoiDTO):Task<ActionResult>",
+                      "CoveredStatements": 16,
+                      "TotalStatements": 17,
+                      "CoveragePercent": 94,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 16,
+                          "TotalStatements": 17,
+                          "CoveragePercent": 94
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "FromDTO(PoiDTO):Task<Poi>",
+                      "CoveredStatements": 21,
+                      "TotalStatements": 21,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 21,
+                          "TotalStatements": 21,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "GetPoi(Guid):Task<ActionResult>",
+                      "CoveredStatements": 8,
+                      "TotalStatements": 8,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 8,
+                          "TotalStatements": 8,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Search(string,IEnumerable<string>,IEnumerable<string>,Nullable<double>,Nullable<double>,Nullable<double>,IEnumerable<Price>,int):Task<IActionResult>",
+                      "CoveredStatements": 46,
+                      "TotalStatements": 46,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 46,
+                          "TotalStatements": 46,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "SearchCategory(string,int):ActionResult",
+                      "CoveredStatements": 10,
+                      "TotalStatements": 10,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "OwnCoverage",
+                          "CoveredStatements": 8,
+                          "TotalStatements": 8,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "AnonymousMethod",
+                          "Name": "(string):string",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "AnonymousMethod",
+                          "Name": "(ExtractedResult<string>):string",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "SearchName(string):ActionResult",
+                      "CoveredStatements": 7,
+                      "TotalStatements": 7,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "OwnCoverage",
+                          "CoveredStatements": 5,
+                          "TotalStatements": 5,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "AnonymousMethod",
+                          "Name": "(string):string",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "AnonymousMethod",
+                          "Name": "(ExtractedResult<string>):string",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "RecommendController",
+                  "CoveredStatements": 18,
+                  "TotalStatements": 18,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "RecommendController(RecommenderService,SearchService,PoiContext)",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Recommend(Recommend):Task<ActionResult>",
+                      "CoveredStatements": 12,
+                      "TotalStatements": 12,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 12,
+                          "TotalStatements": 12,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "UserController",
+                  "CoveredStatements": 76,
+                  "TotalStatements": 80,
+                  "CoveragePercent": 95,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "UserController(PoiContext)",
+                      "CoveredStatements": 4,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "DeleteUser(string):Task<ActionResult>",
+                      "CoveredStatements": 11,
+                      "TotalStatements": 12,
+                      "CoveragePercent": 92,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 11,
+                          "TotalStatements": 12,
+                          "CoveragePercent": 92
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "EditUser(string,UserDTO):Task<ActionResult>",
+                      "CoveredStatements": 17,
+                      "TotalStatements": 18,
+                      "CoveragePercent": 94,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 17,
+                          "TotalStatements": 18,
+                          "CoveragePercent": 94
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "GetCheckins(string):Task<ActionResult>",
+                      "CoveredStatements": 8,
+                      "TotalStatements": 8,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 8,
+                          "TotalStatements": 8,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "GetUser(string):Task<ActionResult>",
+                      "CoveredStatements": 7,
+                      "TotalStatements": 7,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 7,
+                          "TotalStatements": 7,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "UnVisit(Guid):Task<ActionResult>",
+                      "CoveredStatements": 11,
+                      "TotalStatements": 12,
+                      "CoveragePercent": 92,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 11,
+                          "TotalStatements": 12,
+                          "CoveragePercent": 92
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Visit(string,Guid):Task<ActionResult>",
+                      "CoveredStatements": 18,
+                      "TotalStatements": 19,
+                      "CoveragePercent": 95,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 18,
+                          "TotalStatements": 19,
+                          "CoveragePercent": 95
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Kind": "Namespace",
+              "Name": "Models",
+              "CoveredStatements": 179,
+              "TotalStatements": 193,
+              "CoveragePercent": 93,
+              "Children": [
+                {
+                  "Kind": "Namespace",
+                  "Name": "DTOs",
+                  "CoveredStatements": 65,
+                  "TotalStatements": 65,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Type",
+                      "Name": "ChangePasswordDTO",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "Constructor",
+                          "Name": "ChangePasswordDTO()",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "NewPassword:string",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "OldPassword:string",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Type",
+                      "Name": "PoiDTO",
+                      "CoveredStatements": 47,
+                      "TotalStatements": 47,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "Constructor",
+                          "Name": "PoiDTO(Poi)",
+                          "CoveredStatements": 19,
+                          "TotalStatements": 19,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "OwnCoverage",
+                              "CoveredStatements": 18,
+                              "TotalStatements": 18,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "AnonymousMethod",
+                              "Name": "(Category):string",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "Constructor",
+                          "Name": "PoiDTO()",
+                          "CoveredStatements": 10,
+                          "TotalStatements": 10,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Address:string",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Categories:List<string>",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Description:string",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "id:Nullable<Guid>",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Latitude:double",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Longitude:double",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "PriceStep:Price",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Title:string",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Website:string",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Type",
+                      "Name": "Recommend",
+                      "CoveredStatements": 12,
+                      "TotalStatements": 12,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "Constructor",
+                          "Name": "Recommend()",
+                          "CoveredStatements": 4,
+                          "TotalStatements": 4,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Latitude:double",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Longitude:double",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "Range:double",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        },
+                        {
+                          "Kind": "AutoProperty",
+                          "Name": "UserID:string",
+                          "CoveredStatements": 2,
+                          "TotalStatements": 2,
+                          "CoveragePercent": 100,
+                          "Children": [
+                            {
+                              "Kind": "PropertyGetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            },
+                            {
+                              "Kind": "PropertySetter",
+                              "CoveredStatements": 1,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 100
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "Category",
+                  "CoveredStatements": 13,
+                  "TotalStatements": 19,
+                  "CoveragePercent": 68,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Category()",
+                      "CoveredStatements": 4,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Category(string,Category)",
+                      "CoveredStatements": 5,
+                      "TotalStatements": 5,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Id:int",
+                      "CoveredStatements": 0,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 0,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Locations:ICollection<Poi>",
+                      "CoveredStatements": 0,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 0,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Name:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Parent:Category",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "SubCategories:ICollection<Category>",
+                      "CoveredStatements": 0,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 0,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "Checkin",
+                  "CoveredStatements": 10,
+                  "TotalStatements": 16,
+                  "CoveragePercent": 63,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Checkin()",
+                      "CoveredStatements": 0,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 0
+                    },
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Checkin(Poi,DateTime)",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Point:Poi",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 50,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Timestamp:DateTime",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 50,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "UUID:Guid",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "Login",
+                  "CoveredStatements": 9,
+                  "TotalStatements": 9,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Login(string,string)",
+                      "CoveredStatements": 5,
+                      "TotalStatements": 5,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Password:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Username:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "Poi",
+                  "CoveredStatements": 46,
+                  "TotalStatements": 47,
+                  "CoveragePercent": 98,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Poi()",
+                      "CoveredStatements": 10,
+                      "TotalStatements": 10,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Poi(string,double,double,string,string,string,Price)",
+                      "CoveredStatements": 19,
+                      "TotalStatements": 19,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Address:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Categories:ICollection<Category>",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Description:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Latitude:double",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Longitude:double",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "PriceStep:Price",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Title:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "UUID:Nullable<Guid>",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Website:string",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 50,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "Register",
+                  "CoveredStatements": 15,
+                  "TotalStatements": 15,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "Register(string,string,DateTime,Gender)",
+                      "CoveredStatements": 7,
+                      "TotalStatements": 7,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "DateOfBirth:DateTime",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Gender:Gender",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Password:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Username:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "User",
+                  "CoveredStatements": 6,
+                  "TotalStatements": 7,
+                  "CoveragePercent": 86,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "User()",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Checkins:ICollection<Checkin>",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 50,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 0
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "DateOfBirth:Nullable<DateTime>",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Gender:Gender",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "UserDTO",
+                  "CoveredStatements": 15,
+                  "TotalStatements": 15,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "UserDTO(User)",
+                      "CoveredStatements": 7,
+                      "TotalStatements": 7,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "DateOfBirth:DateTime",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Gender:Gender",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "Id:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "AutoProperty",
+                      "Name": "UserName:string",
+                      "CoveredStatements": 2,
+                      "TotalStatements": 2,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "PropertyGetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        },
+                        {
+                          "Kind": "PropertySetter",
+                          "CoveredStatements": 1,
+                          "TotalStatements": 1,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Kind": "Namespace",
+              "Name": "Services",
+              "CoveredStatements": 37,
+              "TotalStatements": 47,
+              "CoveragePercent": 79,
+              "Children": [
+                {
+                  "Kind": "Type",
+                  "Name": "AuthenticateService",
+                  "CoveredStatements": 18,
+                  "TotalStatements": 18,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "AuthenticateService(SignInManager<User>,UserManager<User>)",
+                      "CoveredStatements": 5,
+                      "TotalStatements": 5,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "ChangePassword(User,string,string):Task<IdentityResult>",
+                      "CoveredStatements": 3,
+                      "TotalStatements": 3,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 3,
+                          "TotalStatements": 3,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "FindUser(string):Task<User>",
+                      "CoveredStatements": 3,
+                      "TotalStatements": 3,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 3,
+                          "TotalStatements": 3,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Login(string,string):Task<ValueTuple<SignInResult,User>>",
+                      "CoveredStatements": 4,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 4,
+                          "TotalStatements": 4,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Register(User,string):Task<IdentityResult>",
+                      "CoveredStatements": 3,
+                      "TotalStatements": 3,
+                      "CoveragePercent": 100,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 3,
+                          "TotalStatements": 3,
+                          "CoveragePercent": 100
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "RecommenderService",
+                  "CoveredStatements": 6,
+                  "TotalStatements": 16,
+                  "CoveragePercent": 38,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "RecommenderService(HttpClient)",
+                      "CoveredStatements": 6,
+                      "TotalStatements": 6,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "PostRecommendation(string,IEnumerable<Poi>):Task<IEnumerable<PoiDTO>>",
+                      "CoveredStatements": 0,
+                      "TotalStatements": 10,
+                      "CoveragePercent": 0,
+                      "Children": [
+                        {
+                          "Kind": "InternalCompiledMethod",
+                          "Name": "MoveNext():void",
+                          "CoveredStatements": 0,
+                          "TotalStatements": 10,
+                          "CoveragePercent": 0,
+                          "Children": [
+                            {
+                              "Kind": "OwnCoverage",
+                              "CoveredStatements": 0,
+                              "TotalStatements": 9,
+                              "CoveragePercent": 0
+                            },
+                            {
+                              "Kind": "AnonymousMethod",
+                              "Name": "(Poi):PoiDTO",
+                              "CoveredStatements": 0,
+                              "TotalStatements": 1,
+                              "CoveragePercent": 0
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Type",
+                  "Name": "SearchService",
+                  "CoveredStatements": 13,
+                  "TotalStatements": 13,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "Constructor",
+                      "Name": "SearchService(PoiContext)",
+                      "CoveredStatements": 4,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Range(IQueryable<Poi>,double,double,double):IQueryable<Poi>",
+                      "CoveredStatements": 5,
+                      "TotalStatements": 5,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "Method",
+                      "Name": "Range(double,double,double):IQueryable<Poi>",
+                      "CoveredStatements": 4,
+                      "TotalStatements": 4,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Kind": "Type",
+              "Name": "PoiContext",
+              "CoveredStatements": 20,
+              "TotalStatements": 21,
+              "CoveragePercent": 95,
+              "Children": [
+                {
+                  "Kind": "Constructor",
+                  "Name": "PoiContext(DbContextOptions<PoiContext>)",
+                  "CoveredStatements": 3,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 100
+                },
+                {
+                  "Kind": "AutoProperty",
+                  "Name": "Categories:DbSet<Category>",
+                  "CoveredStatements": 2,
+                  "TotalStatements": 2,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "PropertySetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "AutoProperty",
+                  "Name": "Checkins:DbSet<Checkin>",
+                  "CoveredStatements": 2,
+                  "TotalStatements": 2,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "PropertySetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "AutoProperty",
+                  "Name": "Claims:DbSet<IdentityUserClaim<string>>",
+                  "CoveredStatements": 1,
+                  "TotalStatements": 2,
+                  "CoveragePercent": 50,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 0,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 0
+                    },
+                    {
+                      "Kind": "PropertySetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "AutoProperty",
+                  "Name": "Pois:DbSet<Poi>",
+                  "CoveredStatements": 2,
+                  "TotalStatements": 2,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "PropertySetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "AutoProperty",
+                  "Name": "Users:DbSet<User>",
+                  "CoveredStatements": 2,
+                  "TotalStatements": 2,
+                  "CoveragePercent": 100,
+                  "Children": [
+                    {
+                      "Kind": "PropertyGetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    },
+                    {
+                      "Kind": "PropertySetter",
+                      "CoveredStatements": 1,
+                      "TotalStatements": 1,
+                      "CoveragePercent": 100
+                    }
+                  ]
+                },
+                {
+                  "Kind": "Method",
+                  "Name": "OnModelCreating(ModelBuilder):void",
+                  "CoveredStatements": 8,
+                  "TotalStatements": 8,
+                  "CoveragePercent": 100
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Kind": "Type",
+          "Name": "Program",
+          "CoveredStatements": 0,
+          "TotalStatements": 59,
+          "CoveragePercent": 0,
+          "Children": [
+            {
+              "Kind": "Method",
+              "Name": "<Main>$(string[]):void",
+              "CoveredStatements": 0,
+              "TotalStatements": 59,
+              "CoveragePercent": 0,
+              "Children": [
+                {
+                  "Kind": "OwnCoverage",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 35,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "AnonymousMethod",
+                  "Name": "(MvcNewtonsoftJsonOptions):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 1,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "AnonymousMethod",
+                  "Name": "(JsonOptions):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 3,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "AnonymousMethod",
+                  "Name": "(SwaggerGenOptions):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 5,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "AnonymousMethod",
+                  "Name": "(DbContextOptionsBuilder):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 1,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "AnonymousMethod",
+                  "Name": "(IdentityOptions):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 1,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "AnonymousMethod",
+                  "Name": "(IdentityOptions):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 9,
+                  "CoveragePercent": 0
+                },
+                {
+                  "Kind": "AnonymousMethod",
+                  "Name": "(ILoggingBuilder):void",
+                  "CoveredStatements": 0,
+                  "TotalStatements": 4,
+                  "CoveragePercent": 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
