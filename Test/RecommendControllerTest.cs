@@ -80,7 +80,7 @@ public class RecommendControllerTest : IClassFixture<TestDatabaseFixture>
         };
         var result = await controller.Recommend(rec);
         var res = Assert.IsType<OkObjectResult>(result);
-        var pois = Assert.IsType<Poi[]>(res.Value);
+        var pois = Assert.IsType<PoiDTO[]>(res.Value);
         Assert.Equal(3, pois.Length);
         context.ChangeTracker.Clear();
     }

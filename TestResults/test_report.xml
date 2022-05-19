@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SolutionRoot CoveredStatements="496" TotalStatements="592" CoveragePercent="84" ReportType="Xml" DotCoverVersion="2022.1.1">
+  <Project Name="WebApi" CoveredStatements="496" TotalStatements="592" CoveragePercent="84">
+    <Namespace Name="WebApi" CoveredStatements="496" TotalStatements="533" CoveragePercent="93">
+      <Namespace Name="Controllers" CoveredStatements="260" TotalStatements="272" CoveragePercent="96">
+        <Type Name="AuthenticationController" CoveredStatements="30" TotalStatements="30" CoveragePercent="100">
+          <Constructor Name="AuthenticationController(AuthenticateService)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Method Name="ChangePassword(string,ChangePasswordDTO):Task&lt;ActionResult&gt;" CoveredStatements="11" TotalStatements="11" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="11" TotalStatements="11" CoveragePercent="100" />
+          </Method>
+          <Method Name="Login(Login):Task&lt;ActionResult&gt;" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+          </Method>
+          <Method Name="Register(Register):Task&lt;ActionResult&gt;" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="PoiController" CoveredStatements="139" TotalStatements="144" CoveragePercent="97">
+          <Constructor Name="PoiController(PoiContext,SearchService)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <Method Name="CreatePoi(PoiDTO):Task&lt;ActionResult&gt;" CoveredStatements="19" TotalStatements="20" CoveragePercent="95">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="19" TotalStatements="20" CoveragePercent="95" />
+          </Method>
+          <Method Name="DeletePoi(Guid):Task&lt;ActionResult&gt;" CoveredStatements="7" TotalStatements="10" CoveragePercent="70">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="7" TotalStatements="10" CoveragePercent="70" />
+          </Method>
+          <Method Name="EditPoi(Guid,PoiDTO):Task&lt;ActionResult&gt;" CoveredStatements="16" TotalStatements="17" CoveragePercent="94">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="16" TotalStatements="17" CoveragePercent="94" />
+          </Method>
+          <Method Name="FromDTO(PoiDTO):Task&lt;Poi&gt;" CoveredStatements="21" TotalStatements="21" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="21" TotalStatements="21" CoveragePercent="100" />
+          </Method>
+          <Method Name="GetPoi(Guid):Task&lt;ActionResult&gt;" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+          </Method>
+          <Method Name="Search(string,IEnumerable&lt;string&gt;,IEnumerable&lt;string&gt;,Nullable&lt;double&gt;,Nullable&lt;double&gt;,Nullable&lt;double&gt;,IEnumerable&lt;Price&gt;,int):Task&lt;IActionResult&gt;" CoveredStatements="46" TotalStatements="46" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="46" TotalStatements="46" CoveragePercent="100" />
+          </Method>
+          <Method Name="SearchCategory(string,int):ActionResult" CoveredStatements="10" TotalStatements="10" CoveragePercent="100">
+            <OwnCoverage CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+            <AnonymousMethod Name="(string):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <AnonymousMethod Name="(ExtractedResult&lt;string&gt;):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </Method>
+          <Method Name="SearchName(string):ActionResult" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+            <OwnCoverage CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+            <AnonymousMethod Name="(string):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <AnonymousMethod Name="(ExtractedResult&lt;string&gt;):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="RecommendController" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
+          <Constructor Name="RecommendController(RecommenderService,SearchService,PoiContext)" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <Method Name="Recommend(Recommend):Task&lt;ActionResult&gt;" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="12" TotalStatements="12" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="UserController" CoveredStatements="73" TotalStatements="80" CoveragePercent="91">
+          <Constructor Name="UserController(PoiContext)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Method Name="DeleteUser(string):Task&lt;ActionResult&gt;" CoveredStatements="8" TotalStatements="12" CoveragePercent="67">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="8" TotalStatements="12" CoveragePercent="67" />
+          </Method>
+          <Method Name="EditUser(string,UserDTO):Task&lt;ActionResult&gt;" CoveredStatements="17" TotalStatements="18" CoveragePercent="94">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="17" TotalStatements="18" CoveragePercent="94" />
+          </Method>
+          <Method Name="GetCheckins(string):Task&lt;ActionResult&gt;" CoveredStatements="8" TotalStatements="8" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+          </Method>
+          <Method Name="GetUser(string):Task&lt;ActionResult&gt;" CoveredStatements="7" TotalStatements="7" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          </Method>
+          <Method Name="UnVisit(Guid):Task&lt;ActionResult&gt;" CoveredStatements="11" TotalStatements="12" CoveragePercent="92">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="11" TotalStatements="12" CoveragePercent="92" />
+          </Method>
+          <Method Name="Visit(string,Guid):Task&lt;ActionResult&gt;" CoveredStatements="18" TotalStatements="19" CoveragePercent="95">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="18" TotalStatements="19" CoveragePercent="95" />
+          </Method>
+        </Type>
+      </Namespace>
+      <Namespace Name="Models" CoveredStatements="179" TotalStatements="193" CoveragePercent="93">
+        <Namespace Name="DTOs" CoveredStatements="65" TotalStatements="65" CoveragePercent="100">
+          <Type Name="ChangePasswordDTO" CoveredStatements="6" TotalStatements="6" CoveragePercent="100">
+            <Constructor Name="ChangePasswordDTO()" CoveredStatements="2" TotalStatements="2" CoveragePercent="100" />
+            <AutoProperty Name="NewPassword:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="OldPassword:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+          </Type>
+          <Type Name="PoiDTO" CoveredStatements="47" TotalStatements="47" CoveragePercent="100">
+            <Constructor Name="PoiDTO(Poi)" CoveredStatements="19" TotalStatements="19" CoveragePercent="100">
+              <OwnCoverage CoveredStatements="18" TotalStatements="18" CoveragePercent="100" />
+              <AnonymousMethod Name="(Category):string" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </Constructor>
+            <Constructor Name="PoiDTO()" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+            <AutoProperty Name="Address:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Categories:List&lt;string&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Description:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="id:Nullable&lt;Guid&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Latitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Longitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="PriceStep:Price" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Title:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Website:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+          </Type>
+          <Type Name="Recommend" CoveredStatements="12" TotalStatements="12" CoveragePercent="100">
+            <Constructor Name="Recommend()" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+            <AutoProperty Name="Latitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Longitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="Range:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+            <AutoProperty Name="UserID:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+              <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+              <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            </AutoProperty>
+          </Type>
+        </Namespace>
+        <Type Name="Category" CoveredStatements="13" TotalStatements="19" CoveragePercent="68">
+          <Constructor Name="Category()" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Constructor Name="Category(string,Category)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <AutoProperty Name="Id:int" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="Locations:ICollection&lt;Poi&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="Name:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Parent:Category" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="SubCategories:ICollection&lt;Category&gt;" CoveredStatements="0" TotalStatements="2" CoveragePercent="0">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Checkin" CoveredStatements="10" TotalStatements="16" CoveragePercent="63">
+          <Constructor Name="Checkin()" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+          <Constructor Name="Checkin(Poi,DateTime)" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <AutoProperty Name="Point:Poi" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Timestamp:DateTime" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="UUID:Guid" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Login" CoveredStatements="9" TotalStatements="9" CoveragePercent="100">
+          <Constructor Name="Login(string,string)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <AutoProperty Name="Password:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Username:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Poi" CoveredStatements="46" TotalStatements="47" CoveragePercent="98">
+          <Constructor Name="Poi()" CoveredStatements="10" TotalStatements="10" CoveragePercent="100" />
+          <Constructor Name="Poi(string,double,double,string,string,string,Price)" CoveredStatements="19" TotalStatements="19" CoveragePercent="100" />
+          <AutoProperty Name="Address:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Categories:ICollection&lt;Category&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Description:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Latitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Longitude:double" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="PriceStep:Price" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Title:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="UUID:Nullable&lt;Guid&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Website:string" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="Register" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
+          <Constructor Name="Register(string,string,DateTime,Gender)" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          <AutoProperty Name="DateOfBirth:DateTime" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Gender:Gender" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Password:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Username:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="User" CoveredStatements="6" TotalStatements="7" CoveragePercent="86">
+          <Constructor Name="User()" CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <AutoProperty Name="Checkins:ICollection&lt;Checkin&gt;" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          </AutoProperty>
+          <AutoProperty Name="DateOfBirth:Nullable&lt;DateTime&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Gender:Gender" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+        <Type Name="UserDTO" CoveredStatements="15" TotalStatements="15" CoveragePercent="100">
+          <Constructor Name="UserDTO(User)" CoveredStatements="7" TotalStatements="7" CoveragePercent="100" />
+          <AutoProperty Name="DateOfBirth:DateTime" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Gender:Gender" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="Id:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+          <AutoProperty Name="UserName:string" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+            <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+            <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          </AutoProperty>
+        </Type>
+      </Namespace>
+      <Namespace Name="Services" CoveredStatements="37" TotalStatements="47" CoveragePercent="79">
+        <Type Name="AuthenticateService" CoveredStatements="18" TotalStatements="18" CoveragePercent="100">
+          <Constructor Name="AuthenticateService(SignInManager&lt;User&gt;,UserManager&lt;User&gt;)" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <Method Name="ChangePassword(User,string,string):Task&lt;IdentityResult&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+          </Method>
+          <Method Name="FindUser(string):Task&lt;User&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+          </Method>
+          <Method Name="Login(string,string):Task&lt;ValueTuple&lt;SignInResult,User&gt;&gt;" CoveredStatements="4" TotalStatements="4" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          </Method>
+          <Method Name="Register(User,string):Task&lt;IdentityResult&gt;" CoveredStatements="3" TotalStatements="3" CoveragePercent="100">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+          </Method>
+        </Type>
+        <Type Name="RecommenderService" CoveredStatements="6" TotalStatements="16" CoveragePercent="38">
+          <Constructor Name="RecommenderService(HttpClient)" CoveredStatements="6" TotalStatements="6" CoveragePercent="100" />
+          <Method Name="PostRecommendation(string,IEnumerable&lt;Poi&gt;):Task&lt;IEnumerable&lt;PoiDTO&gt;&gt;" CoveredStatements="0" TotalStatements="10" CoveragePercent="0">
+            <InternalCompiledMethod Name="MoveNext():void" CoveredStatements="0" TotalStatements="10" CoveragePercent="0">
+              <OwnCoverage CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+              <AnonymousMethod Name="(Poi):PoiDTO" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+            </InternalCompiledMethod>
+          </Method>
+        </Type>
+        <Type Name="SearchService" CoveredStatements="13" TotalStatements="13" CoveragePercent="100">
+          <Constructor Name="SearchService(PoiContext)" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+          <Method Name="Range(IQueryable&lt;Poi&gt;,double,double,double):IQueryable&lt;Poi&gt;" CoveredStatements="5" TotalStatements="5" CoveragePercent="100" />
+          <Method Name="Range(double,double,double):IQueryable&lt;Poi&gt;" CoveredStatements="4" TotalStatements="4" CoveragePercent="100" />
+        </Type>
+      </Namespace>
+      <Type Name="PoiContext" CoveredStatements="20" TotalStatements="21" CoveragePercent="95">
+        <Constructor Name="PoiContext(DbContextOptions&lt;PoiContext&gt;)" CoveredStatements="3" TotalStatements="3" CoveragePercent="100" />
+        <AutoProperty Name="Categories:DbSet&lt;Category&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Checkins:DbSet&lt;Checkin&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Claims:DbSet&lt;IdentityUserClaim&lt;string&gt;&gt;" CoveredStatements="1" TotalStatements="2" CoveragePercent="50">
+          <PropertyGetter CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Pois:DbSet&lt;Poi&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <AutoProperty Name="Users:DbSet&lt;User&gt;" CoveredStatements="2" TotalStatements="2" CoveragePercent="100">
+          <PropertyGetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+          <PropertySetter CoveredStatements="1" TotalStatements="1" CoveragePercent="100" />
+        </AutoProperty>
+        <Method Name="OnModelCreating(ModelBuilder):void" CoveredStatements="8" TotalStatements="8" CoveragePercent="100" />
+      </Type>
+    </Namespace>
+    <Type Name="Program" CoveredStatements="0" TotalStatements="59" CoveragePercent="0">
+      <Method Name="&lt;Main&gt;$(string[]):void" CoveredStatements="0" TotalStatements="59" CoveragePercent="0">
+        <OwnCoverage CoveredStatements="0" TotalStatements="35" CoveragePercent="0" />
+        <AnonymousMethod Name="(MvcNewtonsoftJsonOptions):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <AnonymousMethod Name="(JsonOptions):void" CoveredStatements="0" TotalStatements="3" CoveragePercent="0" />
+        <AnonymousMethod Name="(SwaggerGenOptions):void" CoveredStatements="0" TotalStatements="5" CoveragePercent="0" />
+        <AnonymousMethod Name="(DbContextOptionsBuilder):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <AnonymousMethod Name="(IdentityOptions):void" CoveredStatements="0" TotalStatements="1" CoveragePercent="0" />
+        <AnonymousMethod Name="(IdentityOptions):void" CoveredStatements="0" TotalStatements="9" CoveragePercent="0" />
+        <AnonymousMethod Name="(ILoggingBuilder):void" CoveredStatements="0" TotalStatements="4" CoveragePercent="0" />
+      </Method>
+    </Type>
+  </Project>
+</SolutionRoot>

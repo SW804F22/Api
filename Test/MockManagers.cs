@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Moq;
 using WebApi;
 using WebApi.Models;
+using WebApi.Models.DTOs;
 using WebApi.Services;
 
 namespace Test;
@@ -130,11 +131,11 @@ public class MockRecommenderService : RecommenderService
     {
     }
 
-    public override Task<IEnumerable<Poi>> PostRecommendation(string user, IEnumerable<Poi> list)
+    public override Task<IEnumerable<PoiDTO>> PostRecommendation(string user, IEnumerable<Poi> list)
     {
         var rng = new Random();
         var result = list.OrderBy(a => rng.Next()).ToList();
-        return Task.FromResult(result.ToArray().AsEnumerable());
+        return Task.FromResult(result.Select(p=> new PoiDTO(p)).ToArray().AsEnumerable());
     }
 }
 

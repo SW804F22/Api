@@ -21,7 +21,7 @@ public class RecommendController : ControllerBase
     private readonly PoiContext _context;
     [HttpPost]
     [SwaggerOperation("Get Recommendation", "Get recommendation for user, based on location")]
-    [SwaggerResponse(200, "Success", typeof(IEnumerable<Poi>))]
+    [SwaggerResponse(200, "Success", typeof(IEnumerable<PoiDTO>))]
     [SwaggerResponse(404, "Not found")]
     public async Task<ActionResult> Recommend([FromBody][SwaggerParameter("User and location to base the recommendation on")] Recommend parameters)
     {
